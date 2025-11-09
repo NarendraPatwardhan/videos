@@ -388,15 +388,90 @@ Each standalone script includes:
 
 ### Current Dataset Scripts
 
+**Set Theory & Logic:**
+
 1. **circle_intersection_geometry.py** - Set theory through circle intersections
    - Demonstrates intersection, union, and difference operations visually
    - 4 scenes: CircleIntersection, CircleUnion, CompareIntersectionAndUnion, DynamicCircleOverlap
    - Educational focus: Set theory, boolean operations, geometric visualization
 
+**Analysis & Calculus:**
+
 2. **geometric_series_visual.py** - Visual proof of geometric series convergence
    - Shows why 1/2 + 1/4 + 1/8 + ... = 1 through square subdivision
    - 3 scenes: GeometricSeriesSquare, AlgebraicFormula, GeneralGeometricSeries
    - Educational focus: Infinite series, limits, visual proofs, algebraic derivation
+
+3. **derivative_introduction.py** - Derivative as slope of tangent line
+   - Shows secant lines approaching tangent as limit
+   - 4 scenes: IntroduceFunction, SecantLines, LimitToTangent, DerivativeDefinition
+   - Educational focus: Derivatives, limits, rate of change, tangent lines
+
+4. **integration_as_area.py** - Integration as area under curve
+   - Visualizes Riemann sums converging to definite integral
+   - 4 scenes: AreaProblem, RiemannSums, IncreasingRectangles, FundamentalTheorem
+   - Educational focus: Integration, Riemann sums, area under curves, limits
+
+**Linear Algebra:**
+
+5. **vector_addition.py** - Vector addition and parallelogram law
+   - Demonstrates tip-to-tail method and parallelogram construction
+   - 4 scenes: IntroduceVectors, VectorAddition, ParallelogramLaw, VectorSubtraction
+   - Educational focus: Vectors, addition, geometric interpretation, parallelogram law
+
+6. **matrix_transformations.py** - 2D linear transformations
+   - Shows how matrices transform the plane with grid visualization
+   - 4 scenes: IntroduceGrid, ShearTransform, RotationTransform, ComposedTransforms
+   - Educational focus: Linear transformations, matrices, geometric interpretation
+
+**Complex Analysis & Number Theory:**
+
+7. **complex_multiplication.py** - Complex number multiplication as rotation and scaling
+   - Demonstrates geometric interpretation of complex multiplication
+   - 4 scenes: IntroduceComplexPlane, MultiplyByI, GeneralMultiplication, PolarForm
+   - Educational focus: Complex numbers, polar form, Euler's formula, geometric transformations
+
+8. **prime_spirals.py** - Ulam spiral and prime number patterns
+   - Reveals diagonal patterns in the Ulam prime spiral
+   - 4 scenes: SpiralConstruction, HighlightPrimes, DiagonalPatterns, PrimeDistribution
+   - Educational focus: Prime numbers, number theory, visual patterns, Ulam spiral
+
+**Geometry & Proofs:**
+
+9. **pythagorean_visual_proof.py** - Visual proof of Pythagorean theorem
+   - Proves a² + b² = c² through area rearrangement
+   - 4 scenes: IntroduceTheorem, ShowSquares, VisualProofByRearrangement, AlternativeProof
+   - Educational focus: Pythagorean theorem, visual proofs, geometric reasoning
+
+**Physics & Differential Equations:**
+
+10. **simple_harmonic_motion.py** - Pendulum and circular motion projection
+    - Shows SHM as projection of uniform circular motion
+    - 4 scenes: IntroducePendulum, CircularMotion, ProjectionToSHM, Equation
+    - Educational focus: Simple harmonic motion, differential equations, circular motion
+
+**Fourier Analysis:**
+
+11. **fourier_series_intro.py** - Fourier series building square wave
+    - Builds square wave from sine wave harmonics
+    - 4 scenes: TargetWave, AddSineWaves, ConvergenceToSquare, GeneralPrinciple
+    - Educational focus: Fourier series, harmonics, signal decomposition
+
+**Probability & Statistics:**
+
+12. **probability_dice.py** - Probability distributions with dice
+    - Demonstrates probability distributions and sum of dice
+    - 4 scenes: SingleDie, TwoDiceSum, DistributionShape, CentralLimitHint
+    - Educational focus: Probability, distributions, law of large numbers, CLT preview
+
+### Dataset Statistics
+
+- **Total Scripts**: 12
+- **Total Lines of Code**: 7,551
+- **Total Scenes**: 47
+- **Topics Covered**: Set theory, calculus, linear algebra, complex analysis, geometry, physics, Fourier analysis, probability
+- **Average Scenes per Script**: 3.9
+- **Average Lines per Script**: 629
 
 ### Usage
 
