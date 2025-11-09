@@ -437,146 +437,196 @@ Each standalone script includes:
    - 4 scenes: DefineExponential, NumberE, CompoundInterest, DerivativeProperty
    - Educational focus: Natural exponential, e, compound interest, d/dx[e^x] = e^x
 
-10. **integration_as_area.py** - Integration as area under curve
+10. **implicit_differentiation.py** - Implicit differentiation
+    - Finding dy/dx when y is not isolated (e.g., x² + y² = r²)
+    - 4 scenes: IntroduceImplicitCurve, ExplicitVsImplicit, DerivativeFormula, CircleExample
+    - Educational focus: Implicit differentiation, related rates, non-function curves
+
+11. **integration_as_area.py** - Integration as area under curve
     - Visualizes Riemann sums converging to definite integral
     - 4 scenes: AreaProblem, RiemannSums, IncreasingRectangles, FundamentalTheorem
     - Educational focus: Integration, Riemann sums, area under curves, limits
 
 **Linear Algebra:**
 
-11. **vector_addition.py** - Vector addition and parallelogram law
+12. **vector_addition.py** - Vector addition and parallelogram law
     - Demonstrates tip-to-tail method and parallelogram construction
     - 4 scenes: IntroduceVectors, VectorAddition, ParallelogramLaw, VectorSubtraction
     - Educational focus: Vectors, addition, geometric interpretation, parallelogram law
 
-12. **dot_product.py** - Dot product as projection
+13. **dot_product.py** - Dot product as projection
     - Shows a·b = |a||b|cos(θ) with geometric interpretation
     - 4 scenes: IntroduceVectors, GeometricInterpretation, ProjectionFormula, Applications
     - Educational focus: Dot product, projection, orthogonality, work component
 
-13. **cross_product.py** - Cross product in 3D geometry
+14. **cross_product.py** - Cross product in 3D geometry
     - 3D visualization of perpendicular vector and right-hand rule
     - 4 scenes: IntroduceVectors, RightHandRule, AreaParallelogram, Properties
     - Educational focus: Cross product, 3D vectors, right-hand rule, parallelogram area
 
-14. **matrix_transformations.py** - 2D linear transformations
+15. **matrix_transformations.py** - 2D linear transformations
     - Shows how matrices transform the plane with grid visualization
     - 4 scenes: IntroduceGrid, ShearTransform, RotationTransform, ComposedTransforms
     - Educational focus: Linear transformations, matrices, geometric interpretation
 
-15. **determinants_area.py** - Determinants as area scaling factor
+16. **determinants_area.py** - Determinants as area scaling factor
     - Shows det(M) = area scaling factor visually
     - 4 scenes: UnitSquare, LinearTransform, MeasureArea, GeneralPrinciple
     - Educational focus: Determinants, area scaling, linear transformations, geometric meaning
 
-16. **eigenvalues_eigenvectors.py** - Eigenvectors as special transformation directions
+17. **eigenvalues_eigenvectors.py** - Eigenvectors as special transformation directions
     - Visualizes vectors that only get scaled, not rotated (Av = λv)
     - 4 scenes: IntroduceTransform, FindSpecialVectors, EigenvalueScaling, Applications
     - Educational focus: Eigenvalues, eigenvectors, eigenspaces, linear transformations
 
-17. **inverse_matrices.py** - Matrix inverse and solving systems
+18. **inverse_matrices.py** - Matrix inverse and solving systems
     - Shows AA^(-1) = I geometrically and solving Ax = b
     - 4 scenes: IntroduceSystem, InverseTransform, SolvingEquations, NonInvertible
     - Educational focus: Matrix inverse, solving linear systems, singularity
 
-18. **null_space.py** - Null space and kernel of transformation
+19. **null_space.py** - Null space and kernel of transformation
     - Shows vectors that map to zero under transformation
     - 4 scenes: IntroduceTransformation, VectorsToZero, GeometricMeaning, RankNullity
     - Educational focus: Null space, kernel, rank-nullity theorem, linear dependencies
 
+20. **change_of_basis.py** - Change of basis transformations
+    - Shows same vector in different coordinate systems
+    - 4 scenes: DifferentBases, TransformationMatrix, SameVectorDifferentCoords, Applications
+    - Educational focus: Change of basis, coordinate systems, basis transformations
+
+21. **least_squares.py** - Least squares linear regression
+    - Fitting line to data by minimizing squared errors
+    - 4 scenes: IntroduceProblem, ErrorMinimization, NormalEquation, BestFitLine
+    - Educational focus: Least squares, regression, overdetermined systems, projections
+
+22. **quaternions.py** - Quaternions for 3D rotations
+    - 4D number system i²=j²=k²=ijk=-1, uses ThreeDScene
+    - 4 scenes: IntroduceQuaternions, MultiplicationRule, ThreeDRotations, AvoidGimbalLock
+    - Educational focus: Quaternions, 3D rotations, gimbal lock, 4D numbers
+
 **Complex Analysis & Number Theory:**
 
-19. **complex_multiplication.py** - Complex number multiplication as rotation and scaling
+23. **complex_multiplication.py** - Complex number multiplication as rotation and scaling
     - Demonstrates geometric interpretation of complex multiplication
     - 4 scenes: IntroduceComplexPlane, MultiplyByI, GeneralMultiplication, PolarForm
     - Educational focus: Complex numbers, polar form, Euler's formula, geometric transformations
 
-20. **prime_spirals.py** - Ulam spiral and prime number patterns
+24. **prime_spirals.py** - Ulam spiral and prime number patterns
     - Reveals diagonal patterns in the Ulam prime spiral
     - 4 scenes: SpiralConstruction, HighlightPrimes, DiagonalPatterns, PrimeDistribution
     - Educational focus: Prime numbers, number theory, visual patterns, Ulam spiral
 
-21. **golden_ratio.py** - Golden ratio and Fibonacci sequence
+25. **golden_ratio.py** - Golden ratio and Fibonacci sequence
     - Shows φ = (1+√5)/2 and Fibonacci ratio convergence
     - 4 scenes: FibonacciSequence, GoldenRatio, GoldenRectangle, NatureSpirals
     - Educational focus: Golden ratio, Fibonacci, phi, golden rectangle, spirals in nature
 
 **Geometry & Topology:**
 
-22. **pythagorean_visual_proof.py** - Visual proof of Pythagorean theorem
+26. **pythagorean_visual_proof.py** - Visual proof of Pythagorean theorem
     - Proves a² + b² = c² through area rearrangement
     - 4 scenes: IntroduceTheorem, ShowSquares, VisualProofByRearrangement, AlternativeProof
     - Educational focus: Pythagorean theorem, visual proofs, geometric reasoning
 
-23. **euler_polyhedra_formula.py** - Euler's polyhedra formula V - E + F = 2
+27. **euler_polyhedra_formula.py** - Euler's polyhedra formula V - E + F = 2
     - Verifies formula for Platonic solids with 3D visualization
     - 4 scenes: IntroducePolyhedra, CountComponents, VerifyFormula, ProofSketch
     - Educational focus: Euler's formula, polyhedra, topology, graph theory
 
-24. **mobius_strip.py** - Möbius strip non-orientable surface
+28. **mobius_strip.py** - Möbius strip non-orientable surface
     - 3D construction showing one edge and one surface (uses ThreeDScene)
     - 4 scenes: ConstructStrip, OneEdgeSurface, AntWalking, NonOrientable
     - Educational focus: Non-orientable surfaces, topology, Möbius strip, one-sided surfaces
 
+29. **brachistochrone.py** - Brachistochrone curve (fastest descent)
+    - Ball rolling down curves, cycloid is fastest
+    - 4 scenes: IntroduceProblem, CompareRamps, CycloidSolution, PhysicsExplanation
+    - Educational focus: Calculus of variations, cycloid, optimization, physics
+
 **Combinatorics & Discrete Math:**
 
-25. **moser_circle_problem.py** - Moser's circle problem (surprising pattern break)
+30. **moser_circle_problem.py** - Moser's circle problem (surprising pattern break)
     - Shows why 1,2,4,8,16,31... breaks the power-of-2 pattern
     - 4 scenes: IntroduceCircle, DrawChords, CountRegions, SurprisingPattern
     - Educational focus: Combinatorics, induction fallacy, binomial coefficients
 
+31. **graph_coloring.py** - Graph coloring problem
+    - Map coloring, Four Color Theorem, chromatic number
+    - 4 scenes: IntroduceColoringProblem, FourColorTheorem, ChromaticNumber, GreedyAlgorithm
+    - Educational focus: Graph theory, coloring, algorithms, Four Color Theorem
+
 **Physics & Differential Equations:**
 
-26. **simple_harmonic_motion.py** - Pendulum and circular motion projection
+32. **simple_harmonic_motion.py** - Pendulum and circular motion projection
     - Shows SHM as projection of uniform circular motion
     - 4 scenes: IntroducePendulum, CircularMotion, ProjectionToSHM, Equation
     - Educational focus: Simple harmonic motion, differential equations, circular motion
 
+33. **colliding_blocks_pi.py** - Computing π from elastic collisions
+    - Famous problem: blocks compute digits of π (314 collisions for mass ratio 100²)
+    - 4 scenes: SetupBlocks, CountCollisions, SurprisingPattern, PhaseSpace
+    - Educational focus: Elastic collisions, conservation laws, π from physics, phase space
+
 **Signal Processing & Fourier Analysis:**
 
-27. **fourier_series_intro.py** - Fourier series building square wave
+34. **fourier_series_intro.py** - Fourier series building square wave
     - Builds square wave from sine wave harmonics
     - 4 scenes: TargetWave, AddSineWaves, ConvergenceToSquare, GeneralPrinciple
     - Educational focus: Fourier series, harmonics, signal decomposition
 
-28. **convolution_intro.py** - Convolution as sliding overlap integral
+35. **fourier_transform.py** - Continuous Fourier Transform
+    - Transition from discrete series to continuous transform
+    - 4 scenes: FromSeriesToTransform, FrequencyDomain, WavePackets, Applications
+    - Educational focus: Fourier transform, frequency analysis, uncertainty principle
+
+36. **convolution_intro.py** - Convolution as sliding overlap integral
     - Flip-and-slide visualization of f*g convolution
     - 4 scenes: IntroduceFunctions, SlidingProduct, ConvolutionGraph, Applications
     - Educational focus: Convolution, signal processing, integral transforms, smoothing
 
 **Probability & Statistics:**
 
-29. **probability_dice.py** - Probability distributions with dice
+37. **probability_dice.py** - Probability distributions with dice
     - Demonstrates probability distributions and sum of dice
     - 4 scenes: SingleDie, TwoDiceSum, DistributionShape, CentralLimitHint
     - Educational focus: Probability, distributions, law of large numbers, CLT preview
 
-30. **bayes_theorem.py** - Bayes' theorem with visual examples
+38. **binomial_distribution.py** - Binomial distribution
+    - n trials with probability p, coin flips
+    - 4 scenes: CoinFlips, BinomialFormula, DistributionShape, NormalApproximation
+    - Educational focus: Binomial distribution, Pascal's triangle, normal approximation
+
+39. **bayes_theorem.py** - Bayes' theorem with visual examples
     - Medical test example with tree diagrams and area representations
     - 4 scenes: ProbabilityIntro, ConditionalProbability, BayesFormula, MedicalTest
     - Educational focus: Bayes' theorem, conditional probability, false positives, medical testing
 
-31. **central_limit_theorem.py** - Central Limit Theorem demonstration
+40. **central_limit_theorem.py** - Central Limit Theorem demonstration
     - Shows sum of any distribution converging to normal
     - 4 scenes: MultipleSamples, SumDistribution, EmergentNormal, UniversalPhenomenon
     - Educational focus: CLT, normal distribution emergence, sampling, universality
 
+41. **markov_chains.py** - Markov chains and random walks
+    - State transitions, transition matrices, steady-state distributions
+    - 4 scenes: IntroduceRandomWalk, TransitionMatrix, SteadyState, PageRankExample
+    - Educational focus: Markov chains, random walks, steady state, PageRank
+
 **Machine Learning & Optimization:**
 
-32. **gradient_descent.py** - Gradient descent optimization
+42. **gradient_descent.py** - Gradient descent optimization
     - Ball rolling down surface with learning rate effects
     - 4 scenes: IntroduceLoss, GradientDirection, IterativeSteps, LocalMinima
     - Educational focus: Optimization, gradient descent, learning rate, neural network training
 
 ### Dataset Statistics
 
-- **Total Scripts**: 32
-- **Total Lines of Code**: 21,947
-- **Total Scenes**: 128
-- **Topics Covered**: 12 major areas (set theory, calculus, linear algebra, complex analysis, number theory, geometry, topology, combinatorics, physics, signal processing, probability, machine learning)
+- **Total Scripts**: 42
+- **Total Lines of Code**: 28,288
+- **Total Scenes**: 168
+- **Topics Covered**: 13 major areas (set theory, calculus, linear algebra, complex analysis, number theory, geometry, topology, combinatorics, graph theory, physics, signal processing, probability, machine learning)
 - **Average Scenes per Script**: 4.0
-- **Average Lines per Script**: 686
-- **Total Size**: 695KB
+- **Average Lines per Script**: 673
+- **Total Size**: 886KB
 
 ### Usage
 
