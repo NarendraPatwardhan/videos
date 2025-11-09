@@ -24,13 +24,13 @@ class SetupBlocks(Scene):
 
     def construct(self):
         # Title
-        title = Text("Computing π from Colliding Blocks", font_size=52)
+        title = OldTexText("Computing π from Colliding Blocks", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Subtitle
-        subtitle = Text("A surprising connection", font_size=32, color=GREY, slant=ITALIC)
+        subtitle = OldTexText("A surprising connection", font_size=32, color=GREY, slant=ITALIC)
         subtitle.next_to(title, DOWN, buff=0.3)
         self.play(Write(subtitle))
         self.wait(2)
@@ -43,7 +43,7 @@ class SetupBlocks(Scene):
         wall = Line(DOWN * 2, UP * 2, color=WHITE, stroke_width=6)
         wall.move_to(LEFT * 6 + DOWN * 0.5)
 
-        self.play(Create(ground), Create(wall))
+        self.play(ShowCreation(ground), ShowCreation(wall))
         self.wait()
 
         # Create blocks
@@ -89,12 +89,12 @@ class SetupBlocks(Scene):
         large_v_label.next_to(large_velocity, UP, buff=0.1)
 
         self.play(
-            Create(large_velocity),
+            ShowCreation(large_velocity),
             Write(large_v_label)
         )
         self.wait()
         self.play(
-            Create(small_velocity),
+            ShowCreation(small_velocity),
             Write(small_v_label)
         )
         self.wait()
@@ -107,24 +107,24 @@ class SetupBlocks(Scene):
             FadeOut(large_v_label)
         )
 
-        rules_title = Text("Rules:", font_size=36, color=YELLOW)
+        rules_title = OldTexText("Rules:", font_size=36, color=YELLOW)
         rules_title.move_to(UP * 2 + RIGHT * 4)
 
         rules = VGroup(
-            Text("1. Elastic collisions (no energy loss)", font_size=26),
-            Text("2. Frictionless surface", font_size=26),
-            Text("3. Count all collisions", font_size=26),
+            OldTexText("1. Elastic collisions (no energy loss)", font_size=26),
+            OldTexText("2. Frictionless surface", font_size=26),
+            OldTexText("3. Count all collisions", font_size=26),
         )
         rules.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
         rules.next_to(rules_title, DOWN, buff=0.4, aligned_edge=LEFT)
 
         self.play(Write(rules_title))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(rule) for rule in rules], lag_ratio=0.3))
+        self.play(LaggedStart([Write(rule) for rule in rules], lag_ratio=0.3))
         self.wait(2)
 
         # Question
-        question = Text(
+        question = OldTexText(
             "How many collisions occur?",
             font_size=40,
             color=YELLOW
@@ -141,7 +141,7 @@ class CountCollisions(Scene):
 
     def construct(self):
         # Title
-        title = Text("Counting Collisions", font_size=52)
+        title = OldTexText("Counting Collisions", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -153,11 +153,11 @@ class CountCollisions(Scene):
         wall = Line(DOWN * 1.5, UP * 3, color=WHITE, stroke_width=6)
         wall.move_to(LEFT * 6 + DOWN * 0)
 
-        self.play(Create(ground), Create(wall))
+        self.play(ShowCreation(ground), ShowCreation(wall))
         self.wait()
 
         # Counter
-        counter_label = Text("Collisions:", font_size=32, color=YELLOW)
+        counter_label = OldTexText("Collisions:", font_size=32, color=YELLOW)
         counter_label.move_to(UP * 2.5 + RIGHT * 4.5)
 
         counter = Integer(0, font_size=48, color=GREEN)
@@ -274,7 +274,7 @@ class CountCollisions(Scene):
         self.wait()
 
         # Show that there will be many collisions
-        note = Text("(Many collisions...)", font_size=28, color=GREY, slant=ITALIC)
+        note = OldTexText("(Many collisions...)", font_size=28, color=GREY, slant=ITALIC)
         note.next_to(mass_ratio_text2, DOWN, buff=0.4)
         self.play(Write(note))
         self.wait()
@@ -300,13 +300,13 @@ class SurprisingPattern(Scene):
 
     def construct(self):
         # Title
-        title = Text("The Surprising Pattern", font_size=52)
+        title = OldTexText("The Surprising Pattern", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Show results for different mass ratios
-        results_title = Text("Number of Collisions:", font_size=36, color=YELLOW)
+        results_title = OldTexText("Number of Collisions:", font_size=36, color=YELLOW)
         results_title.move_to(2 * UP)
         self.play(Write(results_title))
         self.wait()
@@ -335,9 +335,9 @@ class SurprisingPattern(Scene):
 
         # Headers
         headers = VGroup(
-            Text("Mass Ratio", font_size=28, color=GREY),
-            Text("Power of 10", font_size=28, color=GREY),
-            Text("Collisions", font_size=28, color=GREY)
+            OldTexText("Mass Ratio", font_size=28, color=GREY),
+            OldTexText("Power of 10", font_size=28, color=GREY),
+            OldTexText("Collisions", font_size=28, color=GREY)
         )
         headers.arrange(RIGHT, buff=0.7)
         headers.move_to(rows[0].get_center() + UP * 0.6)
@@ -358,7 +358,7 @@ class SurprisingPattern(Scene):
             for row in rows
         ])
 
-        self.play(LaggedStart(*[Create(box) for box in highlight_boxes], lag_ratio=0.2))
+        self.play(LaggedStart([ShowCreation(box) for box in highlight_boxes], lag_ratio=0.2))
         self.wait()
 
         # Reveal: it's π!
@@ -380,7 +380,7 @@ class SurprisingPattern(Scene):
         self.wait(3)
 
         # Amazement
-        amazement = Text("But why?!", font_size=48, color=RED)
+        amazement = OldTexText("But why?!", font_size=48, color=RED)
         amazement.to_corner(DR)
         self.play(Write(amazement))
         self.wait(2)
@@ -393,13 +393,13 @@ class PhaseSpace(Scene):
 
     def construct(self):
         # Title
-        title = Text("Phase Space Explanation", font_size=52)
+        title = OldTexText("Phase Space Explanation", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Intro to phase space
-        intro = Text("The secret lies in phase space...", font_size=36, color=YELLOW)
+        intro = OldTexText("The secret lies in phase space...", font_size=36, color=YELLOW)
         intro.move_to(2 * UP)
         self.play(Write(intro))
         self.wait(2)
@@ -418,28 +418,28 @@ class PhaseSpace(Scene):
         x_label = Tex(R"\sqrt{m} v_1", font_size=32).next_to(axes.x_axis, RIGHT)
         y_label = Tex(R"\sqrt{M} v_2", font_size=32).next_to(axes.y_axis, UP)
 
-        self.play(Create(axes), Write(x_label), Write(y_label))
+        self.play(ShowCreation(axes), Write(x_label), Write(y_label))
         self.wait()
 
         # Explanation
-        explanation_title = Text("Key Insights:", font_size=32, color=BLUE)
+        explanation_title = OldTexText("Key Insights:", font_size=32, color=BLUE)
         explanation_title.move_to(UP * 2 + RIGHT * 3.5)
 
         insights = VGroup(
-            Text("• Energy conservation", font_size=24),
-            Text("  → points move on circles", font_size=22, color=GREY),
-            Text("• Momentum conservation", font_size=24),
-            Text("  → reflections across lines", font_size=22, color=GREY),
-            Text("• Arc length ∝ collisions", font_size=24),
-            Text("• Circle sector angle", font_size=24),
-            Text("  involves arctan(√(M/m))", font_size=22, color=GREY)
+            OldTexText("• Energy conservation", font_size=24),
+            OldTexText("  → points move on circles", font_size=22, color=GREY),
+            OldTexText("• Momentum conservation", font_size=24),
+            OldTexText("  → reflections across lines", font_size=22, color=GREY),
+            OldTexText("• Arc length ∝ collisions", font_size=24),
+            OldTexText("• Circle sector angle", font_size=24),
+            OldTexText("  involves arctan(√(M/m))", font_size=22, color=GREY)
         )
         insights.arrange(DOWN, aligned_edge=LEFT, buff=0.2)
         insights.next_to(explanation_title, DOWN, buff=0.4, aligned_edge=LEFT)
 
         self.play(Write(explanation_title))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(insight) for insight in insights], lag_ratio=0.3))
+        self.play(LaggedStart([Write(insight) for insight in insights], lag_ratio=0.3))
         self.wait(2)
 
         # Draw a circular arc (energy conservation)
@@ -455,7 +455,7 @@ class PhaseSpace(Scene):
         )
         arc.move_arc_center_to(axes.c2p(0, 0))
 
-        self.play(Create(arc))
+        self.play(ShowCreation(arc))
         self.wait()
 
         # Boundary line (wall collision: v1 = 0)
@@ -465,7 +465,7 @@ class PhaseSpace(Scene):
             color=WHITE,
             stroke_width=3
         )
-        self.play(Create(wall_line))
+        self.play(ShowCreation(wall_line))
         self.wait()
 
         # Block collision line (slope depends on mass ratio)
@@ -476,7 +476,7 @@ class PhaseSpace(Scene):
             color=RED,
             stroke_width=3
         )
-        self.play(Create(collision_line))
+        self.play(ShowCreation(collision_line))
         self.wait(2)
 
         # The key formula
@@ -485,7 +485,7 @@ class PhaseSpace(Scene):
         formula_box = Rectangle(height=2, width=5, color=GREEN)
         formula_box.move_to(RIGHT * 3.8 + DOWN * 0.5)
 
-        formula_title = Text("The Connection:", font_size=28, color=GREEN)
+        formula_title = OldTexText("The Connection:", font_size=28, color=GREEN)
         formula_title.next_to(formula_box, UP, buff=0.2)
 
         formula = Tex(
@@ -494,10 +494,10 @@ class PhaseSpace(Scene):
         )
         formula.move_to(formula_box.get_center() + UP * 0.3)
 
-        pi_note = Text("When M/m = 10^(2n), this gives π!", font_size=22, color=YELLOW)
+        pi_note = OldTexText("When M/m = 10^(2n), this gives π!", font_size=22, color=YELLOW)
         pi_note.move_to(formula_box.get_center() + DOWN * 0.4)
 
-        self.play(Create(formula_box), Write(formula_title))
+        self.play(ShowCreation(formula_box), Write(formula_title))
         self.wait(0.5)
         self.play(Write(formula))
         self.wait()
@@ -505,7 +505,7 @@ class PhaseSpace(Scene):
         self.wait(3)
 
         # Final note
-        final_note = Text(
+        final_note = OldTexText(
             "A beautiful connection between mechanics and geometry!",
             font_size=30,
             color=GREY,

@@ -153,7 +153,7 @@ class IntroduceProduct(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Product Rule", font_size=48)
+        title = OldTexText("The Product Rule", font_size=48)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -161,7 +161,7 @@ class IntroduceProduct(Scene):
         # ========================================
         # QUESTION
         # ========================================
-        question = Text(
+        question = OldTexText(
             "How do we differentiate a product?",
             font_size=32,
             color=WHITE
@@ -246,7 +246,7 @@ class IntroduceProduct(Scene):
         self.play(ShowCreation(cross))
         self.wait()
 
-        no_text = Text("NO!", font_size=36, color=RED)
+        no_text = OldTexText("NO!", font_size=36, color=RED)
         no_text.next_to(cross, RIGHT, buff=0.5)
 
         self.play(Write(no_text))
@@ -265,7 +265,7 @@ class AreaRectangle(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Geometric Intuition", font_size=42)
+        title = OldTexText("Geometric Intuition", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -273,7 +273,7 @@ class AreaRectangle(Scene):
         # ========================================
         # IDEA: Area = f × g
         # ========================================
-        idea = Text(
+        idea = OldTexText(
             "Think of f(x) and g(x) as dimensions of a rectangle",
             font_size=28,
             color=GREY_A
@@ -347,7 +347,7 @@ class AreaRectangle(Scene):
         # ========================================
         self.play(FadeOut(idea))
 
-        change_text = Text(
+        change_text = OldTexText(
             "Now increase x by a small amount dx",
             font_size=28,
             color=RED
@@ -445,7 +445,7 @@ class AreaRectangle(Scene):
         # ========================================
         # IGNORE SMALL TERM
         # ========================================
-        ignore = Text(
+        ignore = OldTexText(
             "As dx → 0, the corner term df·dg becomes negligible",
             font_size=24,
             color=GREY_A
@@ -469,7 +469,7 @@ class ProductRuleFormula(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Product Rule Formula", font_size=42)
+        title = OldTexText("The Product Rule Formula", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -489,7 +489,7 @@ class ProductRuleFormula(Scene):
         # ========================================
         # DIVIDE BY dx
         # ========================================
-        divide_text = Text("Divide both sides by dx:", font_size=28)
+        divide_text = OldTexText("Divide both sides by dx:", font_size=28)
         divide_text.next_to(geometry_recap, DOWN, buff=0.6)
 
         self.play(FadeIn(divide_text, shift=DOWN))
@@ -507,7 +507,7 @@ class ProductRuleFormula(Scene):
         # ========================================
         # AS dx → 0
         # ========================================
-        limit_text = Text("As dx → 0, the last term vanishes:", font_size=26)
+        limit_text = OldTexText("As dx → 0, the last term vanishes:", font_size=26)
         limit_text.next_to(division, DOWN, buff=0.6)
 
         self.play(FadeIn(limit_text, shift=DOWN))
@@ -534,7 +534,7 @@ class ProductRuleFormula(Scene):
             FadeOut(limit_text)
         )
 
-        formula_label = Text("Product Rule:", font_size=32, color=GREEN)
+        formula_label = OldTexText("Product Rule:", font_size=32, color=GREEN)
         formula_label.next_to(title, DOWN, buff=1.0)
 
         formula = Tex(
@@ -561,7 +561,7 @@ class ProductRuleFormula(Scene):
         )
         alternative.next_to(formula, DOWN, buff=0.8)
 
-        alt_label = Text("Shorthand:", font_size=24, color=GREY_A)
+        alt_label = OldTexText("Shorthand:", font_size=24, color=GREY_A)
         alt_label.next_to(alternative, UP, buff=0.3)
 
         self.play(Write(alt_label))
@@ -572,9 +572,9 @@ class ProductRuleFormula(Scene):
         # MEMORY AID
         # ========================================
         memory = VGroup(
-            Text("Memory aid:", font_size=26),
-            Text("\"Derivative of first times second", font_size=22),
-            Text("plus first times derivative of second\"", font_size=22),
+            OldTexText("Memory aid:", font_size=26),
+            OldTexText("\"Derivative of first times second", font_size=22),
+            OldTexText("plus first times derivative of second\"", font_size=22),
         )
         memory.arrange(DOWN, buff=0.2, aligned_edge=LEFT)
         memory.to_edge(DOWN).shift(UP * 0.5)
@@ -598,7 +598,7 @@ class Examples(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Examples", font_size=42)
+        title = OldTexText("Examples", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -619,7 +619,7 @@ class Examples(Scene):
         # ========================================
         # EXAMPLE 1: x² · x³
         # ========================================
-        ex1_title = Text("Example 1:", font_size=28, color=BLUE)
+        ex1_title = OldTexText("Example 1:", font_size=28, color=BLUE)
         ex1_title.next_to(formula, DOWN, buff=0.8)
 
         ex1 = Tex(
@@ -653,7 +653,7 @@ class Examples(Scene):
         self.wait()
 
         # Note
-        note1 = Text(
+        note1 = OldTexText(
             "(Same as d/dx[x⁵] = 5x⁴ from power rule)",
             font_size=20,
             color=GREY_A
@@ -674,7 +674,7 @@ class Examples(Scene):
             FadeOut(note1)
         )
 
-        ex2_title = Text("Example 2:", font_size=28, color=YELLOW)
+        ex2_title = OldTexText("Example 2:", font_size=28, color=YELLOW)
         ex2_title.next_to(formula, DOWN, buff=0.8)
 
         ex2 = Tex(
@@ -730,7 +730,7 @@ class Examples(Scene):
             FadeOut(ex2_step2)
         )
 
-        ex3_title = Text("Example 3:", font_size=28, color=RED)
+        ex3_title = OldTexText("Example 3:", font_size=28, color=RED)
         ex3_title.next_to(formula, DOWN, buff=0.8)
 
         ex3 = Tex(
@@ -774,11 +774,11 @@ class Examples(Scene):
         )
 
         summary = VGroup(
-            Text("Key Points:", font_size=28, color=WHITE),
-            Text("• Product rule: (fg)' = f'g + fg'", font_size=24),
-            Text("• Two terms, one for each function's derivative", font_size=24),
-            Text("• Essential for differentiating products", font_size=24),
-            Text("• Combines with chain rule for complex expressions", font_size=24),
+            OldTexText("Key Points:", font_size=28, color=WHITE),
+            OldTexText("• Product rule: (fg)' = f'g + fg'", font_size=24),
+            OldTexText("• Two terms, one for each function's derivative", font_size=24),
+            OldTexText("• Essential for differentiating products", font_size=24),
+            OldTexText("• Combines with chain rule for complex expressions", font_size=24),
         )
         summary.arrange(DOWN, buff=0.3, aligned_edge=LEFT)
         summary.next_to(formula, DOWN, buff=0.8)

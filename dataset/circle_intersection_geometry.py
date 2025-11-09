@@ -128,7 +128,7 @@ class CircleIntersection(InteractiveScene):
         # ========================================
         # SETUP: Create title
         # ========================================
-        title = Text("Intersection of Two Circles", font_size=48)
+        title = OldTexText("Intersection of Two Circles", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -145,8 +145,8 @@ class CircleIntersection(InteractiveScene):
 
         # Labels for the circles
         labels = VGroup(
-            Text("Set A", font_size=36),
-            Text("Set B", font_size=36),
+            OldTexText("Set A", font_size=36),
+            OldTexText("Set B", font_size=36),
         )
 
         # Position labels outside the circles
@@ -228,7 +228,7 @@ class CircleUnion(InteractiveScene):
         # ========================================
         # SETUP: Create title
         # ========================================
-        title = Text("Union of Two Circles", font_size=48)
+        title = OldTexText("Union of Two Circles", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -308,7 +308,7 @@ class CompareIntersectionAndUnion(InteractiveScene):
         # ========================================
         # SETUP: Create title
         # ========================================
-        title = Text("Intersection vs Union", font_size=48)
+        title = OldTexText("Intersection vs Union", font_size=48)
         title.to_edge(UP)
 
         self.play(Write(title))
@@ -330,8 +330,8 @@ class CompareIntersectionAndUnion(InteractiveScene):
         # ========================================
         # LABELS: Intersection and Union titles
         # ========================================
-        left_title = Text("Intersection", font_size=36, color=TEAL)
-        right_title = Text("Union", font_size=36, color=BLUE)
+        left_title = OldTexText("Intersection", font_size=36, color=TEAL)
+        right_title = OldTexText("Union", font_size=36, color=BLUE)
 
         left_title.next_to(left_circles, UP, buff=0.7)
         right_title.next_to(right_circles, UP, buff=0.7)
@@ -417,7 +417,7 @@ class DynamicCircleOverlap(InteractiveScene):
         # ========================================
         # SETUP: Create title and initial circles
         # ========================================
-        title = Text("Dynamic Circle Overlap", font_size=48)
+        title = OldTexText("Dynamic Circle Overlap", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -491,7 +491,7 @@ class DynamicCircleOverlap(InteractiveScene):
         # ========================================
         # FINALE: No overlap
         # ========================================
-        no_overlap_text = Text("No intersection when circles don't overlap", font_size=32)
+        no_overlap_text = OldTexText("No intersection when circles don't overlap", font_size=32)
         no_overlap_text.next_to(circles, DOWN, buff=1)
         no_overlap_text.set_color(GREY_A)
 

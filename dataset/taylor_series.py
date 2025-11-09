@@ -191,7 +191,7 @@ class IntroduceFunction(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Taylor Series Approximation", font_size=48)
+        title = OldTexText("Taylor Series Approximation", font_size=48)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -224,7 +224,7 @@ class IntroduceFunction(Scene):
         # ========================================
         # QUESTION: Polynomial approximation?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "Can we approximate this with polynomials?",
             font_size=32,
             color=WHITE
@@ -250,7 +250,7 @@ class IntroduceFunction(Scene):
         # ========================================
         self.play(FadeOut(question))
 
-        idea = Text(
+        idea = OldTexText(
             "Idea: Match the function and its derivatives at a point",
             font_size=28,
             color=GREY_A
@@ -273,7 +273,7 @@ class LinearApproximation(Scene):
         # ========================================
         # SETUP: Recreate from Scene 1
         # ========================================
-        title = Text("Linear Approximation", font_size=42)
+        title = OldTexText("Linear Approximation", font_size=42)
         title.to_edge(UP)
 
         axes = create_axes()
@@ -343,7 +343,7 @@ class LinearApproximation(Scene):
         # ========================================
         # OBSERVATION: Good near 0, poor far away
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "Good near x=0, but diverges away from it",
             font_size=24,
             color=GREY_A
@@ -366,7 +366,7 @@ class HigherOrderTerms(Scene):
         # ========================================
         # SETUP: Recreate function and linear approximation
         # ========================================
-        title = Text("Adding Higher Order Terms", font_size=42)
+        title = OldTexText("Adding Higher Order Terms", font_size=42)
         title.to_edge(UP)
 
         axes = create_axes()
@@ -424,7 +424,7 @@ class HigherOrderTerms(Scene):
         # ========================================
         # OBSERVATION: Convergence
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "Each term improves the fit!",
             font_size=32,
             color=GREEN
@@ -477,7 +477,7 @@ class ConvergenceRadius(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Radius of Convergence", font_size=42)
+        title = OldTexText("Radius of Convergence", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -485,7 +485,7 @@ class ConvergenceRadius(Scene):
         # ========================================
         # SETUP: Two examples side by side
         # ========================================
-        subtitle = Text(
+        subtitle = OldTexText(
             "Some functions converge everywhere, others only locally",
             font_size=28,
             color=GREY_A
@@ -532,7 +532,7 @@ class ConvergenceRadius(Scene):
         self.play(ShowCreation(sin_taylor), Write(taylor_label1))
         self.wait()
 
-        converge_text1 = Text(
+        converge_text1 = OldTexText(
             "Converges for all x",
             font_size=22,
             color=GREEN
@@ -579,7 +579,7 @@ class ConvergenceRadius(Scene):
         self.play(ShowCreation(exp_taylor), Write(taylor_label2))
         self.wait()
 
-        converge_text2 = Text(
+        converge_text2 = OldTexText(
             "Converges for all x",
             font_size=22,
             color=GREEN
@@ -599,11 +599,11 @@ class ConvergenceRadius(Scene):
         )
 
         insight = VGroup(
-            Text("Key Insights:", font_size=32, color=YELLOW),
-            Text("• Taylor series = infinite polynomial", font_size=24),
-            Text("• Each term adds a derivative correction", font_size=24),
-            Text("• Convergence depends on the function", font_size=24),
-            Text("• More terms = better approximation (if converges)", font_size=24),
+            OldTexText("Key Insights:", font_size=32, color=YELLOW),
+            OldTexText("• Taylor series = infinite polynomial", font_size=24),
+            OldTexText("• Each term adds a derivative correction", font_size=24),
+            OldTexText("• Convergence depends on the function", font_size=24),
+            OldTexText("• More terms = better approximation (if converges)", font_size=24),
         )
         insight.arrange(DOWN, buff=0.25, aligned_edge=LEFT)
         insight.to_edge(DOWN).shift(UP * 0.3)

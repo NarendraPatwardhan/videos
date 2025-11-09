@@ -196,7 +196,7 @@ class IntroduceGrid(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Linear Transformations", font_size=48)
+        title = OldTexText("Linear Transformations", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -233,7 +233,7 @@ class IntroduceGrid(InteractiveScene):
         # ========================================
         # EXPLAIN: Basis vectors
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "These basis vectors define our coordinate system",
             font_size=32,
             color=GREY_A
@@ -265,7 +265,7 @@ class IntroduceGrid(InteractiveScene):
         # ========================================
         # QUESTION: What happens when we transform?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "What happens when we transform the space?",
             font_size=36,
             color=YELLOW
@@ -296,7 +296,7 @@ class ShearTransform(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Shear Transformation", font_size=48)
+        title = OldTexText("Shear Transformation", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -323,7 +323,7 @@ class ShearTransform(InteractiveScene):
         matrix_display.to_corner(UL, buff=0.8)
         matrix_display.shift(0.5 * DOWN)
 
-        matrix_label = Text("Shear Matrix:", font_size=32)
+        matrix_label = OldTexText("Shear Matrix:", font_size=32)
         matrix_label.next_to(matrix_display, UP, buff=0.3)
 
         self.play(
@@ -348,7 +348,7 @@ class ShearTransform(InteractiveScene):
         # ========================================
         # APPLY: Transformation
         # ========================================
-        instruction = Text("Watch the grid transform...", font_size=32, color=GREY_A)
+        instruction = OldTexText("Watch the grid transform...", font_size=32, color=GREY_A)
         instruction.to_edge(DOWN, buff=0.5)
 
         self.play(FadeIn(instruction, shift=UP))
@@ -382,7 +382,7 @@ class ShearTransform(InteractiveScene):
         # ========================================
         self.play(FadeOut(instruction))
 
-        result_text = Text(
+        result_text = OldTexText(
             "Space has been sheared horizontally!",
             font_size=36,
             color=YELLOW
@@ -413,7 +413,7 @@ class RotationTransform(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Rotation Transformation", font_size=48)
+        title = OldTexText("Rotation Transformation", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -444,7 +444,7 @@ class RotationTransform(InteractiveScene):
         matrix_display.to_corner(UL, buff=0.8)
         matrix_display.shift(0.5 * DOWN)
 
-        matrix_label = Text("90° Rotation Matrix:", font_size=32)
+        matrix_label = OldTexText("90° Rotation Matrix:", font_size=32)
         matrix_label.next_to(matrix_display, UP, buff=0.3)
 
         self.play(
@@ -469,7 +469,7 @@ class RotationTransform(InteractiveScene):
         # ========================================
         # APPLY: Rotation
         # ========================================
-        instruction = Text("Rotating 90° counterclockwise...", font_size=32, color=GREY_A)
+        instruction = OldTexText("Rotating 90° counterclockwise...", font_size=32, color=GREY_A)
         instruction.to_edge(DOWN, buff=0.5)
 
         self.play(FadeIn(instruction, shift=UP))
@@ -503,7 +503,7 @@ class RotationTransform(InteractiveScene):
         # ========================================
         self.play(FadeOut(instruction))
 
-        result_text = Text(
+        result_text = OldTexText(
             "Rotation preserves distances and angles!",
             font_size=36,
             color=GREEN
@@ -535,7 +535,7 @@ class ComposedTransforms(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Composed Transformations", font_size=48)
+        title = OldTexText("Composed Transformations", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -572,7 +572,7 @@ class ComposedTransforms(InteractiveScene):
         # ========================================
         # APPLY: First transformation (shear)
         # ========================================
-        step1_text = Text("Step 1: Shear", font_size=32, color=YELLOW)
+        step1_text = OldTexText("Step 1: Shear", font_size=32, color=YELLOW)
         step1_text.to_edge(DOWN, buff=0.8)
 
         self.play(FadeIn(step1_text, shift=UP))
@@ -604,7 +604,7 @@ class ComposedTransforms(InteractiveScene):
         # ========================================
         # APPLY: Second transformation (rotation)
         # ========================================
-        step2_text = Text("Step 2: Rotate 90°", font_size=32, color=YELLOW)
+        step2_text = OldTexText("Step 2: Rotate 90°", font_size=32, color=YELLOW)
         step2_text.to_edge(DOWN, buff=0.8)
 
         self.play(Transform(step1_text, step2_text))
@@ -649,7 +649,7 @@ class ComposedTransforms(InteractiveScene):
         product_matrix = rotation_matrix @ shear_matrix
 
         product_display = VGroup(
-            Text("Equivalent to single transformation:", font_size=28),
+            OldTexText("Equivalent to single transformation:", font_size=28),
             get_matrix_text(product_matrix, ORIGIN)
         )
         product_display.arrange(DOWN, buff=0.3)
@@ -664,7 +664,7 @@ class ComposedTransforms(InteractiveScene):
         # ========================================
         # INSIGHT: Matrix multiplication
         # ========================================
-        insight = Text(
+        insight = OldTexText(
             "This is why we multiply matrices!",
             font_size=36,
             color=GREEN

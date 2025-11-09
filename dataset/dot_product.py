@@ -210,7 +210,7 @@ class IntroduceVectors(Scene):
         # ========================================
         # INTRODUCE: First vector
         # ========================================
-        title = Text("The Dot Product", font_size=48)
+        title = OldTexText("The Dot Product", font_size=48)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -238,7 +238,7 @@ class IntroduceVectors(Scene):
         # ========================================
         # QUESTION: How aligned are they?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "How much do these vectors 'align'?",
             font_size=36,
             color=WHITE
@@ -311,7 +311,7 @@ class GeometricInterpretation(Scene):
         )
         plane.set_opacity(0.3)
 
-        title = Text("Geometric Interpretation", font_size=42)
+        title = OldTexText("Geometric Interpretation", font_size=42)
         title.to_edge(UP)
 
         vector_a = create_vector_arrow(ORIGIN, np.array([3, 2, 0]), color=BLUE)
@@ -328,7 +328,7 @@ class GeometricInterpretation(Scene):
         # ========================================
         # PROJECTION: Project b onto a
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "Project b onto a",
             font_size=32,
             color=GREEN
@@ -418,7 +418,7 @@ class ProjectionFormula(Scene):
         # ========================================
         # SETUP: Title and vectors
         # ========================================
-        title = Text("The Projection Formula", font_size=42)
+        title = OldTexText("The Projection Formula", font_size=42)
         title.to_edge(UP)
 
         plane = NumberPlane(
@@ -534,7 +534,7 @@ class Applications(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Applications of Dot Product", font_size=42)
+        title = OldTexText("Applications of Dot Product", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -542,7 +542,7 @@ class Applications(Scene):
         # ========================================
         # APPLICATION 1: Work in Physics
         # ========================================
-        app1_title = Text("1. Work = Force · Displacement", font_size=32, color=BLUE)
+        app1_title = OldTexText("1. Work = Force · Displacement", font_size=32, color=BLUE)
         app1_title.next_to(title, DOWN, buff=0.8)
 
         self.play(Write(app1_title))
@@ -593,7 +593,7 @@ class Applications(Scene):
         # ========================================
         self.play(FadeOut(work_group), FadeOut(work_formula))
 
-        app2_title = Text("2. Testing Orthogonality", font_size=32, color=YELLOW)
+        app2_title = OldTexText("2. Testing Orthogonality", font_size=32, color=YELLOW)
         app2_title.move_to(app1_title)
 
         self.play(ReplacementTransform(app1_title, app2_title))
@@ -644,7 +644,7 @@ class Applications(Scene):
         # ========================================
         self.play(FadeOut(ortho_group), FadeOut(right_angle), FadeOut(ortho_formula))
 
-        app3_title = Text("3. Measuring Alignment", font_size=32, color=GREEN)
+        app3_title = OldTexText("3. Measuring Alignment", font_size=32, color=GREEN)
         app3_title.move_to(app2_title)
 
         self.play(ReplacementTransform(app2_title, app3_title))
@@ -652,11 +652,11 @@ class Applications(Scene):
 
         # Three pairs of vectors showing different alignments
         similarity_text = VGroup(
-            Text("Same direction:", font_size=24),
+            OldTexText("Same direction:", font_size=24),
             Tex("\\vec{a} \\cdot \\vec{b} > 0", font_size=24, color=GREEN),
-            Text("Perpendicular:", font_size=24),
+            OldTexText("Perpendicular:", font_size=24),
             Tex("\\vec{a} \\cdot \\vec{b} = 0", font_size=24, color=YELLOW),
-            Text("Opposite:", font_size=24),
+            OldTexText("Opposite:", font_size=24),
             Tex("\\vec{a} \\cdot \\vec{b} < 0", font_size=24, color=RED),
         )
         similarity_text.arrange(DOWN, buff=0.3, aligned_edge=LEFT)
@@ -677,10 +677,10 @@ class Applications(Scene):
         )
 
         summary = VGroup(
-            Text("The dot product measures:", font_size=32),
-            Text("• How much vectors align", font_size=28),
-            Text("• Projection of one onto another", font_size=28),
-            Text("• Component in a direction", font_size=28),
+            OldTexText("The dot product measures:", font_size=32),
+            OldTexText("• How much vectors align", font_size=28),
+            OldTexText("• Projection of one onto another", font_size=28),
+            OldTexText("• Component in a direction", font_size=28),
         )
         summary.arrange(DOWN, buff=0.3, aligned_edge=LEFT)
         summary.move_to(ORIGIN)

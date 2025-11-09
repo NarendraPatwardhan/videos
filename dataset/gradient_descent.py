@@ -175,7 +175,7 @@ class IntroduceLoss(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Gradient Descent Optimization", font_size=48)
+        title = OldTexText("Gradient Descent Optimization", font_size=48)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -211,7 +211,7 @@ class IntroduceLoss(Scene):
         # ========================================
         # GOAL: Find the minimum
         # ========================================
-        goal = Text(
+        goal = OldTexText(
             "Goal: Find θ that minimizes L(θ)",
             font_size=32,
             color=WHITE
@@ -239,7 +239,7 @@ class IntroduceLoss(Scene):
         # ========================================
         self.play(FadeOut(goal))
 
-        challenge = Text(
+        challenge = OldTexText(
             "But we don't know where the minimum is!",
             font_size=28,
             color=GREY_A
@@ -267,7 +267,7 @@ class IntroduceLoss(Scene):
         # ========================================
         self.play(FadeOut(challenge))
 
-        idea = Text(
+        idea = OldTexText(
             "Idea: Follow the slope downhill!",
             font_size=32,
             color=GREEN
@@ -290,7 +290,7 @@ class GradientDirection(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Gradient Direction", font_size=42)
+        title = OldTexText("The Gradient Direction", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -324,7 +324,7 @@ class GradientDirection(Scene):
         # ========================================
         # GRADIENT VECTORS
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "Gradient points in direction of steepest ASCENT",
             font_size=28,
             color=GREEN
@@ -366,7 +366,7 @@ class GradientDirection(Scene):
             )
             gradient_arrows.add(arrow)
 
-        self.play(LaggedStart(*[GrowArrow(arrow) for arrow in gradient_arrows], lag_ratio=0.2))
+        self.play(LaggedStart([GrowArrow(arrow) for arrow in gradient_arrows], lag_ratio=0.2))
         self.wait()
 
         # ========================================
@@ -374,7 +374,7 @@ class GradientDirection(Scene):
         # ========================================
         self.play(FadeOut(explanation))
 
-        negative_explanation = Text(
+        negative_explanation = OldTexText(
             "So we go in the NEGATIVE gradient direction",
             font_size=28,
             color=YELLOW
@@ -449,7 +449,7 @@ class IterativeSteps(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Iterative Descent", font_size=42)
+        title = OldTexText("Iterative Descent", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -549,7 +549,7 @@ class IterativeSteps(Scene):
         # ========================================
         # CONVERGENCE
         # ========================================
-        convergence = Text(
+        convergence = OldTexText(
             "Converged to minimum!",
             font_size=32,
             color=GREEN
@@ -583,7 +583,7 @@ class LocalMinima(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Local Minima Challenge", font_size=42)
+        title = OldTexText("Local Minima Challenge", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -621,7 +621,7 @@ class LocalMinima(Scene):
         local_min_point = axes.c2p(local_min_x, complex_loss(local_min_x))
 
         local_min_dot = Dot(local_min_point, color=YELLOW, radius=0.08)
-        local_min_label = Text("Local\nMinimum", font_size=20, color=YELLOW)
+        local_min_label = OldTexText("Local\nMinimum", font_size=20, color=YELLOW)
         local_min_label.next_to(local_min_dot, DOWN, buff=0.2)
 
         # Global minimum (approximate)
@@ -629,7 +629,7 @@ class LocalMinima(Scene):
         global_min_point = axes.c2p(global_min_x, complex_loss(global_min_x))
 
         global_min_dot = Dot(global_min_point, color=GREEN, radius=0.08)
-        global_min_label = Text("Global\nMinimum", font_size=20, color=GREEN)
+        global_min_label = OldTexText("Global\nMinimum", font_size=20, color=GREEN)
         global_min_label.next_to(global_min_dot, DOWN, buff=0.2)
 
         self.play(
@@ -647,7 +647,7 @@ class LocalMinima(Scene):
         # ========================================
         # PROBLEM: Can get stuck
         # ========================================
-        problem = Text(
+        problem = OldTexText(
             "Gradient descent can get stuck in local minima",
             font_size=28,
             color=RED
@@ -674,11 +674,11 @@ class LocalMinima(Scene):
         self.play(FadeOut(problem))
 
         solutions = VGroup(
-            Text("Solutions:", font_size=28, color=WHITE),
-            Text("• Random restarts", font_size=22),
-            Text("• Momentum methods", font_size=22),
-            Text("• Stochastic gradient descent", font_size=22),
-            Text("• Adaptive learning rates", font_size=22),
+            OldTexText("Solutions:", font_size=28, color=WHITE),
+            OldTexText("• Random restarts", font_size=22),
+            OldTexText("• Momentum methods", font_size=22),
+            OldTexText("• Stochastic gradient descent", font_size=22),
+            OldTexText("• Adaptive learning rates", font_size=22),
         )
         solutions.arrange(DOWN, buff=0.2, aligned_edge=LEFT)
         solutions.to_edge(DOWN).shift(UP * 0.3)
@@ -695,11 +695,11 @@ class LocalMinima(Scene):
         self.play(FadeOut(solutions), FadeOut(stuck_dot))
 
         connection = VGroup(
-            Text("In Neural Networks:", font_size=32, color=YELLOW),
+            OldTexText("In Neural Networks:", font_size=32, color=YELLOW),
             Tex("\\text{Loss} = L(w_1, w_2, \\ldots, w_n)", font_size=28),
-            Text("Millions of parameters!", font_size=24, color=GREY_A),
+            OldTexText("Millions of parameters!", font_size=24, color=GREY_A),
             Tex("\\nabla L = \\left(\\frac{\\partial L}{\\partial w_1}, \\frac{\\partial L}{\\partial w_2}, \\ldots\\right)", font_size=24),
-            Text("Backpropagation computes this gradient", font_size=24),
+            OldTexText("Backpropagation computes this gradient", font_size=24),
         )
         connection.arrange(DOWN, buff=0.3)
         connection.to_edge(DOWN).shift(UP * 0.3)

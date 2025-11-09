@@ -37,18 +37,18 @@ class CoinFlips(Scene):
 
     def construct(self):
         # Title
-        title = Text("The Binomial Distribution", font_size=52)
+        title = OldTexText("The Binomial Distribution", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Setup the question
-        question = Text("Flip a fair coin 5 times", font_size=40, color=YELLOW)
+        question = OldTexText("Flip a fair coin 5 times", font_size=40, color=YELLOW)
         question.move_to(2 * UP)
         self.play(Write(question))
         self.wait()
 
-        subquestion = Text(
+        subquestion = OldTexText(
             "How many heads will you get?",
             font_size=36,
             color=GREY
@@ -60,27 +60,27 @@ class CoinFlips(Scene):
         # Show possible outcomes
         self.play(FadeOut(subquestion))
 
-        outcomes_label = Text("Possible outcomes:", font_size=32)
+        outcomes_label = OldTexText("Possible outcomes:", font_size=32)
         outcomes_label.move_to(UP * 0.8 + LEFT * 4)
         self.play(Write(outcomes_label))
         self.wait()
 
         # Show some example sequences
         examples = VGroup(
-            Text("HHHTT → 3 heads", font_size=28, color=BLUE),
-            Text("THHHT → 3 heads", font_size=28, color=BLUE),
-            Text("HTHTH → 3 heads", font_size=28, color=BLUE),
-            Text("HTTTT → 1 head", font_size=28, color=RED),
-            Text("HHHHH → 5 heads", font_size=28, color=GREEN)
+            OldTexText("HHHTT → 3 heads", font_size=28, color=BLUE),
+            OldTexText("THHHT → 3 heads", font_size=28, color=BLUE),
+            OldTexText("HTHTH → 3 heads", font_size=28, color=BLUE),
+            OldTexText("HTTTT → 1 head", font_size=28, color=RED),
+            OldTexText("HHHHH → 5 heads", font_size=28, color=GREEN)
         )
         examples.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
         examples.next_to(outcomes_label, DOWN, buff=0.4, aligned_edge=LEFT)
 
-        self.play(LaggedStart(*[Write(ex) for ex in examples], lag_ratio=0.3))
+        self.play(LaggedStart([Write(ex) for ex in examples], lag_ratio=0.3))
         self.wait(2)
 
         # Key observation
-        observation = Text(
+        observation = OldTexText(
             "Different sequences can give the same number of heads!",
             font_size=30,
             color=YELLOW
@@ -96,7 +96,7 @@ class CoinFlips(Scene):
             FadeOut(observation)
         )
 
-        dist_title = Text("Distribution of outcomes (n=5):", font_size=32)
+        dist_title = OldTexText("Distribution of outcomes (n=5):", font_size=32)
         dist_title.move_to(UP * 0.8)
         self.play(Write(dist_title))
         self.wait()
@@ -111,10 +111,10 @@ class CoinFlips(Scene):
         )
         axes.move_to(DOWN * 1.3)
 
-        x_label = Text("Number of Heads", font_size=28).next_to(axes.x_axis, DOWN)
-        y_label = Text("Probability", font_size=28).next_to(axes.y_axis, LEFT).rotate(PI/2)
+        x_label = OldTexText("Number of Heads", font_size=28).next_to(axes.x_axis, DOWN)
+        y_label = OldTexText("Probability", font_size=28).next_to(axes.y_axis, LEFT).rotate(PI/2)
 
-        self.play(Create(axes))
+        self.play(ShowCreation(axes))
         self.play(Write(x_label), Write(y_label))
         self.wait()
 
@@ -143,9 +143,9 @@ class CoinFlips(Scene):
             label.next_to(bar, UP, buff=0.1)
             prob_labels.add(label)
 
-        self.play(LaggedStart(*[FadeIn(bar) for bar in bars], lag_ratio=0.2))
+        self.play(LaggedStart([FadeIn(bar) for bar in bars], lag_ratio=0.2))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(label) for label in prob_labels], lag_ratio=0.2))
+        self.play(LaggedStart([Write(label) for label in prob_labels], lag_ratio=0.2))
         self.wait(2)
 
         # Highlight the peak (most likely outcome)
@@ -154,10 +154,10 @@ class CoinFlips(Scene):
             bars[2].get_top() + UP * 0.15,
             color=YELLOW
         )
-        peak_label = Text("Most likely: 2-3 heads", font_size=28, color=YELLOW)
+        peak_label = OldTexText("Most likely: 2-3 heads", font_size=28, color=YELLOW)
         peak_label.next_to(peak_arrow, RIGHT, buff=0.2)
 
-        self.play(Create(peak_arrow), Write(peak_label))
+        self.play(ShowCreation(peak_arrow), Write(peak_label))
         self.wait(2)
 
 
@@ -168,13 +168,13 @@ class BinomialFormula(Scene):
 
     def construct(self):
         # Title
-        title = Text("The Binomial Formula", font_size=52)
+        title = OldTexText("The Binomial Formula", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Setup
-        setup_title = Text("Setup:", font_size=36, color=YELLOW)
+        setup_title = OldTexText("Setup:", font_size=36, color=YELLOW)
         setup_title.move_to(2.2 * UP + LEFT * 4.5)
 
         setup = VGroup(
@@ -187,17 +187,17 @@ class BinomialFormula(Scene):
 
         self.play(Write(setup_title))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(item) for item in setup], lag_ratio=0.3))
+        self.play(LaggedStart([Write(item) for item in setup], lag_ratio=0.3))
         self.wait(2)
 
         # Build the formula step by step
-        question = Text("P(exactly k successes) = ?", font_size=36, color=BLUE)
+        question = OldTexText("P(exactly k successes) = ?", font_size=36, color=BLUE)
         question.move_to(UP * 0.8 + RIGHT * 2.5)
         self.play(Write(question))
         self.wait()
 
         # Step 1: Probability of specific sequence
-        step1_label = Text("Step 1: Probability of one specific sequence", font_size=28)
+        step1_label = OldTexText("Step 1: Probability of one specific sequence", font_size=28)
         step1_label.move_to(RIGHT * 2.5)
 
         step1 = Tex(
@@ -207,7 +207,7 @@ class BinomialFormula(Scene):
         )
         step1.next_to(step1_label, DOWN, buff=0.3)
 
-        step1_note = Text("(k successes, n-k failures)", font_size=24, color=GREY)
+        step1_note = OldTexText("(k successes, n-k failures)", font_size=24, color=GREY)
         step1_note.next_to(step1, DOWN, buff=0.2)
 
         self.play(Write(step1_label))
@@ -224,7 +224,7 @@ class BinomialFormula(Scene):
             FadeOut(step1_note)
         )
 
-        step2_label = Text("Step 2: How many such sequences?", font_size=28)
+        step2_label = OldTexText("Step 2: How many such sequences?", font_size=28)
         step2_label.move_to(RIGHT * 2.5)
 
         step2 = Tex(
@@ -234,7 +234,7 @@ class BinomialFormula(Scene):
         )
         step2.next_to(step2_label, DOWN, buff=0.3)
 
-        step2_note = Text("(Choose k positions for successes)", font_size=24, color=GREY)
+        step2_note = OldTexText("(Choose k positions for successes)", font_size=24, color=GREY)
         step2_note.next_to(step2, DOWN, buff=0.2)
 
         self.play(Write(step2_label))
@@ -252,7 +252,7 @@ class BinomialFormula(Scene):
             FadeOut(step2_note)
         )
 
-        formula_label = Text("The Binomial Formula:", font_size=36, color=YELLOW)
+        formula_label = OldTexText("The Binomial Formula:", font_size=36, color=YELLOW)
         formula_label.move_to(UP * 0.8 + RIGHT * 2.5)
 
         formula = Tex(
@@ -268,11 +268,11 @@ class BinomialFormula(Scene):
         self.wait(0.5)
         self.play(Write(formula))
         self.wait()
-        self.play(Create(formula_box))
+        self.play(ShowCreation(formula_box))
         self.wait(2)
 
         # Example
-        example_title = Text("Example: n=5, p=0.5, k=3", font_size=32, color=BLUE)
+        example_title = OldTexText("Example: n=5, p=0.5, k=3", font_size=32, color=BLUE)
         example_title.move_to(DOWN * 1.5 + RIGHT * 2.5)
 
         example_calc = Tex(
@@ -294,7 +294,7 @@ class DistributionShape(Scene):
 
     def construct(self):
         # Title
-        title = Text("Shape of Binomial Distribution", font_size=52)
+        title = OldTexText("Shape of Binomial Distribution", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -309,10 +309,10 @@ class DistributionShape(Scene):
         )
         axes.move_to(DOWN * 0.5)
 
-        x_label = Text("k", font_size=32).next_to(axes.x_axis, RIGHT)
-        y_label = Text("P(X=k)", font_size=32).next_to(axes.y_axis, UP)
+        x_label = OldTexText("k", font_size=32).next_to(axes.x_axis, RIGHT)
+        y_label = OldTexText("P(X=k)", font_size=32).next_to(axes.y_axis, UP)
 
-        self.play(Create(axes), Write(x_label), Write(y_label))
+        self.play(ShowCreation(axes), Write(x_label), Write(y_label))
         self.wait()
 
         # Function to create bars for binomial distribution
@@ -340,10 +340,10 @@ class DistributionShape(Scene):
         self.wait()
 
         bars1 = create_binomial_bars(20, 0.5, BLUE)
-        self.play(LaggedStart(*[FadeIn(bar) for bar in bars1], lag_ratio=0.05))
+        self.play(LaggedStart([FadeIn(bar) for bar in bars1], lag_ratio=0.05))
         self.wait()
 
-        note1 = Text("Symmetric around n/2", font_size=28, color=GREY)
+        note1 = OldTexText("Symmetric around n/2", font_size=28, color=GREY)
         note1.next_to(params1, DOWN, buff=0.3, aligned_edge=LEFT)
         self.play(Write(note1))
         self.wait(2)
@@ -361,10 +361,10 @@ class DistributionShape(Scene):
         self.wait()
 
         bars2 = create_binomial_bars(20, 0.3, GREEN)
-        self.play(LaggedStart(*[FadeIn(bar) for bar in bars2], lag_ratio=0.05))
+        self.play(LaggedStart([FadeIn(bar) for bar in bars2], lag_ratio=0.05))
         self.wait()
 
-        note2 = Text("Skewed when p ≠ 0.5", font_size=28, color=GREY)
+        note2 = OldTexText("Skewed when p ≠ 0.5", font_size=28, color=GREY)
         note2.next_to(params2, DOWN, buff=0.3, aligned_edge=LEFT)
         self.play(Write(note2))
         self.wait(2)
@@ -382,10 +382,10 @@ class DistributionShape(Scene):
         self.wait()
 
         bars3 = create_binomial_bars(20, 0.1, RED)
-        self.play(LaggedStart(*[FadeIn(bar) for bar in bars3], lag_ratio=0.05))
+        self.play(LaggedStart([FadeIn(bar) for bar in bars3], lag_ratio=0.05))
         self.wait()
 
-        note3 = Text("Highly skewed for extreme p", font_size=28, color=GREY)
+        note3 = OldTexText("Highly skewed for extreme p", font_size=28, color=GREY)
         note3.next_to(params3, DOWN, buff=0.3, aligned_edge=LEFT)
         self.play(Write(note3))
         self.wait(2)
@@ -397,7 +397,7 @@ class DistributionShape(Scene):
             FadeOut(note3)
         )
 
-        properties_title = Text("Key Properties:", font_size=36, color=YELLOW)
+        properties_title = OldTexText("Key Properties:", font_size=36, color=YELLOW)
         properties_title.to_corner(UR).shift(LEFT * 0.5 + DOWN * 1)
 
         properties = VGroup(
@@ -410,7 +410,7 @@ class DistributionShape(Scene):
 
         self.play(Write(properties_title))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(prop) for prop in properties], lag_ratio=0.3))
+        self.play(LaggedStart([Write(prop) for prop in properties], lag_ratio=0.3))
         self.wait(3)
 
 
@@ -421,13 +421,13 @@ class NormalApproximation(Scene):
 
     def construct(self):
         # Title
-        title = Text("Normal Approximation", font_size=52)
+        title = OldTexText("Normal Approximation", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Subtitle
-        subtitle = Text(
+        subtitle = OldTexText(
             "As n increases, binomial → normal",
             font_size=36,
             color=GREY
@@ -446,10 +446,10 @@ class NormalApproximation(Scene):
         )
         axes.move_to(DOWN * 0.5)
 
-        x_label = Text("k", font_size=32).next_to(axes.x_axis, RIGHT)
-        y_label = Text("P(X=k)", font_size=32).next_to(axes.y_axis, UP)
+        x_label = OldTexText("k", font_size=32).next_to(axes.x_axis, RIGHT)
+        y_label = OldTexText("P(X=k)", font_size=32).next_to(axes.y_axis, UP)
 
-        self.play(Create(axes), Write(x_label), Write(y_label))
+        self.play(ShowCreation(axes), Write(x_label), Write(y_label))
         self.wait()
 
         # Show progression: n = 10, 30, 50
@@ -494,7 +494,7 @@ class NormalApproximation(Scene):
 
             if i == 0:
                 self.play(Write(params))
-                self.play(LaggedStart(*[FadeIn(bar) for bar in bars], lag_ratio=0.03))
+                self.play(LaggedStart([FadeIn(bar) for bar in bars], lag_ratio=0.03))
                 self.wait()
             else:
                 self.play(
@@ -505,10 +505,10 @@ class NormalApproximation(Scene):
 
             # Add normal curve for last iteration
             if i == len(n_values) - 1:
-                curve_label = Text("Normal curve overlay", font_size=28, color=YELLOW)
+                curve_label = OldTexText("Normal curve overlay", font_size=28, color=YELLOW)
                 curve_label.next_to(params, DOWN, buff=0.4, aligned_edge=LEFT)
                 self.play(Write(curve_label))
-                self.play(Create(normal_curve), run_time=2)
+                self.play(ShowCreation(normal_curve), run_time=2)
                 self.wait(2)
 
             prev_params = params
@@ -521,7 +521,7 @@ class NormalApproximation(Scene):
             FadeOut(subtitle)
         )
 
-        formula_title = Text("Normal Approximation:", font_size=32, color=GREEN)
+        formula_title = OldTexText("Normal Approximation:", font_size=32, color=GREEN)
         formula_title.to_corner(UR).shift(LEFT * 0.5 + DOWN * 1.2)
 
         formula = Tex(
@@ -530,7 +530,7 @@ class NormalApproximation(Scene):
         )
         formula.next_to(formula_title, DOWN, buff=0.3, aligned_edge=LEFT)
 
-        condition = Text("When np > 5 and n(1-p) > 5", font_size=24, color=GREY)
+        condition = OldTexText("When np > 5 and n(1-p) > 5", font_size=24, color=GREY)
         condition.next_to(formula, DOWN, buff=0.3, aligned_edge=LEFT)
 
         self.play(Write(formula_title))

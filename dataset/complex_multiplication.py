@@ -203,7 +203,7 @@ class IntroduceComplexPlane(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Complex Plane", font_size=48)
+        title = OldTexText("The Complex Plane", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -259,8 +259,8 @@ class IntroduceComplexPlane(InteractiveScene):
             labels.add(label)
 
         self.play(
-            LaggedStart(*[GrowFromCenter(dot) for dot in dots], lag_ratio=0.3),
-            LaggedStart(*[FadeIn(label) for label in labels], lag_ratio=0.3),
+            LaggedStart([GrowFromCenter(dot) for dot in dots], lag_ratio=0.3),
+            LaggedStart([FadeIn(label) for label in labels], lag_ratio=0.3),
             run_time=2
         )
         self.wait(2)
@@ -268,7 +268,7 @@ class IntroduceComplexPlane(InteractiveScene):
         # ========================================
         # MESSAGE: Complex numbers as points
         # ========================================
-        message = Text(
+        message = OldTexText(
             "Complex numbers are points in the plane",
             font_size=36,
             color=GREY_A
@@ -298,7 +298,7 @@ class MultiplyByI(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Multiplying by i", font_size=48)
+        title = OldTexText("Multiplying by i", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -369,7 +369,7 @@ class MultiplyByI(InteractiveScene):
         # ========================================
         # INSIGHT: Rotation by 90°
         # ========================================
-        insight = Text(
+        insight = OldTexText(
             "Multiplying by i rotates 90° counterclockwise",
             font_size=36,
             color=GREEN
@@ -399,7 +399,7 @@ class GeneralMultiplication(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("General Complex Multiplication", font_size=48)
+        title = OldTexText("General Complex Multiplication", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -478,10 +478,10 @@ class GeneralMultiplication(InteractiveScene):
         # ========================================
         # INSIGHT: Rotation + Scaling
         # ========================================
-        rotation_text = Text("Rotates by 60°", font_size=32, color=RED)
+        rotation_text = OldTexText("Rotates by 60°", font_size=32, color=RED)
         rotation_text.next_to(arc, LEFT, buff=0.3)
 
-        scaling_text = Text("Scales by 2×", font_size=32, color=BLUE)
+        scaling_text = OldTexText("Scales by 2×", font_size=32, color=BLUE)
         scaling_text.next_to(multiplier_text, DOWN, buff=0.3)
 
         self.play(
@@ -529,7 +529,7 @@ class PolarForm(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Polar Form & Euler's Formula", font_size=48)
+        title = OldTexText("Polar Form & Euler's Formula", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -613,7 +613,7 @@ class PolarForm(InteractiveScene):
         # ========================================
         # INSIGHT: Why it works
         # ========================================
-        insight = Text(
+        insight = OldTexText(
             "Magnitudes multiply, angles add!",
             font_size=40,
             color=GREEN

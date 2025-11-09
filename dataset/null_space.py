@@ -153,7 +153,7 @@ class IntroduceTransformation(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Null Space (Kernel) of a Matrix", font_size=42)
+        title = OldTexText("Null Space (Kernel) of a Matrix", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -161,11 +161,11 @@ class IntroduceTransformation(Scene):
         # ========================================
         # MATRIX
         # ========================================
-        matrix_label = Text("Consider the transformation:", font_size=28)
+        matrix_label = OldTexText("Consider the transformation:", font_size=28)
         matrix_label.next_to(title, DOWN, buff=0.5)
 
         # Display matrix
-        A_entries = [[Text("2"), Text("4")], [Text("1"), Text("2")]]
+        A_entries = [[OldTexText("2"), OldTexText("4")], [OldTexText("1"), OldTexText("2")]]
         A_matrix = Matrix(A_entries, bracket_h_buff=0.1, bracket_v_buff=0.1)
         A_matrix.set_color(BLUE)
 
@@ -207,7 +207,7 @@ class IntroduceTransformation(Scene):
         # ========================================
         # QUESTION
         # ========================================
-        question = Text(
+        question = OldTexText(
             "Which vectors map to zero?",
             font_size=28,
             color=GREEN
@@ -240,7 +240,7 @@ class VectorsToZero(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Finding the Null Space", font_size=42)
+        title = OldTexText("Finding the Null Space", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -260,7 +260,7 @@ class VectorsToZero(Scene):
         # ========================================
         # SYSTEM
         # ========================================
-        system_label = Text("This gives the system:", font_size=28)
+        system_label = OldTexText("This gives the system:", font_size=28)
         system_label.next_to(equation, DOWN, buff=0.6)
 
         system = VGroup(
@@ -278,7 +278,7 @@ class VectorsToZero(Scene):
         # ========================================
         # OBSERVE: Dependent equations
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "Notice: Second equation = first equation ÷ 2",
             font_size=24,
             color=YELLOW
@@ -293,7 +293,7 @@ class VectorsToZero(Scene):
         # ========================================
         self.play(FadeOut(observation))
 
-        solving = Text("From 2x + 4y = 0:", font_size=26)
+        solving = OldTexText("From 2x + 4y = 0:", font_size=26)
         solving.next_to(system, DOWN, buff=0.5)
 
         self.play(Write(solving))
@@ -308,7 +308,7 @@ class VectorsToZero(Scene):
         # ========================================
         # PARAMETRIC FORM
         # ========================================
-        parametric = Text("Parametric form (let y = t):", font_size=26)
+        parametric = OldTexText("Parametric form (let y = t):", font_size=26)
         parametric.next_to(solution_step1, DOWN, buff=0.5)
 
         self.play(Write(parametric))
@@ -353,7 +353,7 @@ class GeometricMeaning(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Geometric Interpretation", font_size=42)
+        title = OldTexText("Geometric Interpretation", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -369,7 +369,7 @@ class GeometricMeaning(Scene):
         # ========================================
         # NULL SPACE LINE
         # ========================================
-        null_space_label = Text(
+        null_space_label = OldTexText(
             "Null space: all vectors along this line",
             font_size=26,
             color=GREEN
@@ -406,7 +406,7 @@ class GeometricMeaning(Scene):
         # ========================================
         self.play(FadeOut(null_space_label))
 
-        transform_label = Text(
+        transform_label = OldTexText(
             "Apply transformation A",
             font_size=26,
             color=YELLOW
@@ -430,7 +430,7 @@ class GeometricMeaning(Scene):
         # ========================================
         self.play(FadeOut(transform_label))
 
-        result = Text(
+        result = OldTexText(
             "Null space vectors all map to zero!",
             font_size=28,
             color=RED
@@ -453,7 +453,7 @@ class GeometricMeaning(Scene):
         # DIMENSION
         # ========================================
         dimension = VGroup(
-            Text("Null space is a 1D subspace (a line)", font_size=24),
+            OldTexText("Null space is a 1D subspace (a line)", font_size=24),
             Tex("\\text{dim}(\\text{Null}(A)) = 1", font_size=28, color=GREEN),
         )
         dimension.arrange(DOWN, buff=0.3)
@@ -478,7 +478,7 @@ class RankNullity(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Rank-Nullity Theorem", font_size=42)
+        title = OldTexText("The Rank-Nullity Theorem", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -500,7 +500,7 @@ class RankNullity(Scene):
         # ========================================
         # THE THEOREM
         # ========================================
-        theorem_label = Text("Rank-Nullity Theorem:", font_size=32, color=YELLOW)
+        theorem_label = OldTexText("Rank-Nullity Theorem:", font_size=32, color=YELLOW)
         theorem_label.next_to(definitions, DOWN, buff=0.8)
 
         theorem = Tex(
@@ -537,7 +537,7 @@ class RankNullity(Scene):
             FadeOut(explanation)
         )
 
-        example_title = Text("Our example:", font_size=28, color=BLUE)
+        example_title = OldTexText("Our example:", font_size=28, color=BLUE)
         example_title.next_to(title, DOWN, buff=0.6)
 
         self.play(Write(example_title))
@@ -563,15 +563,15 @@ class RankNullity(Scene):
         # ========================================
         self.play(FadeOut(example_title), FadeOut(example))
 
-        applications_title = Text("Applications:", font_size=32, color=WHITE)
+        applications_title = OldTexText("Applications:", font_size=32, color=WHITE)
         applications_title.next_to(title, DOWN, buff=0.6)
 
         applications = VGroup(
-            Text("• Solving homogeneous systems Ax = 0", font_size=24),
-            Text("• Determining linear independence", font_size=24),
-            Text("• Finding free variables in systems", font_size=24),
-            Text("• Understanding dimension relationships", font_size=24),
-            Text("• Characterizing invertibility (null space = {0})", font_size=24),
+            OldTexText("• Solving homogeneous systems Ax = 0", font_size=24),
+            OldTexText("• Determining linear independence", font_size=24),
+            OldTexText("• Finding free variables in systems", font_size=24),
+            OldTexText("• Understanding dimension relationships", font_size=24),
+            OldTexText("• Characterizing invertibility (null space = {0})", font_size=24),
         )
         applications.arrange(DOWN, buff=0.25, aligned_edge=LEFT)
         applications.next_to(applications_title, DOWN, buff=0.5)
@@ -591,9 +591,9 @@ class RankNullity(Scene):
         self.play(FadeOut(applications_title), FadeOut(applications))
 
         insight = VGroup(
-            Text("Key Insight:", font_size=32, color=GREEN),
-            Text("The null space tells us which directions", font_size=26),
-            Text("get 'lost' or 'collapsed' by the transformation", font_size=26),
+            OldTexText("Key Insight:", font_size=32, color=GREEN),
+            OldTexText("The null space tells us which directions", font_size=26),
+            OldTexText("get 'lost' or 'collapsed' by the transformation", font_size=26),
         )
         insight.arrange(DOWN, buff=0.3)
         insight.move_to(ORIGIN)

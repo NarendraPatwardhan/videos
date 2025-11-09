@@ -133,7 +133,7 @@ class GeometricSeriesSquare(InteractiveScene):
         # ========================================
         # SETUP: Title and initial square
         # ========================================
-        title = Text("Geometric Series: Visual Proof", font_size=48)
+        title = OldTexText("Geometric Series: Visual Proof", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -303,7 +303,7 @@ class AlgebraicFormula(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Geometric Series Formula", font_size=48)
+        title = OldTexText("Geometric Series Formula", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -435,7 +435,7 @@ class GeneralGeometricSeries(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Different Ratios, Different Sums", font_size=48)
+        title = OldTexText("Different Ratios, Different Sums", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -529,7 +529,7 @@ class GeneralGeometricSeries(InteractiveScene):
         # ========================================
         # INSIGHT: Larger r means larger sum
         # ========================================
-        insight = Text(
+        insight = OldTexText(
             "Larger ratio → Larger sum\n(but must have r < 1 for convergence)",
             font_size=32,
             color=YELLOW

@@ -23,20 +23,20 @@ class IntroduceQuaternions(Scene):
 
     def construct(self):
         # Title
-        title = Text("Quaternions", font_size=56)
+        title = OldTexText("Quaternions", font_size=56)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Subtitle
-        subtitle = Text("A 4D number system", font_size=36, color=GREY)
+        subtitle = OldTexText("A 4D number system", font_size=36, color=GREY)
         subtitle.next_to(title, DOWN, buff=0.3)
         self.play(Write(subtitle))
         self.wait(2)
         self.play(FadeOut(subtitle))
 
         # Historical context
-        history = Text(
+        history = OldTexText(
             "Discovered by William Rowan Hamilton (1843)",
             font_size=32,
             color=GREY,
@@ -48,16 +48,16 @@ class IntroduceQuaternions(Scene):
         self.play(FadeOut(history))
 
         # Build up from real to complex to quaternions
-        progression_title = Text("Number System Evolution:", font_size=36, color=YELLOW)
+        progression_title = OldTexText("Number System Evolution:", font_size=36, color=YELLOW)
         progression_title.move_to(UP * 2.3)
         self.play(Write(progression_title))
         self.wait()
 
         # Real numbers
         reals = VGroup(
-            Text("Real Numbers", font_size=32, color=BLUE),
+            OldTexText("Real Numbers", font_size=32, color=BLUE),
             Tex(R"\mathbb{R}: a", font_size=32),
-            Text("1 dimension", font_size=24, color=GREY)
+            OldTexText("1 dimension", font_size=24, color=GREY)
         )
         reals.arrange(DOWN, buff=0.3)
         reals.move_to(UP * 0.8 + LEFT * 4)
@@ -66,10 +66,10 @@ class IntroduceQuaternions(Scene):
 
         # Complex numbers
         complex_nums = VGroup(
-            Text("Complex Numbers", font_size=32, color=GREEN),
+            OldTexText("Complex Numbers", font_size=32, color=GREEN),
             Tex(R"\mathbb{C}: a + bi", font_size=32),
             Tex(R"i^2 = -1", font_size=28, color=GREY),
-            Text("2 dimensions", font_size=24, color=GREY)
+            OldTexText("2 dimensions", font_size=24, color=GREY)
         )
         complex_nums.arrange(DOWN, buff=0.3)
         complex_nums.move_to(UP * 0.8)
@@ -78,10 +78,10 @@ class IntroduceQuaternions(Scene):
 
         # Quaternions
         quaternions = VGroup(
-            Text("Quaternions", font_size=32, color=RED),
+            OldTexText("Quaternions", font_size=32, color=RED),
             Tex(R"\mathbb{H}: a + bi + cj + dk", font_size=28),
             Tex(R"i^2 = j^2 = k^2 = ijk = -1", font_size=24, color=GREY),
-            Text("4 dimensions", font_size=24, color=GREY)
+            OldTexText("4 dimensions", font_size=24, color=GREY)
         )
         quaternions.arrange(DOWN, buff=0.3)
         quaternions.move_to(UP * 0.8 + RIGHT * 4.2)
@@ -95,7 +95,7 @@ class IntroduceQuaternions(Scene):
             FadeOut(progression_title)
         )
 
-        identity_title = Text("The Fundamental Identity:", font_size=40, color=YELLOW)
+        identity_title = OldTexText("The Fundamental Identity:", font_size=40, color=YELLOW)
         identity_title.move_to(UP * 1.5)
         self.play(
             quaternions.animate.move_to(ORIGIN),
@@ -114,7 +114,7 @@ class IntroduceQuaternions(Scene):
             Write(identity)
         )
         self.wait(0.5)
-        self.play(Create(identity_box))
+        self.play(ShowCreation(identity_box))
         self.wait(2)
 
         # General form
@@ -124,7 +124,7 @@ class IntroduceQuaternions(Scene):
             FadeOut(identity_title)
         )
 
-        form_title = Text("General Quaternion:", font_size=40, color=BLUE)
+        form_title = OldTexText("General Quaternion:", font_size=40, color=BLUE)
         form_title.move_to(UP * 1.8)
         self.play(Write(form_title))
         self.wait()
@@ -145,7 +145,7 @@ class IntroduceQuaternions(Scene):
         )
         components.arrange(DOWN, buff=0.5)
         components.move_to(DOWN * 1.2)
-        self.play(LaggedStart(*[Write(comp) for comp in components], lag_ratio=0.4))
+        self.play(LaggedStart([Write(comp) for comp in components], lag_ratio=0.4))
         self.wait(3)
 
 
@@ -156,13 +156,13 @@ class MultiplicationRule(Scene):
 
     def construct(self):
         # Title
-        title = Text("Quaternion Multiplication", font_size=52)
+        title = OldTexText("Quaternion Multiplication", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # The fundamental rules
-        rules_title = Text("Multiplication Rules:", font_size=36, color=YELLOW)
+        rules_title = OldTexText("Multiplication Rules:", font_size=36, color=YELLOW)
         rules_title.move_to(UP * 2.3)
         self.play(Write(rules_title))
         self.wait()
@@ -176,11 +176,11 @@ class MultiplicationRule(Scene):
         basic_rules.arrange(DOWN, buff=0.5)
         basic_rules.move_to(UP * 0.6)
 
-        self.play(LaggedStart(*[Write(rule) for rule in basic_rules], lag_ratio=0.5))
+        self.play(LaggedStart([Write(rule) for rule in basic_rules], lag_ratio=0.5))
         self.wait(2)
 
         # Highlight non-commutativity
-        note = Text(
+        note = OldTexText(
             "Note: Multiplication is NOT commutative!",
             font_size=32,
             color=YELLOW
@@ -200,7 +200,7 @@ class MultiplicationRule(Scene):
             FadeOut(example)
         )
 
-        memory_title = Text("Memory Aid - Cyclic Pattern:", font_size=32, color=GREEN)
+        memory_title = OldTexText("Memory Aid - Cyclic Pattern:", font_size=32, color=GREEN)
         memory_title.move_to(DOWN * 0.8)
         self.play(Write(memory_title))
         self.wait()
@@ -238,13 +238,13 @@ class MultiplicationRule(Scene):
             color=YELLOW
         )
 
-        self.play(Create(circle))
+        self.play(ShowCreation(circle))
         self.play(Write(i_label), Write(j_label), Write(k_label))
         self.wait()
-        self.play(Create(arrow1), Create(arrow2), Create(arrow3))
+        self.play(ShowCreation(arrow1), ShowCreation(arrow2), ShowCreation(arrow3))
         self.wait()
 
-        cyclic_note = Text("Clockwise: positive, Counter-clockwise: negative", font_size=24, color=GREY)
+        cyclic_note = OldTexText("Clockwise: positive, Counter-clockwise: negative", font_size=24, color=GREY)
         cyclic_note.next_to(circle, DOWN, buff=0.5)
         self.play(Write(cyclic_note))
         self.wait(3)
@@ -257,7 +257,7 @@ class ThreeDRotations(ThreeDScene):
 
     def construct(self):
         # Title (2D, doesn't rotate with camera)
-        title = Text("Quaternions for 3D Rotations", font_size=48)
+        title = OldTexText("Quaternions for 3D Rotations", font_size=48)
         title.to_edge(UP)
         title.fix_in_frame()
         self.play(Write(title))
@@ -290,11 +290,11 @@ class ThreeDRotations(ThreeDScene):
             color=BLUE,
             thickness=0.02
         )
-        self.play(Create(vector))
+        self.play(ShowCreation(vector))
         self.wait()
 
         # Explanation text (fixed in frame)
-        explanation = Text(
+        explanation = OldTexText(
             "Rotation quaternion: q = cos(θ/2) + sin(θ/2)(ui + vj + wk)",
             font_size=24,
             color=YELLOW
@@ -305,7 +305,7 @@ class ThreeDRotations(ThreeDScene):
         self.wait(2)
 
         # Example rotation: 90 degrees around z-axis
-        rotation_info = Text(
+        rotation_info = OldTexText(
             "Rotate 90° around z-axis",
             font_size=28,
             color=GREEN
@@ -322,7 +322,7 @@ class ThreeDRotations(ThreeDScene):
             color=GREEN,
             thickness=0.015
         )
-        self.play(Create(rotation_axis))
+        self.play(ShowCreation(rotation_axis))
         self.wait()
 
         # Perform rotation
@@ -345,7 +345,7 @@ class ThreeDRotations(ThreeDScene):
         # Show the rotation from different angles
         self.play(FadeOut(rotation_info), FadeOut(explanation))
 
-        camera_note = Text("View from different angles", font_size=28, color=YELLOW)
+        camera_note = OldTexText("View from different angles", font_size=28, color=YELLOW)
         camera_note.to_edge(DOWN)
         camera_note.fix_in_frame()
         self.play(Write(camera_note))
@@ -358,7 +358,7 @@ class ThreeDRotations(ThreeDScene):
 
         # Formula for rotation
         self.play(FadeOut(camera_note))
-        formula_text = Text("Rotation formula:", font_size=28, color=BLUE)
+        formula_text = OldTexText("Rotation formula:", font_size=28, color=BLUE)
         formula_text.to_edge(DOWN).shift(UP * 0.5)
         formula_text.fix_in_frame()
 
@@ -381,51 +381,51 @@ class AvoidGimbalLock(Scene):
 
     def construct(self):
         # Title
-        title = Text("Why Use Quaternions?", font_size=52)
+        title = OldTexText("Why Use Quaternions?", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Comparison table
-        comparison_title = Text("Quaternions vs Euler Angles", font_size=36, color=YELLOW)
+        comparison_title = OldTexText("Quaternions vs Euler Angles", font_size=36, color=YELLOW)
         comparison_title.move_to(UP * 2.5)
         self.play(Write(comparison_title))
         self.wait()
 
         # Euler angles problems
-        euler_title = Text("Euler Angles:", font_size=32, color=RED)
+        euler_title = OldTexText("Euler Angles:", font_size=32, color=RED)
         euler_title.move_to(UP * 1.2 + LEFT * 3.5)
 
         euler_problems = VGroup(
-            Text("✗ Gimbal lock", font_size=28, color=RED),
-            Text("✗ Singularities", font_size=28, color=RED),
-            Text("✗ Interpolation issues", font_size=28, color=RED),
-            Text("✗ Order dependent", font_size=28, color=RED)
+            OldTexText("✗ Gimbal lock", font_size=28, color=RED),
+            OldTexText("✗ Singularities", font_size=28, color=RED),
+            OldTexText("✗ Interpolation issues", font_size=28, color=RED),
+            OldTexText("✗ Order dependent", font_size=28, color=RED)
         )
         euler_problems.arrange(DOWN, aligned_edge=LEFT, buff=0.35)
         euler_problems.next_to(euler_title, DOWN, buff=0.4, aligned_edge=LEFT)
 
         self.play(Write(euler_title))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(prob) for prob in euler_problems], lag_ratio=0.3))
+        self.play(LaggedStart([Write(prob) for prob in euler_problems], lag_ratio=0.3))
         self.wait(2)
 
         # Quaternion advantages
-        quat_title = Text("Quaternions:", font_size=32, color=GREEN)
+        quat_title = OldTexText("Quaternions:", font_size=32, color=GREEN)
         quat_title.move_to(UP * 1.2 + RIGHT * 3.5)
 
         quat_advantages = VGroup(
-            Text("✓ No gimbal lock", font_size=28, color=GREEN),
-            Text("✓ No singularities", font_size=28, color=GREEN),
-            Text("✓ Smooth interpolation (SLERP)", font_size=28, color=GREEN),
-            Text("✓ Compact representation", font_size=28, color=GREEN)
+            OldTexText("✓ No gimbal lock", font_size=28, color=GREEN),
+            OldTexText("✓ No singularities", font_size=28, color=GREEN),
+            OldTexText("✓ Smooth interpolation (SLERP)", font_size=28, color=GREEN),
+            OldTexText("✓ Compact representation", font_size=28, color=GREEN)
         )
         quat_advantages.arrange(DOWN, aligned_edge=LEFT, buff=0.35)
         quat_advantages.next_to(quat_title, DOWN, buff=0.4, aligned_edge=LEFT)
 
         self.play(Write(quat_title))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(adv) for adv in quat_advantages], lag_ratio=0.3))
+        self.play(LaggedStart([Write(adv) for adv in quat_advantages], lag_ratio=0.3))
         self.wait(3)
 
         # Explain gimbal lock
@@ -437,12 +437,12 @@ class AvoidGimbalLock(Scene):
             FadeOut(comparison_title)
         )
 
-        gimbal_title = Text("What is Gimbal Lock?", font_size=44, color=YELLOW)
+        gimbal_title = OldTexText("What is Gimbal Lock?", font_size=44, color=YELLOW)
         gimbal_title.move_to(UP * 2.5)
         self.play(Write(gimbal_title))
         self.wait()
 
-        explanation = Text(
+        explanation = OldTexText(
             "Loss of one degree of freedom when two rotation axes align",
             font_size=30,
             color=GREY
@@ -452,20 +452,20 @@ class AvoidGimbalLock(Scene):
         self.wait(2)
 
         # Simple diagram
-        diagram_title = Text("Example: Aircraft rotation (pitch = 90°)", font_size=28)
+        diagram_title = OldTexText("Example: Aircraft rotation (pitch = 90°)", font_size=28)
         diagram_title.move_to(UP * 0.5)
         self.play(Write(diagram_title))
         self.wait()
 
         problem_text = VGroup(
-            Text("When pitch = 90°:", font_size=26, color=RED),
-            Text("• Roll and yaw axes become parallel", font_size=24),
-            Text("• Cannot distinguish between them", font_size=24),
-            Text("• Lost one degree of freedom!", font_size=24, color=RED)
+            OldTexText("When pitch = 90°:", font_size=26, color=RED),
+            OldTexText("• Roll and yaw axes become parallel", font_size=24),
+            OldTexText("• Cannot distinguish between them", font_size=24),
+            OldTexText("• Lost one degree of freedom!", font_size=24, color=RED)
         )
         problem_text.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
         problem_text.move_to(DOWN * 1)
-        self.play(LaggedStart(*[Write(text) for text in problem_text], lag_ratio=0.3))
+        self.play(LaggedStart([Write(text) for text in problem_text], lag_ratio=0.3))
         self.wait(3)
 
         # Solution
@@ -475,38 +475,38 @@ class AvoidGimbalLock(Scene):
             FadeOut(explanation)
         )
 
-        solution = Text("Quaternions avoid this problem!", font_size=40, color=GREEN)
+        solution = OldTexText("Quaternions avoid this problem!", font_size=40, color=GREEN)
         solution.move_to(UP * 0.8)
         self.play(Write(solution))
         self.wait()
 
         why = VGroup(
-            Text("• No Euler angle decomposition", font_size=28),
-            Text("• 4D representation has no singularities", font_size=28),
-            Text("• All rotations are equally valid", font_size=28),
+            OldTexText("• No Euler angle decomposition", font_size=28),
+            OldTexText("• 4D representation has no singularities", font_size=28),
+            OldTexText("• All rotations are equally valid", font_size=28),
         )
         why.arrange(DOWN, aligned_edge=LEFT, buff=0.4)
         why.next_to(solution, DOWN, buff=0.6)
-        self.play(LaggedStart(*[Write(w) for w in why], lag_ratio=0.3))
+        self.play(LaggedStart([Write(w) for w in why], lag_ratio=0.3))
         self.wait(2)
 
         # Applications
         self.play(FadeOut(solution), FadeOut(why), FadeOut(gimbal_title))
 
-        app_title = Text("Applications:", font_size=40, color=BLUE)
+        app_title = OldTexText("Applications:", font_size=40, color=BLUE)
         app_title.move_to(UP * 1.8)
         self.play(Write(app_title))
         self.wait()
 
         applications = VGroup(
-            Text("• Computer graphics and animation", font_size=30),
-            Text("• Robotics and spacecraft orientation", font_size=30),
-            Text("• Virtual reality and game engines", font_size=30),
-            Text("• Physics simulations", font_size=30),
+            OldTexText("• Computer graphics and animation", font_size=30),
+            OldTexText("• Robotics and spacecraft orientation", font_size=30),
+            OldTexText("• Virtual reality and game engines", font_size=30),
+            OldTexText("• Physics simulations", font_size=30),
         )
         applications.arrange(DOWN, aligned_edge=LEFT, buff=0.5)
         applications.move_to(DOWN * 0.3)
-        self.play(LaggedStart(*[Write(app) for app in applications], lag_ratio=0.3))
+        self.play(LaggedStart([Write(app) for app in applications], lag_ratio=0.3))
         self.wait(3)
 
 

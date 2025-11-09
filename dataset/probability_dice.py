@@ -190,7 +190,7 @@ class SingleDie(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Probability: Rolling a Die", font_size=48)
+        title = OldTexText("Probability: Rolling a Die", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -203,13 +203,13 @@ class SingleDie(InteractiveScene):
         dice_faces.arrange(RIGHT, buff=0.5)
         dice_faces.shift(1.5 * UP)
 
-        self.play(LaggedStart(*[FadeIn(die, scale=0.5) for die in dice_faces], lag_ratio=0.2))
+        self.play(LaggedStart([FadeIn(die, scale=0.5) for die in dice_faces], lag_ratio=0.2))
         self.wait()
 
         # ========================================
         # EXPLAIN: Equal probability
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "Each outcome has equal probability",
             font_size=32,
             color=GREY_A
@@ -236,13 +236,13 @@ class SingleDie(InteractiveScene):
             bar.shift((i - 3.5) * (BAR_WIDTH + 0.2) * RIGHT + 1 * DOWN)
             bars.add(bar)
 
-            label = Text(str(i), font_size=24)
+            label = OldTexText(str(i), font_size=24)
             label.next_to(bar, DOWN, buff=0.2)
             labels.add(label)
 
         self.play(
-            LaggedStart(*[GrowFromEdge(bar, DOWN) for bar in bars], lag_ratio=0.1),
-            LaggedStart(*[FadeIn(label) for label in labels], lag_ratio=0.1),
+            LaggedStart([GrowFromEdge(bar, DOWN) for bar in bars], lag_ratio=0.1),
+            LaggedStart([FadeIn(label) for label in labels], lag_ratio=0.1),
             run_time=2
         )
         self.wait()
@@ -263,7 +263,7 @@ class SingleDie(InteractiveScene):
         # ========================================
         # OBSERVATION: Uniform
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "This is a uniform distribution",
             font_size=32,
             color=GREY_A
@@ -295,7 +295,7 @@ class TwoDiceSum(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Sum of Two Dice", font_size=48)
+        title = OldTexText("Sum of Two Dice", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -333,7 +333,7 @@ class TwoDiceSum(InteractiveScene):
         # ========================================
         # QUESTION: What are all possible sums?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "What are all the possible sums?",
             font_size=32,
             color=GREY_A
@@ -348,7 +348,7 @@ class TwoDiceSum(InteractiveScene):
         # ========================================
         self.play(FadeOut(question))
 
-        range_text = Text(
+        range_text = OldTexText(
             "Possible sums: 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12",
             font_size=32,
             color=YELLOW
@@ -363,7 +363,7 @@ class TwoDiceSum(InteractiveScene):
         # ========================================
         self.play(FadeOut(range_text))
 
-        count_label = Text(
+        count_label = OldTexText(
             f"How many ways to get {sum_value}?",
             font_size=32,
             color=GREY_A
@@ -421,7 +421,7 @@ class DistributionShape(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Probability Distribution", font_size=48)
+        title = OldTexText("Probability Distribution", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -447,12 +447,12 @@ class DistributionShape(InteractiveScene):
             bars.add(bar)
 
             # Sum label
-            label = Text(str(s), font_size=20)
+            label = OldTexText(str(s), font_size=20)
             label.next_to(bar, DOWN, buff=0.15)
             labels.add(label)
 
             # Ways label (on top of bar)
-            ways_label = Text(f"{w}", font_size=18, color=WHITE)
+            ways_label = OldTexText(f"{w}", font_size=18, color=WHITE)
             ways_label.next_to(bar, UP, buff=0.1)
             prob_labels.add(ways_label)
 
@@ -460,14 +460,14 @@ class DistributionShape(InteractiveScene):
         # ANIMATE: Build the distribution
         # ========================================
         self.play(
-            LaggedStart(*[GrowFromEdge(bar, DOWN) for bar in bars], lag_ratio=0.08),
-            LaggedStart(*[FadeIn(label) for label in labels], lag_ratio=0.08),
+            LaggedStart([GrowFromEdge(bar, DOWN) for bar in bars], lag_ratio=0.08),
+            LaggedStart([FadeIn(label) for label in labels], lag_ratio=0.08),
             run_time=3
         )
         self.wait()
 
         self.play(
-            LaggedStart(*[FadeIn(pl, shift=DOWN) for pl in prob_labels], lag_ratio=0.08),
+            LaggedStart([FadeIn(pl, shift=DOWN) for pl in prob_labels], lag_ratio=0.08),
             run_time=2
         )
         self.wait()
@@ -475,7 +475,7 @@ class DistributionShape(InteractiveScene):
         # ========================================
         # HIGHLIGHT: The shape
         # ========================================
-        shape_label = Text(
+        shape_label = OldTexText(
             "Triangle Distribution!",
             font_size=40,
             color=GREEN
@@ -499,10 +499,10 @@ class DistributionShape(InteractiveScene):
         )
 
         explanation = VGroup(
-            Text("Why this shape?", font_size=32, weight=BOLD),
-            Text("• More ways to get middle values (like 7)", font_size=26),
-            Text("• Fewer ways to get extremes (like 2 or 12)", font_size=26),
-            Text("• Symmetric around the center", font_size=26)
+            OldTexText("Why this shape?", font_size=32, weight=BOLD),
+            OldTexText("• More ways to get middle values (like 7)", font_size=26),
+            OldTexText("• Fewer ways to get extremes (like 2 or 12)", font_size=26),
+            OldTexText("• Symmetric around the center", font_size=26)
         )
         explanation.arrange(DOWN, aligned_edge=LEFT, buff=0.2)
         explanation.to_edge(DOWN, buff=0.3)
@@ -531,7 +531,7 @@ class CentralLimitHint(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("What About More Dice?", font_size=48)
+        title = OldTexText("What About More Dice?", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -540,9 +540,9 @@ class CentralLimitHint(InteractiveScene):
         # SHOW: Evolution of distributions
         # ========================================
         distributions_label = VGroup(
-            Text("1 die: Uniform", font_size=32),
-            Text("2 dice: Triangle", font_size=32),
-            Text("3+ dice: Bell curve!", font_size=32, color=GREEN)
+            OldTexText("1 die: Uniform", font_size=32),
+            OldTexText("2 dice: Triangle", font_size=32),
+            OldTexText("3+ dice: Bell curve!", font_size=32, color=GREEN)
         )
         distributions_label.arrange(DOWN, aligned_edge=LEFT, buff=0.4)
         distributions_label.shift(2 * UP + 3 * LEFT)
@@ -569,7 +569,7 @@ class CentralLimitHint(InteractiveScene):
             color=GREEN
         )
 
-        bell_label = Text("Normal Distribution", font_size=28, color=GREEN)
+        bell_label = OldTexText("Normal Distribution", font_size=28, color=GREEN)
         bell_label.next_to(bell_curve, UP, buff=0.3)
 
         self.play(
@@ -584,10 +584,10 @@ class CentralLimitHint(InteractiveScene):
         # THEOREM: Central Limit Theorem
         # ========================================
         theorem_box = VGroup(
-            Text("Central Limit Theorem", font_size=36, weight=BOLD, color=YELLOW),
-            Text("The sum of many random variables", font_size=26),
-            Text("approaches a normal distribution", font_size=26),
-            Text("(regardless of the original distribution!)", font_size=24, color=GREY_A)
+            OldTexText("Central Limit Theorem", font_size=36, weight=BOLD, color=YELLOW),
+            OldTexText("The sum of many random variables", font_size=26),
+            OldTexText("approaches a normal distribution", font_size=26),
+            OldTexText("(regardless of the original distribution!)", font_size=24, color=GREY_A)
         )
         theorem_box.arrange(DOWN, buff=0.25)
         theorem_box.to_edge(DOWN, buff=0.5)

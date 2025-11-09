@@ -23,18 +23,18 @@ class IntroduceImplicitCurve(Scene):
 
     def construct(self):
         # Title
-        title = Text("Implicit Differentiation", font_size=60)
+        title = OldTexText("Implicit Differentiation", font_size=60)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Show examples of explicit vs implicit
-        explicit_label = Text("Explicit Function:", font_size=36, color=BLUE)
+        explicit_label = OldTexText("Explicit Function:", font_size=36, color=BLUE)
         explicit_label.move_to(3 * UP + 3 * LEFT)
         explicit_eq = Tex(R"y = \sqrt{1 - x^2}", font_size=40)
         explicit_eq.next_to(explicit_label, DOWN)
 
-        implicit_label = Text("Implicit Function:", font_size=36, color=GREEN)
+        implicit_label = OldTexText("Implicit Function:", font_size=36, color=GREEN)
         implicit_label.move_to(3 * UP + 3 * RIGHT)
         implicit_eq = Tex(R"x^2 + y^2 = 1", font_size=40)
         implicit_eq.next_to(implicit_label, DOWN)
@@ -74,7 +74,7 @@ class IntroduceImplicitCurve(Scene):
             FadeOut(implicit_label),
             FadeOut(implicit_eq)
         )
-        self.play(Create(plane))
+        self.play(ShowCreation(plane))
         self.wait(0.5)
 
         # Show the equation
@@ -82,7 +82,7 @@ class IntroduceImplicitCurve(Scene):
         equation.next_to(plane, RIGHT, buff=1)
 
         self.play(Write(equation))
-        self.play(Create(circle), run_time=2)
+        self.play(ShowCreation(circle), run_time=2)
         self.wait()
 
         # Show a point on the circle
@@ -116,11 +116,11 @@ class IntroduceImplicitCurve(Scene):
 
         self.play(FadeIn(dot))
         self.wait(0.5)
-        self.play(Create(tangent))
+        self.play(ShowCreation(tangent))
         self.wait()
 
         # Question
-        question = Text("What is the slope of the tangent?", font_size=32, color=RED)
+        question = OldTexText("What is the slope of the tangent?", font_size=32, color=RED)
         question.next_to(equation, DOWN, buff=0.5)
         self.play(Write(question))
         self.wait()
@@ -141,13 +141,13 @@ class ExplicitVsImplicit(Scene):
 
     def construct(self):
         # Title
-        title = Text("Explicit vs Implicit", font_size=52)
+        title = OldTexText("Explicit vs Implicit", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Left side: Explicit
-        explicit_title = Text("Explicit Form", font_size=40, color=BLUE)
+        explicit_title = OldTexText("Explicit Form", font_size=40, color=BLUE)
         explicit_title.move_to(3 * UP + 3.5 * LEFT)
 
         explicit_eq = Tex(R"y = f(x)", font_size=44)
@@ -159,7 +159,7 @@ class ExplicitVsImplicit(Scene):
         explicit_deriv = Tex(R"\frac{dy}{dx} = 2x + 3", font_size=38, color=BLUE)
         explicit_deriv.next_to(explicit_example, DOWN, buff=0.5)
 
-        explicit_label = Text("Direct differentiation", font_size=28, color=GREY)
+        explicit_label = OldTexText("Direct differentiation", font_size=28, color=GREY)
         explicit_label.next_to(explicit_deriv, DOWN, buff=0.3)
 
         explicit_group = VGroup(
@@ -167,7 +167,7 @@ class ExplicitVsImplicit(Scene):
         )
 
         # Right side: Implicit
-        implicit_title = Text("Implicit Form", font_size=40, color=GREEN)
+        implicit_title = OldTexText("Implicit Form", font_size=40, color=GREEN)
         implicit_title.move_to(3 * UP + 3.5 * RIGHT)
 
         implicit_eq = Tex(R"F(x, y) = 0", font_size=44)
@@ -183,7 +183,7 @@ class ExplicitVsImplicit(Scene):
         )
         implicit_deriv.next_to(implicit_example, DOWN, buff=0.5)
 
-        implicit_label = Text("Implicit differentiation", font_size=28, color=GREY)
+        implicit_label = OldTexText("Implicit differentiation", font_size=28, color=GREY)
         implicit_label.next_to(implicit_deriv, DOWN, buff=0.3)
 
         implicit_group = VGroup(
@@ -199,7 +199,7 @@ class ExplicitVsImplicit(Scene):
         self.wait()
 
         # Highlight the challenge
-        challenge = Text(
+        challenge = OldTexText(
             "Sometimes y cannot be solved explicitly!",
             font_size=36,
             color=YELLOW
@@ -216,7 +216,7 @@ class ExplicitVsImplicit(Scene):
 
         self.play(Write(challenge))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(ex) for ex in examples], lag_ratio=0.3))
+        self.play(LaggedStart([Write(ex) for ex in examples], lag_ratio=0.3))
         self.wait(2)
 
         # Clear and show derivatives
@@ -231,7 +231,7 @@ class ExplicitVsImplicit(Scene):
 
         # Highlight the implicit derivative formula
         box = SurroundingRectangle(implicit_deriv, color=YELLOW, buff=0.15)
-        self.play(Create(box))
+        self.play(ShowCreation(box))
         self.wait(2)
 
 
@@ -242,7 +242,7 @@ class DerivativeFormula(Scene):
 
     def construct(self):
         # Title
-        title = Text("The Implicit Differentiation Formula", font_size=50)
+        title = OldTexText("The Implicit Differentiation Formula", font_size=50)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -254,14 +254,14 @@ class DerivativeFormula(Scene):
         self.wait()
 
         # Explain that y is a function of x
-        note = Text("y is implicitly a function of x: y = y(x)", font_size=32, color=GREY)
+        note = OldTexText("y is implicitly a function of x: y = y(x)", font_size=32, color=GREY)
         note.next_to(step1, DOWN, buff=0.4)
         self.play(Write(note))
         self.wait(2)
         self.play(FadeOut(note))
 
         # Take derivative with respect to x
-        step2_label = Text("Differentiate both sides with respect to x:", font_size=32)
+        step2_label = OldTexText("Differentiate both sides with respect to x:", font_size=32)
         step2_label.move_to(1.2 * UP)
 
         step2 = Tex(
@@ -276,7 +276,7 @@ class DerivativeFormula(Scene):
         self.wait()
 
         # Apply chain rule
-        step3_label = Text("Apply the chain rule:", font_size=32)
+        step3_label = OldTexText("Apply the chain rule:", font_size=32)
         step3_label.move_to(0.2 * DOWN)
 
         step3 = Tex(
@@ -292,12 +292,12 @@ class DerivativeFormula(Scene):
 
         # Highlight the dy/dx term
         box1 = SurroundingRectangle(step3[0][19:24], color=YELLOW, buff=0.05)
-        self.play(Create(box1))
+        self.play(ShowCreation(box1))
         self.wait()
         self.play(FadeOut(box1))
 
         # Solve for dy/dx
-        step4_label = Text("Solve for dy/dx:", font_size=32)
+        step4_label = OldTexText("Solve for dy/dx:", font_size=32)
         step4_label.move_to(1.8 * DOWN)
 
         step4 = Tex(
@@ -314,11 +314,11 @@ class DerivativeFormula(Scene):
 
         # Highlight the final formula
         box2 = SurroundingRectangle(step4, color=YELLOW, buff=0.2)
-        self.play(Create(box2))
+        self.play(ShowCreation(box2))
         self.wait(2)
 
         # Alternative notation
-        alt_note = Text("Also written as:", font_size=28, color=GREY)
+        alt_note = OldTexText("Also written as:", font_size=28, color=GREY)
         alt_note.move_to(3.2 * DOWN + 3 * LEFT)
 
         alt_form = Tex(
@@ -338,7 +338,7 @@ class CircleExample(Scene):
 
     def construct(self):
         # Title
-        title = Text("Example: Circle", font_size=52)
+        title = OldTexText("Example: Circle", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -374,7 +374,7 @@ class CircleExample(Scene):
         self.wait()
 
         # Apply the formula
-        formula_label = Text("Apply the formula:", font_size=32)
+        formula_label = OldTexText("Apply the formula:", font_size=32)
         formula_label.move_to(0.8 * DOWN)
 
         formula = Tex(
@@ -391,7 +391,7 @@ class CircleExample(Scene):
 
         # Highlight the result
         box = SurroundingRectangle(formula, color=YELLOW, buff=0.15)
-        self.play(Create(box))
+        self.play(ShowCreation(box))
         self.wait()
 
         # Specific example
@@ -400,7 +400,7 @@ class CircleExample(Scene):
             FadeOut(box)
         )
 
-        example_label = Text("At point (3, 4):", font_size=36)
+        example_label = OldTexText("At point (3, 4):", font_size=36)
         example_label.move_to(2.5 * DOWN + 3 * LEFT)
 
         slope_calc = Tex(
@@ -441,10 +441,10 @@ class CircleExample(Scene):
             stroke_width=2
         )
 
-        self.play(Create(plane), run_time=0.5)
-        self.play(Create(circle), run_time=1)
+        self.play(ShowCreation(plane), run_time=0.5)
+        self.play(ShowCreation(circle), run_time=1)
         self.play(FadeIn(point))
-        self.play(Create(tangent))
+        self.play(ShowCreation(tangent))
         self.wait(3)
 
 

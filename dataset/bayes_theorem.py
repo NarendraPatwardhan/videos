@@ -91,7 +91,7 @@ def create_prob_label(text, prob, color=WHITE, font_size=28):
         VGroup with text and probability
     """
     label = VGroup(
-        Text(text, font_size=font_size, color=color),
+        OldTexText(text, font_size=font_size, color=color),
         Tex(f"= {format_probability(prob)}", font_size=font_size, color=color)
     )
     label.arrange(RIGHT, buff=0.3)
@@ -142,7 +142,7 @@ class ProbabilityIntro(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Bayes' Theorem", font_size=48)
+        title = OldTexText("Bayes' Theorem", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -151,7 +151,7 @@ class ProbabilityIntro(InteractiveScene):
         # ========================================
         # SCENARIO: Medical test problem
         # ========================================
-        scenario_title = Text("Medical Test Scenario", font_size=36, weight=BOLD)
+        scenario_title = OldTexText("Medical Test Scenario", font_size=36, weight=BOLD)
         scenario_title.shift(1.5 * UP)
 
         self.play(Write(scenario_title))
@@ -161,11 +161,11 @@ class ProbabilityIntro(InteractiveScene):
         # FACTS: Set up the problem
         # ========================================
         facts = VGroup(
-            Text("• Disease prevalence: 1% of population", font_size=28),
-            Text("• Test sensitivity: 95% (detects disease when present)", font_size=28),
-            Text("• Test specificity: 90% (negative when disease absent)", font_size=28),
-            Text("", font_size=20),
-            Text("You test POSITIVE. What's the probability you have the disease?",
+            OldTexText("• Disease prevalence: 1% of population", font_size=28),
+            OldTexText("• Test sensitivity: 95% (detects disease when present)", font_size=28),
+            OldTexText("• Test specificity: 90% (negative when disease absent)", font_size=28),
+            OldTexText("", font_size=20),
+            OldTexText("You test POSITIVE. What's the probability you have the disease?",
                  font_size=28, color=YELLOW, weight=BOLD),
         )
         facts.arrange(DOWN, buff=0.4, aligned_edge=LEFT)
@@ -183,7 +183,7 @@ class ProbabilityIntro(InteractiveScene):
         # ========================================
         # INTUITION: Common wrong answer
         # ========================================
-        wrong_answer = Text(
+        wrong_answer = OldTexText(
             "Common intuition: ~95% (test is 95% accurate)",
             font_size=28,
             color=RED
@@ -202,7 +202,7 @@ class ProbabilityIntro(InteractiveScene):
         # ========================================
         # PREVIEW: Actual answer is surprising
         # ========================================
-        hint = Text(
+        hint = OldTexText(
             "The actual answer might surprise you...",
             font_size=32,
             color=GREEN
@@ -241,7 +241,7 @@ class ConditionalProbability(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Probability Tree Diagram", font_size=48)
+        title = OldTexText("Probability Tree Diagram", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -391,7 +391,7 @@ class ConditionalProbability(InteractiveScene):
         # ========================================
         # HIGHLIGHT: Joint probabilities
         # ========================================
-        joint_title = Text("Joint Probabilities (multiply along paths):", font_size=24)
+        joint_title = OldTexText("Joint Probabilities (multiply along paths):", font_size=24)
         joint_title.to_edge(DOWN, buff=2)
 
         joint_calcs = VGroup(
@@ -437,7 +437,7 @@ class BayesFormula(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Deriving Bayes' Theorem", font_size=48)
+        title = OldTexText("Deriving Bayes' Theorem", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -452,7 +452,7 @@ class BayesFormula(InteractiveScene):
         )
         step1.shift(1.5 * UP)
 
-        step1_label = Text("Definition of conditional probability", font_size=24, color=GREY_A)
+        step1_label = OldTexText("Definition of conditional probability", font_size=24, color=GREY_A)
         step1_label.next_to(step1, DOWN, buff=0.3)
 
         self.play(
@@ -470,7 +470,7 @@ class BayesFormula(InteractiveScene):
         )
         step2.next_to(step1_label, DOWN, buff=0.7)
 
-        step2_label = Text("Also from conditional probability", font_size=24, color=GREY_A)
+        step2_label = OldTexText("Also from conditional probability", font_size=24, color=GREY_A)
         step2_label.next_to(step2, DOWN, buff=0.3)
 
         self.play(
@@ -491,7 +491,7 @@ class BayesFormula(InteractiveScene):
 
         box = SurroundingRectangle(step3, buff=0.3, color=YELLOW, stroke_width=4)
 
-        bayes_label = Text("Bayes' Theorem!", font_size=32, color=YELLOW, weight=BOLD)
+        bayes_label = OldTexText("Bayes' Theorem!", font_size=32, color=YELLOW, weight=BOLD)
         bayes_label.next_to(box, DOWN, buff=0.4)
 
         self.play(
@@ -558,7 +558,7 @@ class MedicalTest(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Solving the Medical Test Problem", font_size=48)
+        title = OldTexText("Solving the Medical Test Problem", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -567,7 +567,7 @@ class MedicalTest(InteractiveScene):
         # ========================================
         # REMIND: The question
         # ========================================
-        question = Text(
+        question = OldTexText(
             "You tested positive. What's P(Disease | Positive)?",
             font_size=32,
             color=YELLOW
@@ -652,7 +652,7 @@ class MedicalTest(InteractiveScene):
         # ========================================
         # SURPRISE: Much lower than expected!
         # ========================================
-        surprise = Text(
+        surprise = OldTexText(
             "Only 8.8%, not 95%!",
             font_size=36,
             color=RED,
@@ -668,7 +668,7 @@ class MedicalTest(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects[2:]))  # Keep title and question
 
-        explanation_title = Text("Why So Low?", font_size=40, weight=BOLD)
+        explanation_title = OldTexText("Why So Low?", font_size=40, weight=BOLD)
         explanation_title.shift(1.5 * UP)
 
         self.play(Write(explanation_title))
@@ -705,7 +705,7 @@ class MedicalTest(InteractiveScene):
         true_pos.set_stroke(YELLOW, 2)
         true_pos.move_to(disease_area)
 
-        tp_label = Text("95% test +", font_size=18, color=YELLOW)
+        tp_label = OldTexText("95% test +", font_size=18, color=YELLOW)
         tp_label.move_to(true_pos)
 
         false_pos = Rectangle(width=0.45, height=2.85)
@@ -713,7 +713,7 @@ class MedicalTest(InteractiveScene):
         false_pos.set_stroke(YELLOW, 2)
         false_pos.move_to(no_disease_area).shift(1.575 * LEFT)
 
-        fp_label = Text("10% test +", font_size=18, color=YELLOW)
+        fp_label = OldTexText("10% test +", font_size=18, color=YELLOW)
         fp_label.move_to(false_pos)
 
         self.play(
@@ -726,9 +726,9 @@ class MedicalTest(InteractiveScene):
 
         # The key insight
         insight = VGroup(
-            Text("Key insight:", font_size=28, weight=BOLD),
-            Text("Even though the test is accurate, the disease is rare!", font_size=24),
-            Text("So most positive tests are false positives.", font_size=24),
+            OldTexText("Key insight:", font_size=28, weight=BOLD),
+            OldTexText("Even though the test is accurate, the disease is rare!", font_size=24),
+            OldTexText("So most positive tests are false positives.", font_size=24),
         )
         insight.arrange(DOWN, buff=0.3, aligned_edge=LEFT)
         insight.to_edge(DOWN, buff=0.5)
@@ -746,7 +746,7 @@ class MedicalTest(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects))
 
-        final_message = Text(
+        final_message = OldTexText(
             "Bayes' theorem helps us reason correctly\nabout probability and evidence!",
             font_size=40,
             color=YELLOW,

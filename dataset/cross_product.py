@@ -154,7 +154,7 @@ class IntroduceVectors(ThreeDScene):
         # ========================================
         # SETUP: Title (2D overlay)
         # ========================================
-        title = Text("The Cross Product", font_size=48)
+        title = OldTexText("The Cross Product", font_size=48)
         title.to_edge(UP)
         title.fix_in_frame()
 
@@ -219,7 +219,7 @@ class IntroduceVectors(ThreeDScene):
         # ========================================
         # QUESTION: Find perpendicular vector
         # ========================================
-        question = Text(
+        question = OldTexText(
             "How to find a vector perpendicular to both?",
             font_size=32,
             color=YELLOW
@@ -281,7 +281,7 @@ class RightHandRule(ThreeDScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Right-Hand Rule", font_size=48)
+        title = OldTexText("The Right-Hand Rule", font_size=48)
         title.to_edge(UP)
         title.fix_in_frame()
 
@@ -349,10 +349,10 @@ class RightHandRule(ThreeDScene):
         # EXPLAIN: Right-hand rule
         # ========================================
         explanation = VGroup(
-            Text("Right-Hand Rule:", font_size=28, weight=BOLD),
-            Text("• Point fingers along  a", font_size=24, color=VECTOR_A_COLOR),
-            Text("• Curl toward  b", font_size=24, color=VECTOR_B_COLOR),
-            Text("• Thumb points along  a × b", font_size=24, color=CROSS_PRODUCT_COLOR),
+            OldTexText("Right-Hand Rule:", font_size=28, weight=BOLD),
+            OldTexText("• Point fingers along  a", font_size=24, color=VECTOR_A_COLOR),
+            OldTexText("• Curl toward  b", font_size=24, color=VECTOR_B_COLOR),
+            OldTexText("• Thumb points along  a × b", font_size=24, color=CROSS_PRODUCT_COLOR),
         )
         explanation.arrange(DOWN, buff=0.3, aligned_edge=LEFT)
         explanation.fix_in_frame()
@@ -372,7 +372,7 @@ class RightHandRule(ThreeDScene):
         # ========================================
         self.play(FadeOut(explanation))
 
-        perp_text = Text(
+        perp_text = OldTexText(
             "Perpendicular to both!",
             font_size=32,
             color=YELLOW
@@ -415,7 +415,7 @@ class AreaParallelogram(ThreeDScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Magnitude = Parallelogram Area", font_size=44)
+        title = OldTexText("Magnitude = Parallelogram Area", font_size=44)
         title.to_edge(UP)
         title.fix_in_frame()
 
@@ -452,7 +452,7 @@ class AreaParallelogram(ThreeDScene):
         # ========================================
         parallelogram = create_parallelogram(vec_a, vec_b, PARALLELOGRAM_COLOR)
 
-        para_label = Text(
+        para_label = OldTexText(
             "Parallelogram spanned by a and b",
             font_size=28,
             color=PARALLELOGRAM_COLOR
@@ -512,7 +512,7 @@ class AreaParallelogram(ThreeDScene):
         formula.fix_in_frame()
         formula.to_edge(DOWN, buff=1)
 
-        angle_note = Text(
+        angle_note = OldTexText(
             "θ = angle between vectors",
             font_size=24,
             color=GREY_A
@@ -534,7 +534,7 @@ class AreaParallelogram(ThreeDScene):
             formula.animate.shift(0.3 * UP)
         )
 
-        insight = Text(
+        insight = OldTexText(
             "This is why parallel vectors have zero cross product!",
             font_size=26,
             color=GREEN
@@ -572,7 +572,7 @@ class Properties(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Cross Product: Formula & Properties", font_size=44)
+        title = OldTexText("Cross Product: Formula & Properties", font_size=44)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -581,7 +581,7 @@ class Properties(InteractiveScene):
         # ========================================
         # FORMULA: Determinant form
         # ========================================
-        formula_title = Text("Formula (Determinant Form):", font_size=32, weight=BOLD)
+        formula_title = OldTexText("Formula (Determinant Form):", font_size=32, weight=BOLD)
         formula_title.shift(1.8 * UP)
 
         self.play(Write(formula_title))
@@ -619,7 +619,7 @@ class Properties(InteractiveScene):
             formula_title.animate.shift(2.5 * UP).scale(0.8)
         )
 
-        props_title = Text("Key Properties:", font_size=32, weight=BOLD)
+        props_title = OldTexText("Key Properties:", font_size=32, weight=BOLD)
         props_title.shift(1 * UP)
 
         self.play(Write(props_title))
@@ -656,19 +656,19 @@ class Properties(InteractiveScene):
             FadeOut(props_title)
         )
 
-        apps_title = Text("Applications:", font_size=36, weight=BOLD)
+        apps_title = OldTexText("Applications:", font_size=36, weight=BOLD)
         apps_title.shift(1.5 * UP)
 
         self.play(Write(apps_title))
         self.wait()
 
         applications = VGroup(
-            Text("• Physics: Torque = r × F", font_size=28),
-            Text("• Angular momentum: L = r × p", font_size=28),
-            Text("• Magnetic force: F = q(v × B)", font_size=28),
-            Text("• Computer Graphics: Surface normals", font_size=28),
-            Text("• Rotation: Angular velocity vectors", font_size=28),
-            Text("• Geometry: Area calculations", font_size=28),
+            OldTexText("• Physics: Torque = r × F", font_size=28),
+            OldTexText("• Angular momentum: L = r × p", font_size=28),
+            OldTexText("• Magnetic force: F = q(v × B)", font_size=28),
+            OldTexText("• Computer Graphics: Surface normals", font_size=28),
+            OldTexText("• Rotation: Angular velocity vectors", font_size=28),
+            OldTexText("• Geometry: Area calculations", font_size=28),
         )
         applications.arrange(DOWN, buff=0.35, aligned_edge=LEFT)
         applications.next_to(apps_title, DOWN, buff=0.7)
@@ -687,7 +687,7 @@ class Properties(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects))
 
-        final = Text(
+        final = OldTexText(
             "The cross product: a fundamental tool\nfor 3D geometry and physics!",
             font_size=40,
             color=YELLOW,

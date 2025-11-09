@@ -172,7 +172,7 @@ class IntroduceFunctions(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Convolution: Combining Functions", font_size=48)
+        title = OldTexText("Convolution: Combining Functions", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -247,7 +247,7 @@ class IntroduceFunctions(InteractiveScene):
         # ========================================
         # QUESTION: How to combine?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "How do we combine these functions?",
             font_size=32,
             color=YELLOW
@@ -260,7 +260,7 @@ class IntroduceFunctions(InteractiveScene):
         # ========================================
         # ANSWER: Convolution!
         # ========================================
-        answer = Text(
+        answer = OldTexText(
             "Convolution: (f * g)(t)",
             font_size=36,
             color=CONVOLUTION_COLOR,
@@ -298,7 +298,7 @@ class SlidingProduct(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Flip-and-Slide Procedure", font_size=48)
+        title = OldTexText("The Flip-and-Slide Procedure", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -359,7 +359,7 @@ class SlidingProduct(InteractiveScene):
         # ========================================
         # STEP 1: Flip g to get g(-τ)
         # ========================================
-        instruction1 = Text("Step 1: Flip g to get g(-τ)", font_size=28, color=YELLOW)
+        instruction1 = OldTexText("Step 1: Flip g to get g(-τ)", font_size=28, color=YELLOW)
         instruction1.to_edge(DOWN, buff=1.5)
 
         self.play(Write(instruction1))
@@ -384,7 +384,7 @@ class SlidingProduct(InteractiveScene):
         # ========================================
         self.play(FadeOut(instruction1))
 
-        instruction2 = Text("Step 2: Slide to position t", font_size=28, color=YELLOW)
+        instruction2 = OldTexText("Step 2: Slide to position t", font_size=28, color=YELLOW)
         instruction2.to_edge(DOWN, buff=1.5)
 
         self.play(Write(instruction2))
@@ -499,7 +499,7 @@ class ConvolutionGraph(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Convolution Result", font_size=48)
+        title = OldTexText("The Convolution Result", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -578,7 +578,7 @@ class ConvolutionGraph(InteractiveScene):
         # ========================================
         # HIGHLIGHT: Key features
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "The convolution smooths and spreads the functions!",
             font_size=28,
             color=YELLOW
@@ -615,7 +615,7 @@ class Applications(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Applications of Convolution", font_size=48)
+        title = OldTexText("Applications of Convolution", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -624,19 +624,19 @@ class Applications(InteractiveScene):
         # ========================================
         # LIST: Applications
         # ========================================
-        apps_title = Text("Where Convolution Appears:", font_size=36, weight=BOLD)
+        apps_title = OldTexText("Where Convolution Appears:", font_size=36, weight=BOLD)
         apps_title.shift(1.5 * UP)
 
         self.play(Write(apps_title))
         self.wait()
 
         applications = VGroup(
-            Text("• Signal Processing: Filtering and smoothing", font_size=28),
-            Text("• Image Processing: Blurring, sharpening, edge detection", font_size=28),
-            Text("• Probability: Distribution of sum of random variables", font_size=28),
-            Text("• Physics: System response to input (linear systems)", font_size=28),
-            Text("• Neural Networks: Convolutional layers", font_size=28),
-            Text("• Audio: Reverb and acoustic effects", font_size=28),
+            OldTexText("• Signal Processing: Filtering and smoothing", font_size=28),
+            OldTexText("• Image Processing: Blurring, sharpening, edge detection", font_size=28),
+            OldTexText("• Probability: Distribution of sum of random variables", font_size=28),
+            OldTexText("• Physics: System response to input (linear systems)", font_size=28),
+            OldTexText("• Neural Networks: Convolutional layers", font_size=28),
+            OldTexText("• Audio: Reverb and acoustic effects", font_size=28),
         )
         applications.arrange(DOWN, buff=0.4, aligned_edge=LEFT)
         applications.next_to(apps_title, DOWN, buff=0.8)
@@ -658,7 +658,7 @@ class Applications(InteractiveScene):
             FadeOut(applications)
         )
 
-        formula_title = Text("The Convolution Formula", font_size=36, weight=BOLD)
+        formula_title = OldTexText("The Convolution Formula", font_size=36, weight=BOLD)
         formula_title.shift(1.5 * UP)
 
         self.play(Write(formula_title))
@@ -671,7 +671,7 @@ class Applications(InteractiveScene):
         )
         continuous.shift(0.3 * UP)
 
-        continuous_label = Text("Continuous:", font_size=28)
+        continuous_label = OldTexText("Continuous:", font_size=28)
         continuous_label.next_to(continuous, LEFT, buff=0.5)
 
         self.play(
@@ -687,7 +687,7 @@ class Applications(InteractiveScene):
         )
         discrete.next_to(continuous, DOWN, buff=0.8)
 
-        discrete_label = Text("Discrete:", font_size=28)
+        discrete_label = OldTexText("Discrete:", font_size=28)
         discrete_label.next_to(discrete, LEFT, buff=0.5)
 
         self.play(
@@ -714,7 +714,7 @@ class Applications(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects))
 
-        final = Text(
+        final = OldTexText(
             "Convolution: a fundamental operation\nthat combines functions through overlap!",
             font_size=40,
             color=YELLOW,

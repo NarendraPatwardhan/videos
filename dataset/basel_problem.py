@@ -120,7 +120,7 @@ class IntroduceSeries(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Basel Problem", font_size=48)
+        title = OldTexText("The Basel Problem", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -129,7 +129,7 @@ class IntroduceSeries(InteractiveScene):
         # ========================================
         # INTRODUCE: The series
         # ========================================
-        series_title = Text("Sum of reciprocal squares:", font_size=36)
+        series_title = OldTexText("Sum of reciprocal squares:", font_size=36)
         series_title.shift(1.5 * UP)
 
         self.play(Write(series_title))
@@ -163,9 +163,9 @@ class IntroduceSeries(InteractiveScene):
         # HISTORY: Famous problem
         # ========================================
         history = VGroup(
-            Text("• Posed in 1644", font_size=28),
-            Text("• Resisted many mathematicians", font_size=28),
-            Text("• Solved by Euler in 1734", font_size=28, color=YELLOW),
+            OldTexText("• Posed in 1644", font_size=28),
+            OldTexText("• Resisted many mathematicians", font_size=28),
+            OldTexText("• Solved by Euler in 1734", font_size=28, color=YELLOW),
         )
         history.arrange(DOWN, buff=0.3, aligned_edge=LEFT)
         history.to_edge(DOWN, buff=1)
@@ -181,7 +181,7 @@ class IntroduceSeries(InteractiveScene):
         # ========================================
         # QUESTION: What's the sum?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "What does this sum equal?",
             font_size=36,
             color=YELLOW,
@@ -219,7 +219,7 @@ class PartialSums(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Partial Sums", font_size=48)
+        title = OldTexText("Partial Sums", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -228,7 +228,7 @@ class PartialSums(InteractiveScene):
         # ========================================
         # CREATE: Table of partial sums
         # ========================================
-        table_title = Text("Computing partial sums:", font_size=32)
+        table_title = OldTexText("Computing partial sums:", font_size=32)
         table_title.shift(2 * UP + 3 * LEFT)
 
         self.play(Write(table_title))
@@ -264,7 +264,7 @@ class PartialSums(InteractiveScene):
         # ========================================
         # OBSERVATION
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "Converging to approximately 1.6449...",
             font_size=28,
             color=YELLOW
@@ -292,7 +292,7 @@ class PartialSums(InteractiveScene):
         )
         axes.shift(0.5 * DOWN)
 
-        x_label = Text("n (number of terms)", font_size=24)
+        x_label = OldTexText("n (number of terms)", font_size=24)
         x_label.next_to(axes.x_axis, DOWN, buff=0.3)
 
         y_label = Tex("S_n", font_size=28)
@@ -372,7 +372,7 @@ class SurprisingResult(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Euler's Remarkable Discovery", font_size=48)
+        title = OldTexText("Euler's Remarkable Discovery", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -438,7 +438,7 @@ class SurprisingResult(InteractiveScene):
         # ========================================
         # SURPRISE: Why π?
         # ========================================
-        surprise = Text(
+        surprise = OldTexText(
             "But why does π appear in a sum of fractions?!",
             font_size=32,
             color=YELLOW,
@@ -477,7 +477,7 @@ class VisualIntuition(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Why Does π Appear?", font_size=48)
+        title = OldTexText("Why Does π Appear?", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -486,7 +486,7 @@ class VisualIntuition(InteractiveScene):
         # ========================================
         # EULER'S APPROACH: Via sine function
         # ========================================
-        approach_title = Text("Euler's Brilliant Insight:", font_size=36, weight=BOLD)
+        approach_title = OldTexText("Euler's Brilliant Insight:", font_size=36, weight=BOLD)
         approach_title.shift(1.5 * UP)
 
         self.play(Write(approach_title))
@@ -511,7 +511,7 @@ class VisualIntuition(InteractiveScene):
         )
         infinite_product.next_to(sine_expansion, DOWN, buff=0.7)
 
-        product_label = Text(
+        product_label = OldTexText(
             "Infinite product (roots at ±nπ)",
             font_size=24,
             color=GREY_A
@@ -533,7 +533,7 @@ class VisualIntuition(InteractiveScene):
             FadeOut(product_label)
         )
 
-        key_idea = Text("Key: Compare x² coefficients!", font_size=32, color=YELLOW)
+        key_idea = OldTexText("Key: Compare x² coefficients!", font_size=32, color=YELLOW)
         key_idea.next_to(approach_title, DOWN, buff=0.7)
 
         self.play(Write(key_idea))
@@ -575,7 +575,7 @@ class VisualIntuition(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects[2:]))  # Keep title and approach_title
 
-        gen_title = Text("Generalizations:", font_size=36, weight=BOLD)
+        gen_title = OldTexText("Generalizations:", font_size=36, weight=BOLD)
         gen_title.move_to(approach_title)
 
         self.play(Transform(approach_title, gen_title))
@@ -587,8 +587,8 @@ class VisualIntuition(InteractiveScene):
             Tex(R"\zeta(2) = \frac{\pi^2}{6} \approx 1.645", font_size=28),
             Tex(R"\zeta(4) = \frac{\pi^4}{90} \approx 1.082", font_size=28),
             Tex(R"\zeta(6) = \frac{\pi^6}{945} \approx 1.017", font_size=28),
-            Text("All even integers have closed forms involving π!", font_size=26, color=YELLOW),
-            Text("Odd integers (except 1) remain mysterious...", font_size=26, color=RED),
+            OldTexText("All even integers have closed forms involving π!", font_size=26, color=YELLOW),
+            OldTexText("Odd integers (except 1) remain mysterious...", font_size=26, color=RED),
         )
         generalizations.arrange(DOWN, buff=0.4, aligned_edge=LEFT)
         generalizations.next_to(approach_title, DOWN, buff=0.8)
@@ -608,9 +608,9 @@ class VisualIntuition(InteractiveScene):
         self.play(FadeOut(*self.mobjects))
 
         final = VGroup(
-            Text("The Basel Problem:", font_size=36, weight=BOLD),
+            OldTexText("The Basel Problem:", font_size=36, weight=BOLD),
             Tex(R"\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}", font_size=48, color=PI_COLOR),
-            Text("One of mathematics' most beautiful surprises!", font_size=32, color=YELLOW),
+            OldTexText("One of mathematics' most beautiful surprises!", font_size=32, color=YELLOW),
         )
         final.arrange(DOWN, buff=0.5)
         final.move_to(ORIGIN)

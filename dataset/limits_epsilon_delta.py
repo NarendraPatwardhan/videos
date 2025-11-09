@@ -168,7 +168,7 @@ class InformalLimit(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("What is a Limit?", font_size=48)
+        title = OldTexText("What is a Limit?", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -257,7 +257,7 @@ class InformalLimit(InteractiveScene):
         # ========================================
         # EXPLANATION
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "As x gets closer to 2, x² gets closer to 4",
             font_size=28
         )
@@ -269,7 +269,7 @@ class InformalLimit(InteractiveScene):
         # ========================================
         # QUESTION: How to make this precise?
         # ========================================
-        question = Text(
+        question = OldTexText(
             'But what does "closer" mean precisely?',
             font_size=32,
             color=RED
@@ -306,7 +306,7 @@ class EpsilonDelta(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Epsilon-Delta Definition", font_size=48)
+        title = OldTexText("The Epsilon-Delta Definition", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -324,7 +324,7 @@ class EpsilonDelta(InteractiveScene):
         self.play(Write(definition))
         self.wait()
 
-        means_text = Text("means:", font_size=32)
+        means_text = OldTexText("means:", font_size=32)
         means_text.next_to(definition, DOWN, buff=0.5)
 
         self.play(Write(means_text))
@@ -357,17 +357,17 @@ class EpsilonDelta(InteractiveScene):
             VGroup(definition, means_text, formal).animate.scale(0.7).to_corner(UL, buff=0.5)
         )
 
-        explanation_title = Text("Breaking it down:", font_size=36, weight=BOLD)
+        explanation_title = OldTexText("Breaking it down:", font_size=36, weight=BOLD)
         explanation_title.shift(1.5 * UP)
 
         self.play(Write(explanation_title))
         self.wait()
 
         explanations = VGroup(
-            Text("∀ε > 0: For ANY distance ε from the limit L", font_size=26),
-            Text("∃δ > 0: We can find a distance δ from a", font_size=26),
-            Text("Such that: Whenever x is within δ of a...", font_size=26),
-            Text("Then: f(x) is within ε of L", font_size=26),
+            OldTexText("∀ε > 0: For ANY distance ε from the limit L", font_size=26),
+            OldTexText("∃δ > 0: We can find a distance δ from a", font_size=26),
+            OldTexText("Such that: Whenever x is within δ of a...", font_size=26),
+            OldTexText("Then: f(x) is within ε of L", font_size=26),
         )
         explanations.arrange(DOWN, buff=0.4, aligned_edge=LEFT)
         explanations.next_to(explanation_title, DOWN, buff=0.7)
@@ -390,17 +390,17 @@ class EpsilonDelta(InteractiveScene):
         # ========================================
         self.play(FadeOut(explanations))
 
-        analogy_title = Text("Think of it as a game:", font_size=32, weight=BOLD)
+        analogy_title = OldTexText("Think of it as a game:", font_size=32, weight=BOLD)
         analogy_title.next_to(explanation_title, DOWN, buff=0.7)
 
         self.play(Write(analogy_title))
         self.wait()
 
         game_steps = VGroup(
-            Text("1. Challenger picks any ε > 0 (how close to L)", font_size=26, color=EPSILON_COLOR),
-            Text("2. You must respond with δ > 0 (how close to a)", font_size=26, color=DELTA_COLOR),
-            Text("3. If x is within δ of a, then f(x) is within ε of L", font_size=26),
-            Text("4. You win if you can always respond successfully!", font_size=26, color=GREEN),
+            OldTexText("1. Challenger picks any ε > 0 (how close to L)", font_size=26, color=EPSILON_COLOR),
+            OldTexText("2. You must respond with δ > 0 (how close to a)", font_size=26, color=DELTA_COLOR),
+            OldTexText("3. If x is within δ of a, then f(x) is within ε of L", font_size=26),
+            OldTexText("4. You win if you can always respond successfully!", font_size=26, color=GREEN),
         )
         game_steps.arrange(DOWN, buff=0.4, aligned_edge=LEFT)
         game_steps.next_to(analogy_title, DOWN, buff=0.5)
@@ -442,7 +442,7 @@ class VisualProof(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Visualizing Epsilon and Delta", font_size=48)
+        title = OldTexText("Visualizing Epsilon and Delta", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -540,7 +540,7 @@ class VisualProof(InteractiveScene):
         # ========================================
         # OBSERVE: Graph stays in epsilon band
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "When x is in δ-band, f(x) stays in ε-band!",
             font_size=26,
             color=GREEN
@@ -566,7 +566,7 @@ class VisualProof(InteractiveScene):
         # ========================================
         self.play(FadeOut(observation))
 
-        shrink_text = Text(
+        shrink_text = OldTexText(
             "Works for smaller ε too!",
             font_size=26,
             color=YELLOW
@@ -640,7 +640,7 @@ class WorkingExample(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Complete Proof Example", font_size=48)
+        title = OldTexText("Complete Proof Example", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -662,7 +662,7 @@ class WorkingExample(InteractiveScene):
         # ========================================
         # PROOF: Step by step
         # ========================================
-        proof_title = Text("Proof:", font_size=32, weight=BOLD)
+        proof_title = OldTexText("Proof:", font_size=32, weight=BOLD)
         proof_title.next_to(statement, DOWN, buff=0.7, aligned_edge=LEFT)
         proof_title.shift(0.5 * LEFT)
 
@@ -760,17 +760,17 @@ class WorkingExample(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects[2:]))  # Keep title and statement
 
-        summary_title = Text("Key Insight:", font_size=36, weight=BOLD)
+        summary_title = OldTexText("Key Insight:", font_size=36, weight=BOLD)
         summary_title.shift(0.5 * UP)
 
         self.play(Write(summary_title))
         self.wait()
 
         summary = VGroup(
-            Text("We factored |x² - 4| to relate it to |x - 2|", font_size=26),
-            Text("We bounded |x + 2| by assuming |x - 2| < 1", font_size=26),
-            Text("This gave us δ = min(1, ε/5)", font_size=26),
-            Text("The min ensures both conditions are satisfied", font_size=26),
+            OldTexText("We factored |x² - 4| to relate it to |x - 2|", font_size=26),
+            OldTexText("We bounded |x + 2| by assuming |x - 2| < 1", font_size=26),
+            OldTexText("This gave us δ = min(1, ε/5)", font_size=26),
+            OldTexText("The min ensures both conditions are satisfied", font_size=26),
         )
         summary.arrange(DOWN, buff=0.3, aligned_edge=LEFT)
         summary.next_to(summary_title, DOWN, buff=0.5)
@@ -789,7 +789,7 @@ class WorkingExample(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects))
 
-        final = Text(
+        final = OldTexText(
             "The ε-δ definition makes limits\nrigorous and precise!",
             font_size=40,
             color=YELLOW,

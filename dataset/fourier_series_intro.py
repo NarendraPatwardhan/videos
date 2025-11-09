@@ -157,7 +157,7 @@ class TargetWave(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Fourier Series: Building a Square Wave", font_size=48)
+        title = OldTexText("Fourier Series: Building a Square Wave", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -194,9 +194,9 @@ class TargetWave(InteractiveScene):
         # HIGHLIGHT: Properties
         # ========================================
         properties = VGroup(
-            Text("• Discontinuous jumps", font_size=28),
-            Text("• Sharp corners", font_size=28),
-            Text("• Period = 2π", font_size=28)
+            OldTexText("• Discontinuous jumps", font_size=28),
+            OldTexText("• Sharp corners", font_size=28),
+            OldTexText("• Period = 2π", font_size=28)
         )
         properties.arrange(DOWN, aligned_edge=LEFT, buff=0.2)
         properties.to_edge(LEFT, buff=1)
@@ -208,7 +208,7 @@ class TargetWave(InteractiveScene):
         # ========================================
         # QUESTION: Can we build this?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "Can we build this from smooth sine waves?",
             font_size=36,
             color=YELLOW
@@ -239,7 +239,7 @@ class AddSineWaves(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Harmonics", font_size=48)
+        title = OldTexText("The Harmonics", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -292,7 +292,7 @@ class AddSineWaves(InteractiveScene):
         # ========================================
         # INSIGHT: Pattern
         # ========================================
-        pattern = Text(
+        pattern = OldTexText(
             "Only odd frequencies: 1, 3, 5, 7, ...\nAmplitudes decrease: 1, 1/3, 1/5, 1/7, ...",
             font_size=28,
             color=GREY_A
@@ -323,7 +323,7 @@ class ConvergenceToSquare(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Building the Square Wave", font_size=48)
+        title = OldTexText("Building the Square Wave", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -348,7 +348,7 @@ class ConvergenceToSquare(InteractiveScene):
             stroke_opacity=0.3
         )
 
-        target_label = Text("Target", font_size=28, color=BLUE)
+        target_label = OldTexText("Target", font_size=28, color=BLUE)
         target_label.to_corner(UL, buff=0.5)
         target_label.shift(0.5 * DOWN)
 
@@ -399,7 +399,7 @@ class ConvergenceToSquare(InteractiveScene):
         # ========================================
         # FINALE: Very close!
         # ========================================
-        result = Text(
+        result = OldTexText(
             "As n → ∞, we get the exact square wave!",
             font_size=36,
             color=YELLOW
@@ -430,7 +430,7 @@ class GeneralPrinciple(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Fourier Series", font_size=48)
+        title = OldTexText("The Fourier Series", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -453,7 +453,7 @@ class GeneralPrinciple(InteractiveScene):
         # ========================================
         # EXPLANATION: What this means
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "Any periodic function can be written\nas a sum of sines and cosines!",
             font_size=32,
             color=GREEN
@@ -479,12 +479,12 @@ class GeneralPrinciple(InteractiveScene):
         # APPLICATIONS: Why this matters
         # ========================================
         applications = VGroup(
-            Text("Applications:", font_size=32, weight=BOLD),
-            Text("• Signal processing", font_size=28),
-            Text("• Audio compression (MP3)", font_size=28),
-            Text("• Image compression (JPEG)", font_size=28),
-            Text("• Solving differential equations", font_size=28),
-            Text("• Quantum mechanics", font_size=28)
+            OldTexText("Applications:", font_size=32, weight=BOLD),
+            OldTexText("• Signal processing", font_size=28),
+            OldTexText("• Audio compression (MP3)", font_size=28),
+            OldTexText("• Image compression (JPEG)", font_size=28),
+            OldTexText("• Solving differential equations", font_size=28),
+            OldTexText("• Quantum mechanics", font_size=28)
         )
         applications.arrange(DOWN, aligned_edge=LEFT, buff=0.2)
         applications.to_edge(DOWN, buff=0.5)

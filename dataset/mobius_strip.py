@@ -143,7 +143,7 @@ class ConstructStrip(ThreeDScene):
         # ========================================
         # TITLE (2D overlay)
         # ========================================
-        title = Text("Constructing a Möbius Strip", font_size=48)
+        title = OldTexText("Constructing a Möbius Strip", font_size=48)
         title.to_edge(UP)
         title.fix_in_frame()
         self.add(title)
@@ -162,7 +162,7 @@ class ConstructStrip(ThreeDScene):
         strip.set_fill(BLUE, opacity=0.8)
         strip.set_stroke(WHITE, width=1, opacity=0.8)
 
-        instruction = Text("Start with a rectangular strip", font_size=28)
+        instruction = OldTexText("Start with a rectangular strip", font_size=28)
         instruction.next_to(title, DOWN, buff=0.3)
         instruction.fix_in_frame()
 
@@ -186,7 +186,7 @@ class ConstructStrip(ThreeDScene):
         # ========================================
         # TWIST: Add half-twist
         # ========================================
-        twist_instruction = Text("Add a half-twist (180°)", font_size=28)
+        twist_instruction = OldTexText("Add a half-twist (180°)", font_size=28)
         twist_instruction.next_to(title, DOWN, buff=0.3)
         twist_instruction.fix_in_frame()
 
@@ -210,7 +210,7 @@ class ConstructStrip(ThreeDScene):
         # ========================================
         self.play(FadeOut(twist_instruction))
 
-        join_instruction = Text("Join the ends together", font_size=28, color=GREEN)
+        join_instruction = OldTexText("Join the ends together", font_size=28, color=GREEN)
         join_instruction.next_to(title, DOWN, buff=0.3)
         join_instruction.fix_in_frame()
 
@@ -222,7 +222,7 @@ class ConstructStrip(ThreeDScene):
         # ========================================
         self.play(FadeOut(join_instruction))
 
-        result = Text("Result: Möbius Strip!", font_size=32, color=YELLOW)
+        result = OldTexText("Result: Möbius Strip!", font_size=32, color=YELLOW)
         result.to_edge(DOWN).shift(UP * 0.5)
         result.fix_in_frame()
 
@@ -250,7 +250,7 @@ class OneEdgeSurface(ThreeDScene):
         # ========================================
         # SETUP
         # ========================================
-        title = Text("One Edge, One Surface", font_size=42)
+        title = OldTexText("One Edge, One Surface", font_size=42)
         title.to_edge(UP)
         title.fix_in_frame()
 
@@ -266,7 +266,7 @@ class OneEdgeSurface(ThreeDScene):
         # ========================================
         # CLAIM: One edge
         # ========================================
-        claim = Text("Claim: This surface has only ONE edge", font_size=28)
+        claim = OldTexText("Claim: This surface has only ONE edge", font_size=28)
         claim.next_to(title, DOWN, buff=0.3)
         claim.fix_in_frame()
 
@@ -278,7 +278,7 @@ class OneEdgeSurface(ThreeDScene):
         # ========================================
         self.play(FadeOut(claim))
 
-        trace_instruction = Text("Let's trace along the edge...", font_size=28, color=YELLOW)
+        trace_instruction = OldTexText("Let's trace along the edge...", font_size=28, color=YELLOW)
         trace_instruction.next_to(title, DOWN, buff=0.3)
         trace_instruction.fix_in_frame()
 
@@ -307,9 +307,9 @@ class OneEdgeSurface(ThreeDScene):
         self.play(FadeOut(trace_instruction))
 
         observation = VGroup(
-            Text("We went around twice and", font_size=24),
-            Text("returned to the start!", font_size=24, color=GREEN),
-            Text("It's a single continuous edge", font_size=24, color=GREEN),
+            OldTexText("We went around twice and", font_size=24),
+            OldTexText("returned to the start!", font_size=24, color=GREEN),
+            OldTexText("It's a single continuous edge", font_size=24, color=GREEN),
         )
         observation.arrange(DOWN, buff=0.2)
         observation.to_edge(DOWN).shift(UP * 0.5)
@@ -341,7 +341,7 @@ class AntWalking(ThreeDScene):
         # ========================================
         # SETUP
         # ========================================
-        title = Text("The Ant Experiment", font_size=42)
+        title = OldTexText("The Ant Experiment", font_size=42)
         title.to_edge(UP)
         title.fix_in_frame()
 
@@ -357,7 +357,7 @@ class AntWalking(ThreeDScene):
         # ========================================
         # INTRODUCE ANT
         # ========================================
-        intro = Text("Imagine an ant walking on the surface", font_size=28)
+        intro = OldTexText("Imagine an ant walking on the surface", font_size=28)
         intro.next_to(title, DOWN, buff=0.3)
         intro.fix_in_frame()
 
@@ -387,7 +387,7 @@ class AntWalking(ThreeDScene):
         # ========================================
         self.play(FadeOut(intro))
 
-        walking = Text("The ant walks around the strip...", font_size=28, color=YELLOW)
+        walking = OldTexText("The ant walks around the strip...", font_size=28, color=YELLOW)
         walking.next_to(title, DOWN, buff=0.3)
         walking.fix_in_frame()
 
@@ -439,8 +439,8 @@ class AntWalking(ThreeDScene):
         self.play(FadeOut(walking))
 
         result = VGroup(
-            Text("The ant returned to the start", font_size=26),
-            Text("but it's UPSIDE-DOWN!", font_size=26, color=RED),
+            OldTexText("The ant returned to the start", font_size=26),
+            OldTexText("but it's UPSIDE-DOWN!", font_size=26, color=RED),
         )
         result.arrange(DOWN, buff=0.2)
         result.to_edge(DOWN).shift(UP * 0.5)
@@ -470,7 +470,7 @@ class NonOrientable(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Non-Orientable Surface", font_size=42)
+        title = OldTexText("Non-Orientable Surface", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -478,11 +478,11 @@ class NonOrientable(Scene):
         # ========================================
         # DEFINITION
         # ========================================
-        definition = Text(
+        definition = OldTexText(
             "A surface is non-orientable if there's no consistent",
             font_size=28
         )
-        definition2 = Text(
+        definition2 = OldTexText(
             'notion of "up" and "down" everywhere on it',
             font_size=28
         )
@@ -499,11 +499,11 @@ class NonOrientable(Scene):
         # KEY PROPERTIES
         # ========================================
         properties = VGroup(
-            Text("Möbius Strip Properties:", font_size=32, color=YELLOW),
-            Text("• One surface (one-sided)", font_size=26),
-            Text("• One edge", font_size=26),
-            Text("• Non-orientable", font_size=26),
-            Text("• If you cut it down the middle... try it!", font_size=26, color=GREY_A),
+            OldTexText("Möbius Strip Properties:", font_size=32, color=YELLOW),
+            OldTexText("• One surface (one-sided)", font_size=26),
+            OldTexText("• One edge", font_size=26),
+            OldTexText("• Non-orientable", font_size=26),
+            OldTexText("• If you cut it down the middle... try it!", font_size=26, color=GREY_A),
         )
         properties.arrange(DOWN, buff=0.3, aligned_edge=LEFT)
         properties.next_to(def_group, DOWN, buff=0.8)
@@ -519,13 +519,13 @@ class NonOrientable(Scene):
         # ========================================
         self.play(FadeOut(def_group))
 
-        comparison_title = Text("Compare to a Cylinder:", font_size=28, color=BLUE)
+        comparison_title = OldTexText("Compare to a Cylinder:", font_size=28, color=BLUE)
         comparison_title.next_to(title, DOWN, buff=0.6)
 
         comparison = VGroup(
-            Text("• Two surfaces (inside and outside)", font_size=24),
-            Text("• Two edges (top and bottom)", font_size=24),
-            Text("• Orientable (has clear inside/outside)", font_size=24),
+            OldTexText("• Two surfaces (inside and outside)", font_size=24),
+            OldTexText("• Two edges (top and bottom)", font_size=24),
+            OldTexText("• Orientable (has clear inside/outside)", font_size=24),
         )
         comparison.arrange(DOWN, buff=0.25, aligned_edge=LEFT)
         comparison.next_to(comparison_title, DOWN, buff=0.4)
@@ -546,16 +546,16 @@ class NonOrientable(Scene):
             FadeOut(comparison)
         )
 
-        topology_title = Text("Welcome to Topology!", font_size=36, color=GREEN)
+        topology_title = OldTexText("Welcome to Topology!", font_size=36, color=GREEN)
         topology_title.move_to(ORIGIN + UP * 0.5)
 
         self.play(Write(topology_title))
         self.wait()
 
         topology_desc = VGroup(
-            Text("The study of properties that remain", font_size=26),
-            Text("unchanged under continuous deformation", font_size=26),
-            Text("(stretching, bending, but not tearing)", font_size=26, color=GREY_A),
+            OldTexText("The study of properties that remain", font_size=26),
+            OldTexText("unchanged under continuous deformation", font_size=26),
+            OldTexText("(stretching, bending, but not tearing)", font_size=26, color=GREY_A),
         )
         topology_desc.arrange(DOWN, buff=0.2)
         topology_desc.next_to(topology_title, DOWN, buff=0.5)
@@ -569,7 +569,7 @@ class NonOrientable(Scene):
         # ========================================
         # FINAL THOUGHT
         # ========================================
-        final = Text(
+        final = OldTexText(
             "The Möbius strip: Simple to make, profound to understand",
             font_size=24,
             color=YELLOW

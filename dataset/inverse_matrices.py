@@ -175,7 +175,7 @@ class IntroduceSystem(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Matrix Inverse and Linear Systems", font_size=42)
+        title = OldTexText("Matrix Inverse and Linear Systems", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -183,7 +183,7 @@ class IntroduceSystem(Scene):
         # ========================================
         # LINEAR SYSTEM
         # ========================================
-        system_label = Text("System of equations:", font_size=28)
+        system_label = OldTexText("System of equations:", font_size=28)
         system_label.next_to(title, DOWN, buff=0.6)
 
         system = VGroup(
@@ -203,19 +203,19 @@ class IntroduceSystem(Scene):
         # ========================================
         # MATRIX FORM
         # ========================================
-        matrix_label = Text("Matrix form:", font_size=28)
+        matrix_label = OldTexText("Matrix form:", font_size=28)
         matrix_label.next_to(system, DOWN, buff=0.8)
 
         # Create matrix equation
-        A_entries = [[Text("2"), Text("1")], [Text("1"), Text("2")]]
+        A_entries = [[OldTexText("2"), OldTexText("1")], [OldTexText("1"), OldTexText("2")]]
         A_matrix = Matrix(A_entries, bracket_h_buff=0.1, bracket_v_buff=0.1)
         A_matrix.set_color(BLUE)
 
-        x_vec = Matrix([[Text("x")], [Text("y")]], bracket_h_buff=0.05, bracket_v_buff=0.1)
+        x_vec = Matrix([[OldTexText("x")], [OldTexText("y")]], bracket_h_buff=0.05, bracket_v_buff=0.1)
 
         equals = Tex("=")
 
-        b_vec = Matrix([[Text("5")], [Text("4")]], bracket_h_buff=0.05, bracket_v_buff=0.1)
+        b_vec = Matrix([[OldTexText("5")], [OldTexText("4")]], bracket_h_buff=0.05, bracket_v_buff=0.1)
         b_vec.set_color(GREEN)
 
         matrix_eq = VGroup(A_matrix, x_vec, equals, b_vec)
@@ -243,7 +243,7 @@ class IntroduceSystem(Scene):
         # ========================================
         # QUESTION
         # ========================================
-        question = Text(
+        question = OldTexText(
             "How do we solve for x?",
             font_size=28,
             color=WHITE
@@ -266,7 +266,7 @@ class InverseTransform(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Inverse Transformation", font_size=42)
+        title = OldTexText("The Inverse Transformation", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -276,7 +276,7 @@ class InverseTransform(Scene):
         # ========================================
         original_grid = create_grid(color=BLUE, opacity=0.5)
 
-        grid_label = Text("Original space", font_size=24, color=BLUE)
+        grid_label = OldTexText("Original space", font_size=24, color=BLUE)
         grid_label.to_edge(DOWN).shift(UP * 0.5)
 
         self.play(ShowCreation(original_grid))
@@ -354,7 +354,7 @@ class InverseTransform(Scene):
         # ========================================
         self.play(FadeOut(inverse_label))
 
-        result = Text(
+        result = OldTexText(
             "Back to the original space!",
             font_size=28,
             color=GREEN
@@ -390,7 +390,7 @@ class SolvingEquations(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Solving with the Inverse", font_size=42)
+        title = OldTexText("Solving with the Inverse", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -410,7 +410,7 @@ class SolvingEquations(Scene):
         # ========================================
         # MULTIPLY BY A⁻¹
         # ========================================
-        step1_text = Text("Multiply both sides by A⁻¹:", font_size=28)
+        step1_text = OldTexText("Multiply both sides by A⁻¹:", font_size=28)
         step1_text.next_to(original, DOWN, buff=0.6)
 
         self.play(FadeIn(step1_text, shift=DOWN))
@@ -428,7 +428,7 @@ class SolvingEquations(Scene):
         # ========================================
         # SIMPLIFY: A⁻¹A = I
         # ========================================
-        step2_text = Text("Since A⁻¹A = I:", font_size=28)
+        step2_text = OldTexText("Since A⁻¹A = I:", font_size=28)
         step2_text.next_to(step1, DOWN, buff=0.6)
 
         self.play(FadeIn(step2_text, shift=DOWN))
@@ -446,7 +446,7 @@ class SolvingEquations(Scene):
         # ========================================
         # FINAL: x = A⁻¹b
         # ========================================
-        step3_text = Text("And Ix = x, so:", font_size=28)
+        step3_text = OldTexText("And Ix = x, so:", font_size=28)
         step3_text.next_to(step2, DOWN, buff=0.6)
 
         self.play(FadeIn(step3_text, shift=DOWN))
@@ -477,7 +477,7 @@ class SolvingEquations(Scene):
             FadeOut(step3_text)
         )
 
-        example_title = Text("Example:", font_size=32, color=YELLOW)
+        example_title = OldTexText("Example:", font_size=32, color=YELLOW)
         example_title.next_to(title, DOWN, buff=0.6)
 
         self.play(
@@ -541,7 +541,7 @@ class NonInvertible(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("When is a Matrix NOT Invertible?", font_size=38)
+        title = OldTexText("When is a Matrix NOT Invertible?", font_size=38)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -549,7 +549,7 @@ class NonInvertible(Scene):
         # ========================================
         # INVERTIBLE CONDITION
         # ========================================
-        condition = Text(
+        condition = OldTexText(
             "A matrix is invertible if and only if det(A) ≠ 0",
             font_size=28,
             color=YELLOW
@@ -562,7 +562,7 @@ class NonInvertible(Scene):
         # ========================================
         # SINGULAR MATRIX EXAMPLE
         # ========================================
-        singular_title = Text("Singular (non-invertible) matrix:", font_size=26, color=RED)
+        singular_title = OldTexText("Singular (non-invertible) matrix:", font_size=26, color=RED)
         singular_title.next_to(condition, DOWN, buff=0.8)
 
         singular_display = Tex(
@@ -595,7 +595,7 @@ class NonInvertible(Scene):
             FadeOut(det_calc)
         )
 
-        geo_title = Text("Geometric interpretation:", font_size=28)
+        geo_title = OldTexText("Geometric interpretation:", font_size=28)
         geo_title.next_to(condition, DOWN, buff=0.6)
 
         self.play(Write(geo_title))
@@ -610,7 +610,7 @@ class NonInvertible(Scene):
         self.wait()
 
         # Show transformation collapsing to a line
-        collapse_text = Text(
+        collapse_text = OldTexText(
             "This matrix collapses 2D space onto a line!",
             font_size=24,
             color=RED
@@ -632,11 +632,11 @@ class NonInvertible(Scene):
         self.play(FadeOut(collapse_text))
 
         consequence = VGroup(
-            Text("Consequences:", font_size=26, color=WHITE),
-            Text("• Cannot reverse this transformation", font_size=22),
-            Text("• Lost information (flattened dimension)", font_size=22),
-            Text("• No unique solution to Ax = b", font_size=22),
-            Text("• Either no solution or infinite solutions", font_size=22),
+            OldTexText("Consequences:", font_size=26, color=WHITE),
+            OldTexText("• Cannot reverse this transformation", font_size=22),
+            OldTexText("• Lost information (flattened dimension)", font_size=22),
+            OldTexText("• No unique solution to Ax = b", font_size=22),
+            OldTexText("• Either no solution or infinite solutions", font_size=22),
         )
         consequence.arrange(DOWN, buff=0.25, aligned_edge=LEFT)
         consequence.to_edge(DOWN).shift(UP * 0.3)
@@ -653,14 +653,14 @@ class NonInvertible(Scene):
         self.play(FadeOut(grid), FadeOut(geo_title), FadeOut(consequence))
 
         summary = VGroup(
-            Text("Summary:", font_size=32, color=GREEN),
-            Text("Invertible (det ≠ 0):", font_size=24),
-            Text("  • Unique solution x = A⁻¹b", font_size=22),
-            Text("  • Transformation is reversible", font_size=22),
-            Text("Non-invertible (det = 0):", font_size=24, color=RED),
-            Text("  • No inverse exists", font_size=22),
-            Text("  • Collapses space", font_size=22),
-            Text("  • No unique solution", font_size=22),
+            OldTexText("Summary:", font_size=32, color=GREEN),
+            OldTexText("Invertible (det ≠ 0):", font_size=24),
+            OldTexText("  • Unique solution x = A⁻¹b", font_size=22),
+            OldTexText("  • Transformation is reversible", font_size=22),
+            OldTexText("Non-invertible (det = 0):", font_size=24, color=RED),
+            OldTexText("  • No inverse exists", font_size=22),
+            OldTexText("  • Collapses space", font_size=22),
+            OldTexText("  • No unique solution", font_size=22),
         )
         summary.arrange(DOWN, buff=0.2, aligned_edge=LEFT)
         summary.next_to(condition, DOWN, buff=0.6)

@@ -23,13 +23,13 @@ class FromSeriesToTransform(Scene):
 
     def construct(self):
         # Title
-        title = Text("From Fourier Series to Fourier Transform", font_size=48)
+        title = OldTexText("From Fourier Series to Fourier Transform", font_size=48)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Fourier Series recap
-        series_title = Text("Fourier Series (Periodic)", font_size=36, color=BLUE)
+        series_title = OldTexText("Fourier Series (Periodic)", font_size=36, color=BLUE)
         series_title.move_to(2.5 * UP + 3.5 * LEFT)
 
         series_eq = Tex(
@@ -38,7 +38,7 @@ class FromSeriesToTransform(Scene):
         )
         series_eq.next_to(series_title, DOWN, buff=0.4)
 
-        series_note = Text("Discrete frequencies", font_size=24, color=GREY)
+        series_note = OldTexText("Discrete frequencies", font_size=24, color=GREY)
         series_note.next_to(series_eq, DOWN, buff=0.3)
 
         # Show periodic signal
@@ -71,11 +71,11 @@ class FromSeriesToTransform(Scene):
         self.wait(0.5)
         self.play(Write(series_note))
         self.wait(0.5)
-        self.play(Create(axes_series), Create(periodic_graph))
+        self.play(ShowCreation(axes_series), ShowCreation(periodic_graph))
         self.wait(2)
 
         # Fourier Transform
-        transform_title = Text("Fourier Transform (Aperiodic)", font_size=36, color=GREEN)
+        transform_title = OldTexText("Fourier Transform (Aperiodic)", font_size=36, color=GREEN)
         transform_title.move_to(2.5 * UP + 3.5 * RIGHT)
 
         transform_eq = Tex(
@@ -84,7 +84,7 @@ class FromSeriesToTransform(Scene):
         )
         transform_eq.next_to(transform_title, DOWN, buff=0.4)
 
-        transform_note = Text("Continuous frequencies", font_size=24, color=GREY)
+        transform_note = OldTexText("Continuous frequencies", font_size=24, color=GREY)
         transform_note.next_to(transform_eq, DOWN, buff=0.3)
 
         # Show aperiodic signal
@@ -111,7 +111,7 @@ class FromSeriesToTransform(Scene):
         self.wait(0.5)
         self.play(Write(transform_note))
         self.wait(0.5)
-        self.play(Create(axes_transform), Create(gaussian_graph))
+        self.play(ShowCreation(axes_transform), ShowCreation(gaussian_graph))
         self.wait(2)
 
         # Highlight the key difference
@@ -122,10 +122,10 @@ class FromSeriesToTransform(Scene):
         )
         arrow.shift(UP * 0.2)
 
-        transition_text = Text("Increase period → ∞", font_size=28, color=YELLOW)
+        transition_text = OldTexText("Increase period → ∞", font_size=28, color=YELLOW)
         transition_text.next_to(arrow, UP, buff=0.1)
 
-        self.play(Create(arrow), Write(transition_text))
+        self.play(ShowCreation(arrow), Write(transition_text))
         self.wait(3)
 
 
@@ -136,13 +136,13 @@ class FrequencyDomain(Scene):
 
     def construct(self):
         # Title
-        title = Text("The Frequency Domain", font_size=52)
+        title = OldTexText("The Frequency Domain", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Time domain
-        time_label = Text("Time Domain", font_size=36, color=BLUE)
+        time_label = OldTexText("Time Domain", font_size=36, color=BLUE)
         time_label.move_to(2.5 * UP + 4 * LEFT)
 
         time_axes = Axes(
@@ -169,13 +169,13 @@ class FrequencyDomain(Scene):
         signal_graph = time_axes.get_graph(signal, x_range=[0, 4], color=BLUE)
 
         self.play(Write(time_label))
-        self.play(Create(time_axes), Write(t_label), Write(f_label))
+        self.play(ShowCreation(time_axes), Write(t_label), Write(f_label))
         self.wait(0.5)
-        self.play(Create(signal_graph), run_time=2)
+        self.play(ShowCreation(signal_graph), run_time=2)
         self.wait()
 
         # Frequency domain
-        freq_label = Text("Frequency Domain", font_size=36, color=GREEN)
+        freq_label = OldTexText("Frequency Domain", font_size=36, color=GREEN)
         freq_label.move_to(2.5 * UP + 4 * RIGHT)
 
         freq_axes = Axes(
@@ -195,7 +195,7 @@ class FrequencyDomain(Scene):
         F_label = Tex(R"|\hat{f}(\omega)|", font_size=32).next_to(freq_axes.y_axis, UP)
 
         self.play(Write(freq_label))
-        self.play(Create(freq_axes), Write(omega_label), Write(F_label))
+        self.play(ShowCreation(freq_axes), Write(omega_label), Write(F_label))
         self.wait()
 
         # Show the frequency components
@@ -216,9 +216,9 @@ class FrequencyDomain(Scene):
         spike1_label = Tex("2 \\text{ Hz}", font_size=24).next_to(spike1_line, UP, buff=0.1)
         spike2_label = Tex("5 \\text{ Hz}", font_size=24).next_to(spike2_line, UP, buff=0.1)
 
-        self.play(Create(spike1_line), Write(spike1_label))
+        self.play(ShowCreation(spike1_line), Write(spike1_label))
         self.wait(0.5)
-        self.play(Create(spike2_line), Write(spike2_label))
+        self.play(ShowCreation(spike2_line), Write(spike2_label))
         self.wait(2)
 
         # Show the transform relationship
@@ -232,11 +232,11 @@ class FrequencyDomain(Scene):
         ft_symbol = Tex(R"\mathcal{F}", font_size=48, color=YELLOW)
         ft_symbol.next_to(transform_arrow, UP, buff=0.1)
 
-        self.play(Create(transform_arrow), Write(ft_symbol))
+        self.play(ShowCreation(transform_arrow), Write(ft_symbol))
         self.wait(2)
 
         # Explanation
-        explanation = Text(
+        explanation = OldTexText(
             "Each frequency component is isolated",
             font_size=32,
             color=YELLOW
@@ -253,7 +253,7 @@ class WavePackets(Scene):
 
     def construct(self):
         # Title
-        title = Text("Wave Packets and Localization", font_size=50)
+        title = OldTexText("Wave Packets and Localization", font_size=50)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -296,15 +296,15 @@ class WavePackets(Scene):
             stroke_width=2
         )
 
-        self.play(Create(time_axes), Write(t_label))
+        self.play(ShowCreation(time_axes), Write(t_label))
         self.wait(0.5)
-        self.play(Create(packet_graph), run_time=2)
+        self.play(ShowCreation(packet_graph), run_time=2)
         self.wait()
-        self.play(Create(envelope_upper), Create(envelope_lower))
+        self.play(ShowCreation(envelope_upper), ShowCreation(envelope_lower))
         self.wait()
 
         # Label
-        localized_label = Text("Localized in time", font_size=28, color=BLUE)
+        localized_label = OldTexText("Localized in time", font_size=28, color=BLUE)
         localized_label.next_to(time_axes, RIGHT, buff=0.5)
         self.play(Write(localized_label))
         self.wait(2)
@@ -331,12 +331,12 @@ class WavePackets(Scene):
             color=GREEN
         )
 
-        self.play(Create(freq_axes), Write(omega_label))
+        self.play(ShowCreation(freq_axes), Write(omega_label))
         self.wait(0.5)
-        self.play(Create(ft_graph), run_time=2)
+        self.play(ShowCreation(ft_graph), run_time=2)
         self.wait()
 
-        spread_label = Text("Spread in frequency", font_size=28, color=GREEN)
+        spread_label = OldTexText("Spread in frequency", font_size=28, color=GREEN)
         spread_label.next_to(freq_axes, RIGHT, buff=0.5)
         self.play(Write(spread_label))
         self.wait(2)
@@ -356,7 +356,7 @@ class WavePackets(Scene):
 
         uncertainty_box = SurroundingRectangle(uncertainty, color=YELLOW, buff=0.2)
 
-        uncertainty_label = Text(
+        uncertainty_label = OldTexText(
             "Uncertainty Principle",
             font_size=32,
             color=YELLOW
@@ -365,10 +365,10 @@ class WavePackets(Scene):
 
         self.play(Write(uncertainty_label))
         self.wait(0.5)
-        self.play(Write(uncertainty), Create(uncertainty_box))
+        self.play(Write(uncertainty), ShowCreation(uncertainty_box))
         self.wait()
 
-        explanation = Text(
+        explanation = OldTexText(
             "Cannot be localized in both time and frequency simultaneously",
             font_size=28,
             color=GREY
@@ -385,7 +385,7 @@ class Applications(Scene):
 
     def construct(self):
         # Title
-        title = Text("Applications of Fourier Transform", font_size=52)
+        title = OldTexText("Applications of Fourier Transform", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -437,13 +437,13 @@ class Applications(Scene):
             card.move_to(pos)
 
             # Title
-            card_title = Text(app["title"], font_size=32, color=app["color"])
+            card_title = OldTexText(app["title"], font_size=32, color=app["color"])
             card_title.move_to(card.get_top() + DOWN * 0.4)
 
             # Items
             items_group = VGroup()
             for i, item in enumerate(app["items"]):
-                item_text = Text(f"• {item}", font_size=22)
+                item_text = OldTexText(f"• {item}", font_size=22)
                 item_text.move_to(card.get_center() + DOWN * (0.3 * i + 0.2))
                 items_group.add(item_text)
 
@@ -451,7 +451,7 @@ class Applications(Scene):
             cards.add(card_group)
 
         # Animate cards appearing
-        self.play(LaggedStart(*[FadeIn(card) for card in cards], lag_ratio=0.3))
+        self.play(LaggedStart([FadeIn(card) for card in cards], lag_ratio=0.3))
         self.wait(3)
 
         # Highlight signal processing
@@ -462,17 +462,17 @@ class Applications(Scene):
         # Show a specific example: audio filtering
         self.play(FadeOut(cards))
 
-        example_title = Text("Example: Audio Noise Removal", font_size=40, color=YELLOW)
+        example_title = OldTexText("Example: Audio Noise Removal", font_size=40, color=YELLOW)
         example_title.move_to(2.5 * UP)
         self.play(Write(example_title))
         self.wait()
 
         # Steps
         steps = VGroup(
-            Text("1. Transform audio to frequency domain", font_size=28),
-            Text("2. Identify and remove noise frequencies", font_size=28),
-            Text("3. Inverse transform back to time domain", font_size=28),
-            Text("4. Result: Clean audio signal", font_size=28, color=GREEN)
+            OldTexText("1. Transform audio to frequency domain", font_size=28),
+            OldTexText("2. Identify and remove noise frequencies", font_size=28),
+            OldTexText("3. Inverse transform back to time domain", font_size=28),
+            OldTexText("4. Result: Clean audio signal", font_size=28, color=GREEN)
         )
         steps.arrange(DOWN, aligned_edge=LEFT, buff=0.5)
         steps.move_to(UP * 0.3)
@@ -496,8 +496,8 @@ class Applications(Scene):
         )
         inverse.move_to(DOWN * 1.8 + RIGHT * 2.5)
 
-        forward_label = Text("Forward", font_size=24, color=BLUE).next_to(forward, UP, buff=0.2)
-        inverse_label = Text("Inverse", font_size=24, color=GREEN).next_to(inverse, UP, buff=0.2)
+        forward_label = OldTexText("Forward", font_size=24, color=BLUE).next_to(forward, UP, buff=0.2)
+        inverse_label = OldTexText("Inverse", font_size=24, color=GREEN).next_to(inverse, UP, buff=0.2)
 
         self.play(
             Write(forward_label),

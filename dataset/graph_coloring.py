@@ -23,13 +23,13 @@ class IntroduceColoringProblem(Scene):
 
     def construct(self):
         # Title
-        title = Text("The Graph Coloring Problem", font_size=52)
+        title = OldTexText("The Graph Coloring Problem", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # The problem statement
-        problem = Text(
+        problem = OldTexText(
             "Color regions so that adjacent regions have different colors",
             font_size=32,
             color=YELLOW
@@ -103,15 +103,15 @@ class IntroduceColoringProblem(Scene):
         regions.move_to(DOWN * 0.5)
 
         # Labels
-        label_a = Text("A", font_size=32).move_to(region_a.get_center())
-        label_b = Text("B", font_size=32).move_to(region_b.get_center())
-        label_c = Text("C", font_size=32).move_to(region_c.get_center())
-        label_d = Text("D", font_size=32).move_to(region_d.get_center())
-        label_e = Text("E", font_size=32).move_to(region_e.get_center())
+        label_a = OldTexText("A", font_size=32).move_to(region_a.get_center())
+        label_b = OldTexText("B", font_size=32).move_to(region_b.get_center())
+        label_c = OldTexText("C", font_size=32).move_to(region_c.get_center())
+        label_d = OldTexText("D", font_size=32).move_to(region_d.get_center())
+        label_e = OldTexText("E", font_size=32).move_to(region_e.get_center())
 
         labels = VGroup(label_a, label_b, label_c, label_d, label_e)
 
-        self.play(LaggedStart(*[Create(region) for region in regions], lag_ratio=0.2))
+        self.play(LaggedStart([ShowCreation(region) for region in regions], lag_ratio=0.2))
         self.wait(0.5)
         self.play(Write(labels))
         self.wait()
@@ -129,7 +129,7 @@ class IntroduceColoringProblem(Scene):
         self.wait()
 
         # Highlight that adjacent regions have different colors
-        note = Text("Adjacent regions have different colors!", font_size=32, color=GREEN)
+        note = OldTexText("Adjacent regions have different colors!", font_size=32, color=GREEN)
         note.to_edge(DOWN)
         self.play(Write(note))
         self.wait(2)
@@ -142,7 +142,7 @@ class IntroduceColoringProblem(Scene):
             FadeOut(problem)
         )
 
-        graph_title = Text("As a Graph:", font_size=40, color=YELLOW)
+        graph_title = OldTexText("As a Graph:", font_size=40, color=YELLOW)
         graph_title.move_to(UP * 2.5)
         self.play(Write(graph_title))
         self.wait()
@@ -162,11 +162,11 @@ class IntroduceColoringProblem(Scene):
         nodes = VGroup(node_a, node_b, node_c, node_d, node_e)
 
         # Labels
-        label_a2 = Text("A", font_size=24).move_to(node_a.get_center())
-        label_b2 = Text("B", font_size=24).move_to(node_b.get_center())
-        label_c2 = Text("C", font_size=24).move_to(node_c.get_center())
-        label_d2 = Text("D", font_size=24).move_to(node_d.get_center())
-        label_e2 = Text("E", font_size=24).move_to(node_e.get_center())
+        label_a2 = OldTexText("A", font_size=24).move_to(node_a.get_center())
+        label_b2 = OldTexText("B", font_size=24).move_to(node_b.get_center())
+        label_c2 = OldTexText("C", font_size=24).move_to(node_c.get_center())
+        label_d2 = OldTexText("D", font_size=24).move_to(node_d.get_center())
+        label_e2 = OldTexText("E", font_size=24).move_to(node_e.get_center())
 
         # Edges (adjacent regions)
         edge_ab = Line(node_a.get_top(), node_b.get_bottom(), stroke_width=2)
@@ -176,15 +176,15 @@ class IntroduceColoringProblem(Scene):
 
         edges = VGroup(edge_ab, edge_ac, edge_ad, edge_ae)
 
-        self.play(LaggedStart(*[Create(edge) for edge in edges], lag_ratio=0.2))
+        self.play(LaggedStart([ShowCreation(edge) for edge in edges], lag_ratio=0.2))
         self.wait(0.5)
-        self.play(LaggedStart(*[Create(node) for node in nodes], lag_ratio=0.1))
+        self.play(LaggedStart([ShowCreation(node) for node in nodes], lag_ratio=0.1))
         self.wait(0.5)
         self.play(Write(VGroup(label_a2, label_b2, label_c2, label_d2, label_e2)))
         self.wait(2)
 
         # Count colors
-        colors_used = Text("3 colors used: Red, Blue, Green", font_size=32, color=YELLOW)
+        colors_used = OldTexText("3 colors used: Red, Blue, Green", font_size=32, color=YELLOW)
         colors_used.to_edge(DOWN)
         self.play(Write(colors_used))
         self.wait(3)
@@ -197,7 +197,7 @@ class FourColorTheorem(Scene):
 
     def construct(self):
         # Title
-        title = Text("The Four Color Theorem", font_size=52)
+        title = OldTexText("The Four Color Theorem", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -206,21 +206,21 @@ class FourColorTheorem(Scene):
         theorem_box = Rectangle(height=2.5, width=11, color=YELLOW)
         theorem_box.move_to(UP * 1.5)
 
-        theorem_text = Text(
+        theorem_text = OldTexText(
             "Any map can be colored using at most 4 colors",
             font_size=36,
             color=YELLOW
         )
         theorem_text.move_to(theorem_box.get_center() + UP * 0.4)
 
-        condition = Text(
+        condition = OldTexText(
             "such that no adjacent regions share the same color",
             font_size=30,
             color=GREY
         )
         condition.move_to(theorem_box.get_center() + DOWN * 0.3)
 
-        self.play(Create(theorem_box))
+        self.play(ShowCreation(theorem_box))
         self.wait(0.5)
         self.play(Write(theorem_text))
         self.wait(0.5)
@@ -228,21 +228,21 @@ class FourColorTheorem(Scene):
         self.wait(2)
 
         # Historical context
-        history_title = Text("Historical Context:", font_size=36, color=BLUE)
+        history_title = OldTexText("Historical Context:", font_size=36, color=BLUE)
         history_title.move_to(DOWN * 0.5)
         self.play(Write(history_title))
         self.wait()
 
         history = VGroup(
-            Text("• Conjectured in 1852 by Francis Guthrie", font_size=28),
-            Text("• Attempted by many mathematicians for over a century", font_size=28),
-            Text("• First proved in 1976 by Appel and Haken", font_size=28),
-            Text("• Used computer verification (controversial!)", font_size=28, color=RED),
+            OldTexText("• Conjectured in 1852 by Francis Guthrie", font_size=28),
+            OldTexText("• Attempted by many mathematicians for over a century", font_size=28),
+            OldTexText("• First proved in 1976 by Appel and Haken", font_size=28),
+            OldTexText("• Used computer verification (controversial!)", font_size=28, color=RED),
         )
         history.arrange(DOWN, aligned_edge=LEFT, buff=0.35)
         history.next_to(history_title, DOWN, buff=0.5)
 
-        self.play(LaggedStart(*[Write(h) for h in history], lag_ratio=0.4))
+        self.play(LaggedStart([Write(h) for h in history], lag_ratio=0.4))
         self.wait(3)
 
         # Example: Why not 3?
@@ -254,13 +254,13 @@ class FourColorTheorem(Scene):
             FadeOut(history)
         )
 
-        example_title = Text("Why not 3 colors?", font_size=40, color=YELLOW)
+        example_title = OldTexText("Why not 3 colors?", font_size=40, color=YELLOW)
         example_title.move_to(UP * 2.8)
         self.play(Write(example_title))
         self.wait()
 
         # Create K4 (complete graph on 4 vertices) which needs 4 colors
-        explanation = Text("Counterexample: 4 mutually adjacent regions", font_size=32)
+        explanation = OldTexText("Counterexample: 4 mutually adjacent regions", font_size=32)
         explanation.next_to(example_title, DOWN, buff=0.4)
         self.play(Write(explanation))
         self.wait()
@@ -283,19 +283,19 @@ class FourColorTheorem(Scene):
                 edge = Line(positions[i], positions[j], stroke_width=2, color=GREY)
                 edges.add(edge)
 
-        self.play(LaggedStart(*[Create(edge) for edge in edges], lag_ratio=0.05))
+        self.play(LaggedStart([ShowCreation(edge) for edge in edges], lag_ratio=0.05))
         self.wait(0.5)
 
         # Color nodes with 4 different colors
         colors = [RED, BLUE, GREEN, YELLOW]
         for i, (node, color) in enumerate(zip(nodes, colors)):
             node.set_fill(color)
-            self.play(Create(node), run_time=0.5)
+            self.play(ShowCreation(node), run_time=0.5)
             self.wait(0.3)
 
         self.wait()
 
-        conclusion = Text("Each region touches all others → need 4 colors", font_size=30, color=GREEN)
+        conclusion = OldTexText("Each region touches all others → need 4 colors", font_size=30, color=GREEN)
         conclusion.to_edge(DOWN)
         self.play(Write(conclusion))
         self.wait(3)
@@ -308,13 +308,13 @@ class ChromaticNumber(Scene):
 
     def construct(self):
         # Title
-        title = Text("Chromatic Number", font_size=52)
+        title = OldTexText("Chromatic Number", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Definition
-        definition = Text(
+        definition = OldTexText(
             "χ(G) = minimum number of colors needed to color graph G",
             font_size=32,
             color=YELLOW
@@ -324,7 +324,7 @@ class ChromaticNumber(Scene):
         self.wait(2)
 
         # Example 1: Path graph (χ = 2)
-        example1_title = Text("Path Graph", font_size=36, color=BLUE)
+        example1_title = OldTexText("Path Graph", font_size=36, color=BLUE)
         example1_title.move_to(UP * 1.5 + LEFT * 4.5)
         self.play(Write(example1_title))
         self.wait()
@@ -341,14 +341,14 @@ class ChromaticNumber(Scene):
             for i in range(3)
         ])
 
-        self.play(LaggedStart(*[Create(edge) for edge in path_edges], lag_ratio=0.2))
+        self.play(LaggedStart([ShowCreation(edge) for edge in path_edges], lag_ratio=0.2))
         self.wait(0.5)
 
         # Color with 2 colors alternating
         colors_2 = [RED, BLUE, RED, BLUE]
         for node, color in zip(path_nodes, colors_2):
             node.set_fill(color)
-            self.play(Create(node), run_time=0.3)
+            self.play(ShowCreation(node), run_time=0.3)
 
         chi_1 = Tex(R"\chi = 2", font_size=32, color=GREEN)
         chi_1.next_to(path_nodes, DOWN, buff=0.5)
@@ -356,7 +356,7 @@ class ChromaticNumber(Scene):
         self.wait(2)
 
         # Example 2: Cycle graph (χ = 2 or 3)
-        example2_title = Text("Cycle Graph (odd)", font_size=36, color=GREEN)
+        example2_title = OldTexText("Cycle Graph (odd)", font_size=36, color=GREEN)
         example2_title.move_to(UP * 1.5 + RIGHT * 0)
         self.play(Write(example2_title))
         self.wait()
@@ -379,14 +379,14 @@ class ChromaticNumber(Scene):
             for i in range(5)
         ])
 
-        self.play(LaggedStart(*[Create(edge) for edge in cycle_edges], lag_ratio=0.1))
+        self.play(LaggedStart([ShowCreation(edge) for edge in cycle_edges], lag_ratio=0.1))
         self.wait(0.5)
 
         # Color with 3 colors (odd cycle needs 3)
         colors_3 = [RED, BLUE, RED, BLUE, GREEN]
         for node, color in zip(cycle_nodes, colors_3):
             node.set_fill(color)
-            self.play(Create(node), run_time=0.3)
+            self.play(ShowCreation(node), run_time=0.3)
 
         chi_2 = Tex(R"\chi = 3", font_size=32, color=GREEN)
         chi_2.next_to(cycle_nodes, DOWN, buff=0.8)
@@ -394,7 +394,7 @@ class ChromaticNumber(Scene):
         self.wait(2)
 
         # Example 3: Complete graph K4 (χ = 4)
-        example3_title = Text("Complete Graph K₄", font_size=36, color=PURPLE)
+        example3_title = OldTexText("Complete Graph K₄", font_size=36, color=PURPLE)
         example3_title.move_to(UP * 1.5 + RIGHT * 4.5)
         self.play(Write(example3_title))
         self.wait()
@@ -418,14 +418,14 @@ class ChromaticNumber(Scene):
                 edge = Line(k4_positions[i], k4_positions[j], stroke_width=1.5, color=GREY)
                 k4_edges.add(edge)
 
-        self.play(LaggedStart(*[Create(edge) for edge in k4_edges], lag_ratio=0.03))
+        self.play(LaggedStart([ShowCreation(edge) for edge in k4_edges], lag_ratio=0.03))
         self.wait(0.5)
 
         # Color with 4 colors
         colors_4 = [RED, BLUE, GREEN, YELLOW]
         for node, color in zip(k4_nodes, colors_4):
             node.set_fill(color)
-            self.play(Create(node), run_time=0.3)
+            self.play(ShowCreation(node), run_time=0.3)
 
         chi_3 = Tex(R"\chi = 4", font_size=32, color=GREEN)
         chi_3.next_to(k4_nodes, DOWN, buff=0.8)
@@ -446,30 +446,30 @@ class GreedyAlgorithm(Scene):
 
     def construct(self):
         # Title
-        title = Text("Greedy Coloring Algorithm", font_size=52)
+        title = OldTexText("Greedy Coloring Algorithm", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Algorithm description
-        algo_title = Text("Algorithm:", font_size=36, color=YELLOW)
+        algo_title = OldTexText("Algorithm:", font_size=36, color=YELLOW)
         algo_title.move_to(UP * 2.5 + LEFT * 4.5)
         self.play(Write(algo_title))
         self.wait()
 
         steps = VGroup(
-            Text("1. Order the vertices", font_size=26),
-            Text("2. For each vertex:", font_size=26),
-            Text("   • Check colors of neighbors", font_size=24, color=GREY),
-            Text("   • Assign smallest available color", font_size=24, color=GREY),
+            OldTexText("1. Order the vertices", font_size=26),
+            OldTexText("2. For each vertex:", font_size=26),
+            OldTexText("   • Check colors of neighbors", font_size=24, color=GREY),
+            OldTexText("   • Assign smallest available color", font_size=24, color=GREY),
         )
         steps.arrange(DOWN, aligned_edge=LEFT, buff=0.25)
         steps.next_to(algo_title, DOWN, buff=0.4, aligned_edge=LEFT)
-        self.play(LaggedStart(*[Write(step) for step in steps], lag_ratio=0.3))
+        self.play(LaggedStart([Write(step) for step in steps], lag_ratio=0.3))
         self.wait(2)
 
         # Create a sample graph
-        graph_title = Text("Example:", font_size=32, color=BLUE)
+        graph_title = OldTexText("Example:", font_size=32, color=BLUE)
         graph_title.move_to(UP * 2.5 + RIGHT * 3)
         self.play(Write(graph_title))
         self.wait()
@@ -490,7 +490,7 @@ class GreedyAlgorithm(Scene):
         ])
 
         labels = VGroup(*[
-            Text(str(i), font_size=24).move_to(pos)
+            OldTexText(str(i), font_size=24).move_to(pos)
             for i, pos in positions.items()
         ])
 
@@ -501,9 +501,9 @@ class GreedyAlgorithm(Scene):
             for i, j in edge_list
         ])
 
-        self.play(LaggedStart(*[Create(edge) for edge in edges], lag_ratio=0.1))
+        self.play(LaggedStart([ShowCreation(edge) for edge in edges], lag_ratio=0.1))
         self.wait(0.5)
-        self.play(LaggedStart(*[Create(node) for node in nodes], lag_ratio=0.1))
+        self.play(LaggedStart([ShowCreation(node) for node in nodes], lag_ratio=0.1))
         self.wait(0.5)
         self.play(Write(labels))
         self.wait()
@@ -512,7 +512,7 @@ class GreedyAlgorithm(Scene):
         colors = [RED, BLUE, GREEN, YELLOW, PURPLE, ORANGE]
         vertex_colors = []
 
-        status = Text("Coloring...", font_size=28, color=YELLOW)
+        status = OldTexText("Coloring...", font_size=28, color=YELLOW)
         status.to_edge(DOWN)
         self.play(Write(status))
 
@@ -547,13 +547,13 @@ class GreedyAlgorithm(Scene):
 
         # Result
         self.play(FadeOut(status))
-        result = Text(f"Colors used: {len(set(vertex_colors))}", font_size=32, color=GREEN)
+        result = OldTexText(f"Colors used: {len(set(vertex_colors))}", font_size=32, color=GREEN)
         result.to_edge(DOWN)
         self.play(Write(result))
         self.wait()
 
         # Note about optimality
-        note = Text(
+        note = OldTexText(
             "Note: Greedy may not always give optimal coloring!",
             font_size=26,
             color=GREY,

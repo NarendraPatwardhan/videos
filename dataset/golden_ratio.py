@@ -162,7 +162,7 @@ class FibonacciSequence(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Fibonacci Sequence", font_size=48)
+        title = OldTexText("The Fibonacci Sequence", font_size=48)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -184,7 +184,7 @@ class FibonacciSequence(Scene):
         # ========================================
         # GENERATE SEQUENCE
         # ========================================
-        sequence_label = Text("Sequence:", font_size=32)
+        sequence_label = OldTexText("Sequence:", font_size=32)
         sequence_label.next_to(definition, DOWN, buff=1.0)
 
         self.play(Write(sequence_label))
@@ -194,7 +194,7 @@ class FibonacciSequence(Scene):
         fib_numbers = VGroup()
         for i in range(1, 13):
             fib = fibonacci(i)
-            fib_text = Text(str(fib), font_size=32, color=BLUE)
+            fib_text = OldTexText(str(fib), font_size=32, color=BLUE)
             fib_numbers.add(fib_text)
 
         fib_numbers.arrange(RIGHT, buff=0.4)
@@ -230,7 +230,7 @@ class FibonacciSequence(Scene):
         # ========================================
         # OBSERVATION
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "Each number is the sum of the previous two",
             font_size=28,
             color=GREY_A
@@ -264,7 +264,7 @@ class GoldenRatio(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Convergence to Golden Ratio", font_size=42)
+        title = OldTexText("Convergence to Golden Ratio", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -272,7 +272,7 @@ class GoldenRatio(Scene):
         # ========================================
         # IDEA: Look at ratios
         # ========================================
-        idea = Text(
+        idea = OldTexText(
             "What happens to the ratio of consecutive terms?",
             font_size=32,
             color=WHITE
@@ -310,10 +310,10 @@ class GoldenRatio(Scene):
 
         # Header
         header = VGroup(
-            Text("n", font_size=24),
-            Text("F(n)", font_size=24),
-            Text("F(n+1)", font_size=24),
-            Text("Ratio", font_size=24, color=YELLOW),
+            OldTexText("n", font_size=24),
+            OldTexText("F(n)", font_size=24),
+            OldTexText("F(n+1)", font_size=24),
+            OldTexText("Ratio", font_size=24, color=YELLOW),
         )
         header.arrange(RIGHT, buff=0.8)
         table_entries.add(header)
@@ -321,10 +321,10 @@ class GoldenRatio(Scene):
         # Data rows (show first 8)
         for i, (n, fn, fn1, ratio) in enumerate(table_data[:8]):
             row = VGroup(
-                Text(str(n), font_size=22),
-                Text(str(fn), font_size=22),
-                Text(str(fn1), font_size=22),
-                Text(f"{ratio:.6f}", font_size=22, color=YELLOW),
+                OldTexText(str(n), font_size=22),
+                OldTexText(str(fn), font_size=22),
+                OldTexText(str(fn1), font_size=22),
+                OldTexText(f"{ratio:.6f}", font_size=22, color=YELLOW),
             )
             row.arrange(RIGHT, buff=0.8)
             # Align with header
@@ -386,7 +386,7 @@ class GoldenRectangle(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Golden Rectangle", font_size=42)
+        title = OldTexText("The Golden Rectangle", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -446,7 +446,7 @@ class GoldenRectangle(Scene):
         # ========================================
         # SUBDIVISION PROPERTY
         # ========================================
-        property_text = Text(
+        property_text = OldTexText(
             "Special property: Removing a square leaves a golden rectangle!",
             font_size=26,
             color=YELLOW
@@ -484,7 +484,7 @@ class GoldenRectangle(Scene):
         )
 
         # New title
-        subdivision_title = Text("Fibonacci Spiral Construction", font_size=32)
+        subdivision_title = OldTexText("Fibonacci Spiral Construction", font_size=32)
         subdivision_title.next_to(title, DOWN, buff=0.3)
 
         self.play(Write(subdivision_title))
@@ -533,7 +533,7 @@ class GoldenRectangle(Scene):
 
             squares_group.add(sq)
 
-            label = Text(str(fibonacci(i+1)), font_size=16, color=WHITE)
+            label = OldTexText(str(fibonacci(i+1)), font_size=16, color=WHITE)
             label.move_to(sq.get_center())
 
             self.play(ShowCreation(sq), Write(label), run_time=0.5)
@@ -554,7 +554,7 @@ class NatureSpirals(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Golden Spiral", font_size=42)
+        title = OldTexText("The Golden Spiral", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -609,7 +609,7 @@ class NatureSpirals(Scene):
         # ========================================
         # NATURE EXAMPLES
         # ========================================
-        nature_text = Text(
+        nature_text = OldTexText(
             "Found in Nature:",
             font_size=32,
             color=YELLOW
@@ -617,10 +617,10 @@ class NatureSpirals(Scene):
         nature_text.to_edge(DOWN).shift(UP * 2.0)
 
         examples = VGroup(
-            Text("• Nautilus shells", font_size=24),
-            Text("• Sunflower seed patterns", font_size=24),
-            Text("• Galaxy spiral arms", font_size=24),
-            Text("• Hurricane formations", font_size=24),
+            OldTexText("• Nautilus shells", font_size=24),
+            OldTexText("• Sunflower seed patterns", font_size=24),
+            OldTexText("• Galaxy spiral arms", font_size=24),
+            OldTexText("• Hurricane formations", font_size=24),
         )
         examples.arrange(DOWN, buff=0.2, aligned_edge=LEFT)
         examples.next_to(nature_text, DOWN, buff=0.3)
@@ -640,7 +640,7 @@ class NatureSpirals(Scene):
         self.play(FadeOut(nature_text), FadeOut(examples))
 
         properties = VGroup(
-            Text("Key Properties of φ:", font_size=32, color=GREEN),
+            OldTexText("Key Properties of φ:", font_size=32, color=GREEN),
             Tex("\\varphi^2 = \\varphi + 1", font_size=28),
             Tex("\\frac{1}{\\varphi} = \\varphi - 1", font_size=28),
             Tex("\\varphi = 1 + \\frac{1}{1 + \\frac{1}{1 + \\frac{1}{\\ddots}}}", font_size=24),

@@ -203,7 +203,7 @@ class IntroduceTheorem(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Pythagorean Theorem", font_size=54)
+        title = OldTexText("The Pythagorean Theorem", font_size=54)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -255,7 +255,7 @@ class IntroduceTheorem(InteractiveScene):
         # ========================================
         # QUESTION: How do we prove this?
         # ========================================
-        question = Text("How can we prove this?", font_size=42, color=GREY_A)
+        question = OldTexText("How can we prove this?", font_size=42, color=GREY_A)
         question.next_to(theorem, DOWN, buff=0.8)
 
         self.play(FadeIn(question, shift=UP))
@@ -280,7 +280,7 @@ class ShowSquares(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Squares on Each Side", font_size=48)
+        title = OldTexText("Squares on Each Side", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -323,7 +323,7 @@ class ShowSquares(InteractiveScene):
         # ========================================
         # QUESTION: Show the relationship
         # ========================================
-        question = Text("Can we rearrange a² and b² to fill c²?", font_size=36)
+        question = OldTexText("Can we rearrange a² and b² to fill c²?", font_size=36)
         question.to_edge(DOWN, buff=0.5)
         question.set_color(YELLOW)
 
@@ -351,7 +351,7 @@ class VisualProofByRearrangement(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Visual Proof by Rearrangement", font_size=48)
+        title = OldTexText("Visual Proof by Rearrangement", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -418,7 +418,7 @@ class VisualProofByRearrangement(InteractiveScene):
             tri.set_stroke(WHITE, 2)
             triangles.add(tri)
 
-        self.play(LaggedStart(*[DrawBorderThenFill(tri) for tri in triangles], lag_ratio=0.2))
+        self.play(LaggedStart([DrawBorderThenFill(tri) for tri in triangles], lag_ratio=0.2))
         self.wait()
 
         # ========================================
@@ -511,7 +511,7 @@ class AlternativeProof(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Another Visual Proof", font_size=48)
+        title = OldTexText("Another Visual Proof", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -589,7 +589,7 @@ class AlternativeProof(InteractiveScene):
         # ========================================
         # MESSAGE: Multiple proofs exist
         # ========================================
-        message = Text(
+        message = OldTexText(
             "Many visual proofs exist!\nMathematics has multiple perspectives.",
             font_size=36,
             color=GREY_A

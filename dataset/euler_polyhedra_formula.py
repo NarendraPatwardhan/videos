@@ -153,7 +153,7 @@ class IntroducePolyhedra(ThreeDScene):
         # ========================================
         # SETUP: Title (as 2D overlay)
         # ========================================
-        title = Text("Euler's Polyhedron Formula", font_size=48)
+        title = OldTexText("Euler's Polyhedron Formula", font_size=48)
         title.to_edge(UP)
         title.fix_in_frame()  # Keep fixed in frame for 3D scene
 
@@ -179,7 +179,7 @@ class IntroducePolyhedra(ThreeDScene):
         self.wait()
 
         # Label it
-        cube_label = Text("Cube", font_size=36)
+        cube_label = OldTexText("Cube", font_size=36)
         cube_label.fix_in_frame()
         cube_label.to_edge(DOWN, buff=1)
 
@@ -189,7 +189,7 @@ class IntroducePolyhedra(ThreeDScene):
         # ========================================
         # SHOW: Basic components
         # ========================================
-        components = Text(
+        components = OldTexText(
             "Vertices (V), Edges (E), Faces (F)",
             font_size=32,
             color=YELLOW
@@ -217,7 +217,7 @@ class IntroducePolyhedra(ThreeDScene):
         tetrahedron.set_fill(TETRAHEDRON_COLOR, opacity=0.7)
         tetrahedron.set_stroke(WHITE, width=2)
 
-        tet_label = Text("Tetrahedron", font_size=36)
+        tet_label = OldTexText("Tetrahedron", font_size=36)
         tet_label.fix_in_frame()
         tet_label.to_edge(DOWN, buff=1)
 
@@ -262,7 +262,7 @@ class CountComponents(ThreeDScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Counting Components", font_size=48)
+        title = OldTexText("Counting Components", font_size=48)
         title.to_edge(UP)
         title.fix_in_frame()
 
@@ -321,7 +321,7 @@ class CountComponents(ThreeDScene):
         V, E, F = data["V"], data["E"], data["F"]
 
         # Label
-        shape_label = Text(display_name, font_size=36)
+        shape_label = OldTexText(display_name, font_size=36)
         shape_label.fix_in_frame()
         shape_label.to_edge(LEFT, buff=0.5).shift(2 * UP)
 
@@ -401,7 +401,7 @@ class VerifyFormula(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Euler's Formula", font_size=48)
+        title = OldTexText("Euler's Formula", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -433,7 +433,7 @@ class VerifyFormula(InteractiveScene):
         )
 
         # Table header
-        verification_title = Text("Verification for Platonic Solids", font_size=36)
+        verification_title = OldTexText("Verification for Platonic Solids", font_size=36)
         verification_title.shift(1.5 * UP)
 
         self.play(Write(verification_title))
@@ -449,7 +449,7 @@ class VerifyFormula(InteractiveScene):
             V, E, F = data["V"], data["E"], data["F"]
 
             row = VGroup(
-                Text(name, font_size=24),
+                OldTexText(name, font_size=24),
                 Tex(f"{V}", font_size=24),
                 Tex(f"{E}", font_size=24),
                 Tex(f"{F}", font_size=24),
@@ -460,7 +460,7 @@ class VerifyFormula(InteractiveScene):
 
         # Table header row
         header = VGroup(
-            Text("Shape", font_size=24, weight=BOLD),
+            OldTexText("Shape", font_size=24, weight=BOLD),
             Tex("V", font_size=24, color=VERTEX_COLOR),
             Tex("E", font_size=24, color=EDGE_COLOR),
             Tex("F", font_size=24, color=FACE_COLOR),
@@ -487,7 +487,7 @@ class VerifyFormula(InteractiveScene):
         # ========================================
         # EMPHASIZE: All equal 2
         # ========================================
-        emphasis = Text(
+        emphasis = OldTexText(
             "Always equals 2!",
             font_size=42,
             color=GREEN,
@@ -526,7 +526,7 @@ class ProofSketch(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Why Does This Work?", font_size=48)
+        title = OldTexText("Why Does This Work?", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -535,7 +535,7 @@ class ProofSketch(InteractiveScene):
         # ========================================
         # CONCEPT: Planar graph representation
         # ========================================
-        concept = Text(
+        concept = OldTexText(
             "Key Idea: Flatten the polyhedron into a planar graph",
             font_size=32
         )
@@ -548,7 +548,7 @@ class ProofSketch(InteractiveScene):
         # VISUALIZE: Cube to planar graph
         # ========================================
         # Show a simplified cube wireframe
-        cube_desc = Text("Cube (3D)", font_size=28)
+        cube_desc = OldTexText("Cube (3D)", font_size=28)
         cube_desc.shift(3 * LEFT + 1 * UP)
 
         # Simple cube representation (square with diagonals)
@@ -584,7 +584,7 @@ class ProofSketch(InteractiveScene):
         arrow = Arrow(LEFT, RIGHT, buff=0.5, color=YELLOW)
         arrow.next_to(cube_3d, RIGHT, buff=0.8)
 
-        planar_desc = Text("Planar Graph (2D)", font_size=28)
+        planar_desc = OldTexText("Planar Graph (2D)", font_size=28)
         planar_desc.next_to(arrow, RIGHT, buff=0.8).shift(0.5 * UP)
 
         # Simplified planar graph (remove one face and flatten)
@@ -642,12 +642,12 @@ class ProofSketch(InteractiveScene):
         )
 
         proof_steps = VGroup(
-            Text("Proof Sketch:", font_size=32, weight=BOLD),
-            Text("1. Remove one face and flatten → planar graph", font_size=26),
-            Text("2. Remove faces one by one (removes 1 face, 1+ edges)", font_size=26),
-            Text("3. Each step keeps V - E + F unchanged", font_size=26),
-            Text("4. End with one face (a tree): V - E + F = V - (V-1) + 1 = 2", font_size=26),
-            Text("5. Therefore, original polyhedron has V - E + F = 2", font_size=26),
+            OldTexText("Proof Sketch:", font_size=32, weight=BOLD),
+            OldTexText("1. Remove one face and flatten → planar graph", font_size=26),
+            OldTexText("2. Remove faces one by one (removes 1 face, 1+ edges)", font_size=26),
+            OldTexText("3. Each step keeps V - E + F unchanged", font_size=26),
+            OldTexText("4. End with one face (a tree): V - E + F = V - (V-1) + 1 = 2", font_size=26),
+            OldTexText("5. Therefore, original polyhedron has V - E + F = 2", font_size=26),
         )
         proof_steps.arrange(DOWN, buff=0.3, aligned_edge=LEFT)
         proof_steps.to_edge(DOWN, buff=0.5).shift(0.5 * LEFT)
@@ -664,7 +664,7 @@ class ProofSketch(InteractiveScene):
         # ========================================
         # CONCLUSION
         # ========================================
-        conclusion = Text(
+        conclusion = OldTexText(
             "This formula is a topological invariant!",
             font_size=36,
             color=YELLOW,

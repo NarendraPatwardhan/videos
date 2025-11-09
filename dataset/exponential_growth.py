@@ -131,7 +131,7 @@ class DefineExponential(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Exponential Growth", font_size=48)
+        title = OldTexText("Exponential Growth", font_size=48)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -204,7 +204,7 @@ class DefineExponential(Scene):
         # ========================================
         # OBSERVATION
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "All grow rapidly, but what makes e special?",
             font_size=28,
             color=WHITE
@@ -227,7 +227,7 @@ class NumberE(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Number e", font_size=42)
+        title = OldTexText("The Number e", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -251,7 +251,7 @@ class NumberE(Scene):
         # ========================================
         # COMPUTE APPROXIMATIONS
         # ========================================
-        approx_title = Text("Computing approximations:", font_size=28)
+        approx_title = OldTexText("Computing approximations:", font_size=28)
         approx_title.next_to(limit_box, DOWN, buff=0.8)
 
         self.play(Write(approx_title))
@@ -265,8 +265,8 @@ class NumberE(Scene):
 
         # Header
         header = VGroup(
-            Text("n", font_size=24),
-            Text("(1 + 1/n)^n", font_size=24, color=YELLOW),
+            OldTexText("n", font_size=24),
+            OldTexText("(1 + 1/n)^n", font_size=24, color=YELLOW),
         )
         header.arrange(RIGHT, buff=2.0)
         table_entries.add(header)
@@ -279,8 +279,8 @@ class NumberE(Scene):
                 n_str = str(n)
 
             row = VGroup(
-                Text(n_str, font_size=22),
-                Text(f"{value:.6f}", font_size=22, color=YELLOW),
+                OldTexText(n_str, font_size=22),
+                OldTexText(f"{value:.6f}", font_size=22, color=YELLOW),
             )
             row.arrange(RIGHT, buff=2.0)
             # Align with header
@@ -330,7 +330,7 @@ class CompoundInterest(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Compound Interest and e", font_size=42)
+        title = OldTexText("Compound Interest and e", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -339,8 +339,8 @@ class CompoundInterest(Scene):
         # SCENARIO
         # ========================================
         scenario = VGroup(
-            Text("Invest $1 at 100% annual interest", font_size=28),
-            Text("How much after 1 year?", font_size=28, color=YELLOW),
+            OldTexText("Invest $1 at 100% annual interest", font_size=28),
+            OldTexText("How much after 1 year?", font_size=28, color=YELLOW),
         )
         scenario.arrange(DOWN, buff=0.3)
         scenario.next_to(title, DOWN, buff=0.6)
@@ -375,8 +375,8 @@ class CompoundInterest(Scene):
             color = GREEN if n == np.inf else WHITE
 
             result_line = VGroup(
-                Text(desc, font_size=22, color=color),
-                Text(value_str, font_size=22, color=color),
+                OldTexText(desc, font_size=22, color=color),
+                OldTexText(value_str, font_size=22, color=color),
             )
             result_line.arrange(RIGHT, buff=1.0)
             results.add(result_line)
@@ -431,7 +431,7 @@ class DerivativeProperty(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Unique Property of e^x", font_size=42)
+        title = OldTexText("The Unique Property of e^x", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -439,7 +439,7 @@ class DerivativeProperty(Scene):
         # ========================================
         # THE PROPERTY
         # ========================================
-        property_text = Text("Most important property:", font_size=28)
+        property_text = OldTexText("Most important property:", font_size=28)
         property_text.next_to(title, DOWN, buff=0.6)
 
         self.play(Write(property_text))
@@ -463,7 +463,7 @@ class DerivativeProperty(Scene):
         # ========================================
         self.play(FadeOut(property_text))
 
-        viz_text = Text("Visualizing this property:", font_size=26)
+        viz_text = OldTexText("Visualizing this property:", font_size=26)
         viz_text.next_to(title, DOWN, buff=0.4)
 
         self.play(Write(viz_text))
@@ -497,7 +497,7 @@ class DerivativeProperty(Scene):
         # ========================================
         # SHOW SLOPE = HEIGHT
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "At any point: slope = height",
             font_size=24,
             color=YELLOW
@@ -547,7 +547,7 @@ class DerivativeProperty(Scene):
         # ========================================
         self.play(FadeOut(explanation), FadeOut(viz_text))
 
-        comparison_title = Text("Comparison with other bases:", font_size=26)
+        comparison_title = OldTexText("Comparison with other bases:", font_size=26)
         comparison_title.next_to(title, DOWN, buff=0.4)
 
         self.play(Write(comparison_title))
@@ -573,12 +573,12 @@ class DerivativeProperty(Scene):
         self.play(FadeOut(comparison), FadeOut(comparison_title), FadeOut(axes), FadeOut(exp_graph), FadeOut(exp_label))
 
         matters = VGroup(
-            Text("Why this matters:", font_size=32, color=YELLOW),
-            Text("• Simplest differential equation: y' = y", font_size=24),
-            Text("• Models natural growth/decay processes", font_size=24),
-            Text("• Appears in calculus, probability, physics", font_size=24),
-            Text("• Foundation of complex exponentials e^(ix)", font_size=24),
-            Text("• Key to understanding change over time", font_size=24),
+            OldTexText("Why this matters:", font_size=32, color=YELLOW),
+            OldTexText("• Simplest differential equation: y' = y", font_size=24),
+            OldTexText("• Models natural growth/decay processes", font_size=24),
+            OldTexText("• Appears in calculus, probability, physics", font_size=24),
+            OldTexText("• Foundation of complex exponentials e^(ix)", font_size=24),
+            OldTexText("• Key to understanding change over time", font_size=24),
         )
         matters.arrange(DOWN, buff=0.25, aligned_edge=LEFT)
         matters.next_to(title, DOWN, buff=0.6)
@@ -603,7 +603,7 @@ class DerivativeProperty(Scene):
 
         final_box = SurroundingRectangle(final, buff=0.3, color=BLUE, stroke_width=2)
 
-        final_label = Text("Taylor series for e^x:", font_size=28)
+        final_label = OldTexText("Taylor series for e^x:", font_size=28)
         final_label.next_to(final, UP, buff=0.5)
 
         self.play(Write(final_label))

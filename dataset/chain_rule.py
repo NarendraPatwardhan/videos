@@ -127,7 +127,7 @@ class CompositionIntro(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Chain Rule", font_size=48)
+        title = OldTexText("The Chain Rule", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -136,7 +136,7 @@ class CompositionIntro(InteractiveScene):
         # ========================================
         # INTRODUCE: Function composition
         # ========================================
-        subtitle = Text("Composing Functions", font_size=36)
+        subtitle = OldTexText("Composing Functions", font_size=36)
         subtitle.next_to(title, DOWN, buff=0.5)
 
         self.play(Write(subtitle))
@@ -184,7 +184,7 @@ class CompositionIntro(InteractiveScene):
         # ========================================
         # QUESTION: How to differentiate?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "How do we find the derivative of g(f(x))?",
             font_size=36,
             color=YELLOW
@@ -222,7 +222,7 @@ class RateOfChange(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Why Do Rates Multiply?", font_size=48)
+        title = OldTexText("Why Do Rates Multiply?", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -356,7 +356,7 @@ class ChainRuleFormula(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Chain Rule Formula", font_size=48)
+        title = OldTexText("The Chain Rule Formula", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -403,7 +403,7 @@ class ChainRuleFormula(InteractiveScene):
         # ========================================
         # DERIVATION: From limit definition
         # ========================================
-        deriv_title = Text("Derivation", font_size=36, weight=BOLD)
+        deriv_title = OldTexText("Derivation", font_size=36, weight=BOLD)
         deriv_title.to_edge(LEFT, buff=1).shift(1.5 * UP)
 
         self.play(Write(deriv_title))
@@ -498,7 +498,7 @@ class Examples(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Chain Rule Examples", font_size=48)
+        title = OldTexText("Chain Rule Examples", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -545,7 +545,7 @@ class Examples(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects))
 
-        message = Text(
+        message = OldTexText(
             "The chain rule is essential for\ndifferentiating composite functions!",
             font_size=40,
             color=YELLOW,

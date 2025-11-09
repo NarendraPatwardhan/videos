@@ -180,7 +180,7 @@ class MultipleSamples(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Central Limit Theorem", font_size=48)
+        title = OldTexText("The Central Limit Theorem", font_size=48)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -188,7 +188,7 @@ class MultipleSamples(Scene):
         # ========================================
         # SHOW: A non-normal distribution
         # ========================================
-        subtitle = Text(
+        subtitle = OldTexText(
             "Start with any distribution (not necessarily normal)",
             font_size=28,
             color=GREY_A
@@ -239,7 +239,7 @@ class MultipleSamples(Scene):
         # ========================================
         self.play(FadeOut(subtitle))
 
-        sampling_text = Text("Take random samples from this distribution", font_size=26)
+        sampling_text = OldTexText("Take random samples from this distribution", font_size=26)
         sampling_text.to_edge(DOWN).shift(UP * 0.3)
 
         self.play(FadeIn(sampling_text, shift=UP))
@@ -255,7 +255,7 @@ class MultipleSamples(Scene):
             sample_dots.add(dot)
 
         self.play(
-            LaggedStart(*[FadeIn(dot, scale=0.5) for dot in sample_dots], lag_ratio=0.1)
+            LaggedStart([FadeIn(dot, scale=0.5) for dot in sample_dots], lag_ratio=0.1)
         )
         self.wait()
 
@@ -264,7 +264,7 @@ class MultipleSamples(Scene):
         # ========================================
         self.play(FadeOut(sampling_text))
 
-        idea = Text(
+        idea = OldTexText(
             "Now take MANY samples and add them up",
             font_size=28,
             color=YELLOW
@@ -297,7 +297,7 @@ class SumDistribution(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Distribution of Sums", font_size=42)
+        title = OldTexText("Distribution of Sums", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -322,7 +322,7 @@ class SumDistribution(Scene):
         # ========================================
         # GENERATE: Sum samples
         # ========================================
-        info = Text("Taking 1000 samples, each sum of 30 values...", font_size=24, color=GREY_A)
+        info = OldTexText("Taking 1000 samples, each sum of 30 values...", font_size=24, color=GREY_A)
         info.next_to(title, DOWN, buff=0.3)
 
         self.play(FadeIn(info, shift=DOWN))
@@ -345,7 +345,7 @@ class SumDistribution(Scene):
         # ========================================
         self.play(FadeOut(info))
 
-        building = Text("Building histogram...", font_size=24, color=YELLOW)
+        building = OldTexText("Building histogram...", font_size=24, color=YELLOW)
         building.next_to(title, DOWN, buff=0.3)
 
         self.play(FadeIn(building, shift=DOWN))
@@ -355,7 +355,7 @@ class SumDistribution(Scene):
         histogram = create_histogram(axes, sums, num_bins=40, color=GREEN)
 
         self.play(
-            LaggedStart(*[FadeIn(bar, shift=UP) for bar in histogram], lag_ratio=0.01),
+            LaggedStart([FadeIn(bar, shift=UP) for bar in histogram], lag_ratio=0.01),
             run_time=3
         )
         self.wait()
@@ -365,7 +365,7 @@ class SumDistribution(Scene):
         # ========================================
         self.play(FadeOut(building))
 
-        observation = Text(
+        observation = OldTexText(
             "A bell curve is emerging!",
             font_size=32,
             color=GREEN
@@ -418,7 +418,7 @@ class EmergentNormal(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("Emergence of the Normal", font_size=42)
+        title = OldTexText("Emergence of the Normal", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -426,7 +426,7 @@ class EmergentNormal(Scene):
         # ========================================
         # EXPLANATION
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "As sample size increases, the distribution becomes more normal",
             font_size=26,
             color=GREY_A
@@ -474,7 +474,7 @@ class EmergentNormal(Scene):
 
             if i == 0:
                 self.play(
-                    LaggedStart(*[FadeIn(bar, shift=UP) for bar in histogram], lag_ratio=0.01),
+                    LaggedStart([FadeIn(bar, shift=UP) for bar in histogram], lag_ratio=0.01),
                     Write(label),
                     run_time=2
                 )
@@ -485,7 +485,7 @@ class EmergentNormal(Scene):
                     run_time=0.5
                 )
                 self.play(
-                    LaggedStart(*[FadeIn(bar, shift=UP) for bar in histogram], lag_ratio=0.01),
+                    LaggedStart([FadeIn(bar, shift=UP) for bar in histogram], lag_ratio=0.01),
                     Write(label),
                     run_time=2
                 )
@@ -506,7 +506,7 @@ class EmergentNormal(Scene):
         self.play(ShowCreation(normal_curve))
         self.wait()
 
-        final_text = Text(
+        final_text = OldTexText(
             "Perfect bell curve with n = 30!",
             font_size=28,
             color=WHITE
@@ -529,7 +529,7 @@ class UniversalPhenomenon(Scene):
         # ========================================
         # TITLE
         # ========================================
-        title = Text("The Universal Phenomenon", font_size=42)
+        title = OldTexText("The Universal Phenomenon", font_size=42)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -538,7 +538,7 @@ class UniversalPhenomenon(Scene):
         # STATEMENT
         # ========================================
         statement = VGroup(
-            Text("The Central Limit Theorem states:", font_size=28),
+            OldTexText("The Central Limit Theorem states:", font_size=28),
             Tex(
                 "\\text{The sum of } n \\text{ independent random variables}",
                 font_size=24
@@ -562,7 +562,7 @@ class UniversalPhenomenon(Scene):
         # ========================================
         self.play(FadeOut(statement))
 
-        universal = Text(
+        universal = OldTexText(
             "This works for ANY distribution!",
             font_size=32,
             color=YELLOW
@@ -576,11 +576,11 @@ class UniversalPhenomenon(Scene):
         # EXAMPLES
         # ========================================
         examples = VGroup(
-            Text("Examples of original distributions:", font_size=26),
-            Text("• Uniform (like dice)", font_size=22),
-            Text("• Exponential (like radioactive decay)", font_size=22),
-            Text("• Binomial (like coin flips)", font_size=22),
-            Text("• Any finite-variance distribution!", font_size=22, color=GREEN),
+            OldTexText("Examples of original distributions:", font_size=26),
+            OldTexText("• Uniform (like dice)", font_size=22),
+            OldTexText("• Exponential (like radioactive decay)", font_size=22),
+            OldTexText("• Binomial (like coin flips)", font_size=22),
+            OldTexText("• Any finite-variance distribution!", font_size=22, color=GREEN),
         )
         examples.arrange(DOWN, buff=0.25, aligned_edge=LEFT)
         examples.next_to(universal, DOWN, buff=0.6)
@@ -596,15 +596,15 @@ class UniversalPhenomenon(Scene):
         # ========================================
         self.play(FadeOut(universal), FadeOut(examples))
 
-        applications_title = Text("Why does this matter?", font_size=32, color=BLUE)
+        applications_title = OldTexText("Why does this matter?", font_size=32, color=BLUE)
         applications_title.next_to(title, DOWN, buff=0.5)
 
         applications = VGroup(
-            Text("• Explains why the normal distribution is everywhere", font_size=24),
-            Text("• Foundation of statistical inference", font_size=24),
-            Text("• Enables hypothesis testing and confidence intervals", font_size=24),
-            Text("• Justifies many approximations in science", font_size=24),
-            Text("• Heights, test scores, measurement errors...", font_size=24, color=GREY_A),
+            OldTexText("• Explains why the normal distribution is everywhere", font_size=24),
+            OldTexText("• Foundation of statistical inference", font_size=24),
+            OldTexText("• Enables hypothesis testing and confidence intervals", font_size=24),
+            OldTexText("• Justifies many approximations in science", font_size=24),
+            OldTexText("• Heights, test scores, measurement errors...", font_size=24, color=GREY_A),
         )
         applications.arrange(DOWN, buff=0.25, aligned_edge=LEFT)
         applications.next_to(applications_title, DOWN, buff=0.5)
@@ -623,7 +623,7 @@ class UniversalPhenomenon(Scene):
         # ========================================
         self.play(FadeOut(applications_title), FadeOut(applications))
 
-        formula_title = Text("The Formal Statement", font_size=32, color=GREEN)
+        formula_title = OldTexText("The Formal Statement", font_size=32, color=GREEN)
         formula_title.next_to(title, DOWN, buff=0.5)
 
         formula = Tex(

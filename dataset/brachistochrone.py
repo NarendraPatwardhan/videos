@@ -23,13 +23,13 @@ class IntroduceProblem(Scene):
 
     def construct(self):
         # Title
-        title = Text("The Brachistochrone Problem", font_size=56)
+        title = OldTexText("The Brachistochrone Problem", font_size=56)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Etymology
-        etymology = Text(
+        etymology = OldTexText(
             "From Greek: brachistos (shortest) + chronos (time)",
             font_size=28,
             color=GREY
@@ -40,7 +40,7 @@ class IntroduceProblem(Scene):
         self.play(FadeOut(etymology))
 
         # The question
-        question = Text(
+        question = OldTexText(
             "What curve gives the fastest descent between two points?",
             font_size=40,
             color=YELLOW
@@ -56,10 +56,10 @@ class IntroduceProblem(Scene):
         start_dot = Dot(start_point, color=GREEN, radius=0.12)
         end_dot = Dot(end_point, color=RED, radius=0.12)
 
-        start_label = Text("Start", font_size=28, color=GREEN)
+        start_label = OldTexText("Start", font_size=28, color=GREEN)
         start_label.next_to(start_dot, UP)
 
-        end_label = Text("Finish", font_size=28, color=RED)
+        end_label = OldTexText("Finish", font_size=28, color=RED)
         end_label.next_to(end_dot, DOWN)
 
         self.play(
@@ -72,10 +72,10 @@ class IntroduceProblem(Scene):
 
         # Show different possible paths
         straight_line = Line(start_point, end_point, color=BLUE, stroke_width=4)
-        straight_label = Text("Straight line?", font_size=32, color=BLUE)
+        straight_label = OldTexText("Straight line?", font_size=32, color=BLUE)
         straight_label.move_to(DOWN * 2.5)
 
-        self.play(Create(straight_line))
+        self.play(ShowCreation(straight_line))
         self.wait(0.5)
         self.play(Write(straight_label))
         self.wait()
@@ -96,7 +96,7 @@ class IntroduceProblem(Scene):
             stroke_width=4
         )
 
-        steep_label = Text("Steep drop first?", font_size=32, color=PURPLE)
+        steep_label = OldTexText("Steep drop first?", font_size=32, color=PURPLE)
         steep_label.move_to(DOWN * 2.5)
 
         self.play(
@@ -106,7 +106,7 @@ class IntroduceProblem(Scene):
         self.wait(2)
 
         # Show the mystery - what's optimal?
-        mystery = Text("What is the optimal curve?", font_size=40, color=YELLOW)
+        mystery = OldTexText("What is the optimal curve?", font_size=40, color=YELLOW)
         mystery.move_to(DOWN * 2.5)
 
         self.play(
@@ -123,7 +123,7 @@ class CompareRamps(Scene):
 
     def construct(self):
         # Title
-        title = Text("Racing Different Paths", font_size=50)
+        title = OldTexText("Racing Different Paths", font_size=50)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -165,15 +165,15 @@ class CompareRamps(Scene):
         cycloid.shift(DOWN * 1.5)
 
         # Labels
-        straight_label = Text("Straight", font_size=28, color=BLUE).next_to(straight, LEFT)
-        arc_label = Text("Circular Arc", font_size=28, color=GREEN).next_to(arc, LEFT)
-        cycloid_label = Text("Cycloid", font_size=28, color=RED).next_to(cycloid, LEFT)
+        straight_label = OldTexText("Straight", font_size=28, color=BLUE).next_to(straight, LEFT)
+        arc_label = OldTexText("Circular Arc", font_size=28, color=GREEN).next_to(arc, LEFT)
+        cycloid_label = OldTexText("Cycloid", font_size=28, color=RED).next_to(cycloid, LEFT)
 
         # Draw all paths
         self.play(
-            Create(straight),
-            Create(arc),
-            Create(cycloid),
+            ShowCreation(straight),
+            ShowCreation(arc),
+            ShowCreation(cycloid),
             Write(straight_label),
             Write(arc_label),
             Write(cycloid_label)
@@ -193,7 +193,7 @@ class CompareRamps(Scene):
         self.wait()
 
         # Race announcement
-        announcement = Text("Ready... Set... Go!", font_size=40, color=YELLOW)
+        announcement = OldTexText("Ready... Set... Go!", font_size=40, color=YELLOW)
         announcement.to_edge(DOWN)
         self.play(Write(announcement))
         self.wait(0.5)
@@ -211,7 +211,7 @@ class CompareRamps(Scene):
         self.wait()
 
         # Highlight the winner
-        winner = Text("Cycloid Wins!", font_size=48, color=RED)
+        winner = OldTexText("Cycloid Wins!", font_size=48, color=RED)
         winner.to_edge(DOWN)
         self.play(Write(winner))
 
@@ -230,18 +230,18 @@ class CycloidSolution(Scene):
 
     def construct(self):
         # Title
-        title = Text("The Cycloid: Nature's Speed Demon", font_size=50)
+        title = OldTexText("The Cycloid: Nature's Speed Demon", font_size=50)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # What is a cycloid?
-        definition = Text("What is a cycloid?", font_size=40, color=YELLOW)
+        definition = OldTexText("What is a cycloid?", font_size=40, color=YELLOW)
         definition.move_to(2 * UP)
         self.play(Write(definition))
         self.wait()
 
-        explanation = Text(
+        explanation = OldTexText(
             "The path traced by a point on a rolling circle",
             font_size=32,
             color=GREY
@@ -266,8 +266,8 @@ class CycloidSolution(Scene):
         # Path traced
         path_points = []
 
-        self.play(Create(ground))
-        self.play(Create(circle), FadeIn(dot))
+        self.play(ShowCreation(ground))
+        self.play(ShowCreation(circle), FadeIn(dot))
         self.wait()
 
         # Animate rolling
@@ -323,7 +323,7 @@ class CycloidSolution(Scene):
             FadeOut(explanation)
         )
 
-        equations_title = Text("Parametric Equations", font_size=40, color=YELLOW)
+        equations_title = OldTexText("Parametric Equations", font_size=40, color=YELLOW)
         equations_title.move_to(2 * UP)
 
         equations = Tex(
@@ -341,7 +341,7 @@ class CycloidSolution(Scene):
         self.wait(2)
 
         # Historical note
-        historical = Text(
+        historical = OldTexText(
             "Solved by Johann Bernoulli (1696)",
             font_size=32,
             color=GREY
@@ -358,19 +358,19 @@ class PhysicsExplanation(Scene):
 
     def construct(self):
         # Title
-        title = Text("Why is the Cycloid Fastest?", font_size=52)
+        title = OldTexText("Why is the Cycloid Fastest?", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Key insight
-        insight = Text("Key Insight: Trade height for speed early", font_size=36, color=YELLOW)
+        insight = OldTexText("Key Insight: Trade height for speed early", font_size=36, color=YELLOW)
         insight.move_to(2.2 * UP)
         self.play(Write(insight))
         self.wait(2)
 
         # Energy considerations
-        energy_title = Text("Energy Consideration", font_size=40, color=BLUE)
+        energy_title = OldTexText("Energy Consideration", font_size=40, color=BLUE)
         energy_title.move_to(0.8 * UP)
 
         energy_eq = Tex(
@@ -379,7 +379,7 @@ class PhysicsExplanation(Scene):
         )
         energy_eq.next_to(energy_title, DOWN, buff=0.4)
 
-        energy_note = Text(
+        energy_note = OldTexText(
             "Speed increases with height lost",
             font_size=28,
             color=GREY
@@ -394,7 +394,7 @@ class PhysicsExplanation(Scene):
         self.wait(2)
 
         # Time minimization
-        time_title = Text("Minimize Total Time", font_size=40, color=GREEN)
+        time_title = OldTexText("Minimize Total Time", font_size=40, color=GREEN)
         time_title.move_to(1.2 * DOWN)
 
         time_eq = Tex(
@@ -418,10 +418,10 @@ class PhysicsExplanation(Scene):
             FadeOut(time_eq)
         )
 
-        cov_title = Text("Calculus of Variations", font_size=48, color=YELLOW)
+        cov_title = OldTexText("Calculus of Variations", font_size=48, color=YELLOW)
         cov_title.move_to(1.5 * UP)
 
-        explanation = Text(
+        explanation = OldTexText(
             "Find the function y(x) that minimizes the integral",
             font_size=32
         )
@@ -439,7 +439,7 @@ class PhysicsExplanation(Scene):
         )
         el_eq.move_to(DOWN * 0.2)
 
-        el_label = Text("Euler-Lagrange Equation", font_size=28, color=GREY)
+        el_label = OldTexText("Euler-Lagrange Equation", font_size=28, color=GREY)
         el_label.next_to(el_eq, DOWN, buff=0.3)
 
         self.play(Write(el_eq))
@@ -451,15 +451,15 @@ class PhysicsExplanation(Scene):
         result_box = Rectangle(height=1.5, width=10, color=YELLOW)
         result_box.move_to(DOWN * 2.3)
 
-        result_text = Text("Solution: Cycloid Curve", font_size=40, color=YELLOW)
+        result_text = OldTexText("Solution: Cycloid Curve", font_size=40, color=YELLOW)
         result_text.move_to(result_box.get_center())
 
-        self.play(Create(result_box))
+        self.play(ShowCreation(result_box))
         self.play(Write(result_text))
         self.wait(2)
 
         # Final note
-        note = Text(
+        note = OldTexText(
             "Also called the 'tautochrone' - same descent time from any starting point!",
             font_size=28,
             color=GREY

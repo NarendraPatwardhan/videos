@@ -23,13 +23,13 @@ class IntroduceProblem(Scene):
 
     def construct(self):
         # Title
-        title = Text("Least Squares Linear Regression", font_size=50)
+        title = OldTexText("Least Squares Linear Regression", font_size=50)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # The problem
-        problem = Text(
+        problem = OldTexText(
             "Given data points, find the best-fitting line",
             font_size=36,
             color=YELLOW
@@ -48,10 +48,10 @@ class IntroduceProblem(Scene):
         )
         axes.move_to(DOWN * 0.3)
 
-        x_label = Text("x", font_size=32).next_to(axes.x_axis, RIGHT)
-        y_label = Text("y", font_size=32).next_to(axes.y_axis, UP)
+        x_label = OldTexText("x", font_size=32).next_to(axes.x_axis, RIGHT)
+        y_label = OldTexText("y", font_size=32).next_to(axes.y_axis, UP)
 
-        self.play(Create(axes), Write(x_label), Write(y_label))
+        self.play(ShowCreation(axes), Write(x_label), Write(y_label))
         self.wait()
 
         # Sample data points (roughly linear with noise)
@@ -65,18 +65,18 @@ class IntroduceProblem(Scene):
             for x, y in zip(x_data, y_data)
         ])
 
-        self.play(LaggedStart(*[FadeIn(point) for point in points], lag_ratio=0.15))
+        self.play(LaggedStart([FadeIn(point) for point in points], lag_ratio=0.15))
         self.wait()
 
         # Show different possible lines
         line1 = axes.get_graph(lambda x: 1.2 * x + 1, x_range=[0, 10], color=RED)
-        line1_label = Text("Line 1?", font_size=28, color=RED).move_to(axes.c2p(8, 8))
+        line1_label = OldTexText("Line 1?", font_size=28, color=RED).move_to(axes.c2p(8, 8))
 
-        self.play(Create(line1), Write(line1_label))
+        self.play(ShowCreation(line1), Write(line1_label))
         self.wait()
 
         line2 = axes.get_graph(lambda x: 1.8 * x + 1.5, x_range=[0, 10], color=GREEN)
-        line2_label = Text("Line 2?", font_size=28, color=GREEN).move_to(axes.c2p(7, 9))
+        line2_label = OldTexText("Line 2?", font_size=28, color=GREEN).move_to(axes.c2p(7, 9))
 
         self.play(
             ReplacementTransform(line1, line2),
@@ -85,7 +85,7 @@ class IntroduceProblem(Scene):
         self.wait()
 
         line3 = axes.get_graph(lambda x: 1.5 * x + 2.2, x_range=[0, 10], color=PURPLE)
-        line3_label = Text("Line 3?", font_size=28, color=PURPLE).move_to(axes.c2p(6.5, 8.5))
+        line3_label = OldTexText("Line 3?", font_size=28, color=PURPLE).move_to(axes.c2p(6.5, 8.5))
 
         self.play(
             ReplacementTransform(line2, line3),
@@ -94,7 +94,7 @@ class IntroduceProblem(Scene):
         self.wait()
 
         # Question
-        question = Text(
+        question = OldTexText(
             "Which line is \"best\"?",
             font_size=40,
             color=YELLOW
@@ -111,7 +111,7 @@ class ErrorMinimization(Scene):
 
     def construct(self):
         # Title
-        title = Text("Minimizing Error", font_size=52)
+        title = OldTexText("Minimizing Error", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -143,10 +143,10 @@ class ErrorMinimization(Scene):
         # A candidate line: y = 1.2x + 1.5
         line = axes.get_graph(lambda x: 1.2 * x + 1.5, x_range=[0, 6], color=YELLOW)
 
-        self.play(Create(axes))
-        self.play(LaggedStart(*[FadeIn(point) for point in points], lag_ratio=0.2))
+        self.play(ShowCreation(axes))
+        self.play(LaggedStart([FadeIn(point) for point in points], lag_ratio=0.2))
         self.wait(0.5)
-        self.play(Create(line))
+        self.play(ShowCreation(line))
         self.wait()
 
         # Show errors (vertical distances)
@@ -161,32 +161,32 @@ class ErrorMinimization(Scene):
             )
             error_lines.add(error_line)
 
-        error_label = Text("Errors (residuals)", font_size=28, color=RED)
+        error_label = OldTexText("Errors (residuals)", font_size=28, color=RED)
         error_label.move_to(axes.c2p(5.5, 2))
 
-        self.play(LaggedStart(*[Create(error) for error in error_lines], lag_ratio=0.2))
+        self.play(LaggedStart([ShowCreation(error) for error in error_lines], lag_ratio=0.2))
         self.wait(0.5)
         self.play(Write(error_label))
         self.wait(2)
 
         # Explanation on the right
-        explanation_title = Text("Why Squared Errors?", font_size=36, color=YELLOW)
+        explanation_title = OldTexText("Why Squared Errors?", font_size=36, color=YELLOW)
         explanation_title.move_to(UP * 2 + RIGHT * 3.5)
         self.play(Write(explanation_title))
         self.wait()
 
         reasons = VGroup(
-            Text("1. Makes errors positive", font_size=26),
-            Text("   (avoid cancellation)", font_size=22, color=GREY),
-            Text("2. Penalizes large errors more", font_size=26),
-            Text("   (outliers have bigger impact)", font_size=22, color=GREY),
-            Text("3. Mathematically convenient", font_size=26),
-            Text("   (differentiable, unique solution)", font_size=22, color=GREY),
+            OldTexText("1. Makes errors positive", font_size=26),
+            OldTexText("   (avoid cancellation)", font_size=22, color=GREY),
+            OldTexText("2. Penalizes large errors more", font_size=26),
+            OldTexText("   (outliers have bigger impact)", font_size=22, color=GREY),
+            OldTexText("3. Mathematically convenient", font_size=26),
+            OldTexText("   (differentiable, unique solution)", font_size=22, color=GREY),
         )
         reasons.arrange(DOWN, aligned_edge=LEFT, buff=0.25)
         reasons.next_to(explanation_title, DOWN, buff=0.5, aligned_edge=LEFT)
 
-        self.play(LaggedStart(*[Write(reason) for reason in reasons], lag_ratio=0.3))
+        self.play(LaggedStart([Write(reason) for reason in reasons], lag_ratio=0.3))
         self.wait(3)
 
         # Objective function
@@ -195,7 +195,7 @@ class ErrorMinimization(Scene):
             FadeOut(reasons)
         )
 
-        objective_title = Text("Objective:", font_size=32, color=GREEN)
+        objective_title = OldTexText("Objective:", font_size=32, color=GREEN)
         objective_title.move_to(UP * 1.5 + RIGHT * 3.5)
         self.play(Write(objective_title))
         self.wait()
@@ -219,7 +219,7 @@ class ErrorMinimization(Scene):
         self.wait()
 
         # So we're finding m and b
-        goal = Text("Find optimal slope m and intercept b", font_size=28, color=YELLOW)
+        goal = OldTexText("Find optimal slope m and intercept b", font_size=28, color=YELLOW)
         goal.next_to(prediction, DOWN, buff=0.5)
         self.play(Write(goal))
         self.wait(3)
@@ -232,13 +232,13 @@ class NormalEquation(Scene):
 
     def construct(self):
         # Title
-        title = Text("The Normal Equation", font_size=52)
+        title = OldTexText("The Normal Equation", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Matrix formulation
-        matrix_title = Text("Matrix Formulation:", font_size=36, color=YELLOW)
+        matrix_title = OldTexText("Matrix Formulation:", font_size=36, color=YELLOW)
         matrix_title.move_to(UP * 2.5)
         self.play(Write(matrix_title))
         self.wait()
@@ -262,7 +262,7 @@ class NormalEquation(Scene):
         components.arrange(DOWN, aligned_edge=LEFT, buff=0.35)
         components.move_to(UP * 0.1 + LEFT * 1.5)
 
-        self.play(LaggedStart(*[Write(comp) for comp in components], lag_ratio=0.3))
+        self.play(LaggedStart([Write(comp) for comp in components], lag_ratio=0.3))
         self.wait(2)
 
         # Design matrix structure
@@ -290,7 +290,7 @@ class NormalEquation(Scene):
         self.wait()
 
         # Take derivative and set to zero
-        step1 = Text("Take derivative with respect to β and set to 0:", font_size=28)
+        step1 = OldTexText("Take derivative with respect to β and set to 0:", font_size=28)
         step1.next_to(objective, DOWN, buff=0.6)
         self.play(Write(step1))
         self.wait()
@@ -306,7 +306,7 @@ class NormalEquation(Scene):
         # Solve for β
         self.play(FadeOut(step1), FadeOut(derivative))
 
-        step2 = Text("Solve for β:", font_size=28)
+        step2 = OldTexText("Solve for β:", font_size=28)
         step2.move_to(DOWN * 0.5)
         self.play(Write(step2))
         self.wait()
@@ -325,10 +325,10 @@ class NormalEquation(Scene):
 
         # Highlight the normal equation
         box = SurroundingRectangle(solution_steps[1], color=YELLOW, buff=0.2)
-        self.play(Create(box))
+        self.play(ShowCreation(box))
         self.wait()
 
-        label = Text("The Normal Equation", font_size=32, color=YELLOW)
+        label = OldTexText("The Normal Equation", font_size=32, color=YELLOW)
         label.next_to(box, DOWN, buff=0.3)
         self.play(Write(label))
         self.wait(3)
@@ -341,7 +341,7 @@ class BestFitLine(Scene):
 
     def construct(self):
         # Title
-        title = Text("Computing the Best Fit Line", font_size=50)
+        title = OldTexText("Computing the Best Fit Line", font_size=50)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -356,10 +356,10 @@ class BestFitLine(Scene):
         )
         axes.move_to(LEFT * 2 + DOWN * 0.5)
 
-        x_label = Text("x", font_size=32).next_to(axes.x_axis, RIGHT)
-        y_label = Text("y", font_size=32).next_to(axes.y_axis, UP)
+        x_label = OldTexText("x", font_size=32).next_to(axes.x_axis, RIGHT)
+        y_label = OldTexText("y", font_size=32).next_to(axes.y_axis, UP)
 
-        self.play(Create(axes), Write(x_label), Write(y_label))
+        self.play(ShowCreation(axes), Write(x_label), Write(y_label))
         self.wait()
 
         # Sample data
@@ -373,11 +373,11 @@ class BestFitLine(Scene):
             for x, y in zip(x_data, y_data)
         ])
 
-        self.play(LaggedStart(*[FadeIn(point) for point in points], lag_ratio=0.15))
+        self.play(LaggedStart([FadeIn(point) for point in points], lag_ratio=0.15))
         self.wait()
 
         # Show the calculation on the right
-        calc_title = Text("Calculation:", font_size=32, color=YELLOW)
+        calc_title = OldTexText("Calculation:", font_size=32, color=YELLOW)
         calc_title.move_to(UP * 2.5 + RIGHT * 4.5)
         self.play(Write(calc_title))
         self.wait()
@@ -444,7 +444,7 @@ class BestFitLine(Scene):
             stroke_width=4
         )
 
-        self.play(Create(best_fit), run_time=2)
+        self.play(ShowCreation(best_fit), run_time=2)
         self.wait()
 
         # Show residuals
@@ -459,10 +459,10 @@ class BestFitLine(Scene):
             )
             residual_lines.add(residual)
 
-        residual_label = Text("Residuals", font_size=28, color=RED)
+        residual_label = OldTexText("Residuals", font_size=28, color=RED)
         residual_label.move_to(axes.c2p(8.5, 3))
 
-        self.play(LaggedStart(*[Create(res) for res in residual_lines], lag_ratio=0.1))
+        self.play(LaggedStart([ShowCreation(res) for res in residual_lines], lag_ratio=0.1))
         self.wait(0.5)
         self.play(Write(residual_label))
         self.wait()
@@ -479,7 +479,7 @@ class BestFitLine(Scene):
             color=YELLOW
         )
         r2_text.next_to(line_eq, DOWN, buff=0.6)
-        r2_label = Text("(goodness of fit)", font_size=24, color=GREY)
+        r2_label = OldTexText("(goodness of fit)", font_size=24, color=GREY)
         r2_label.next_to(r2_text, DOWN, buff=0.2)
 
         self.play(Write(r2_text))

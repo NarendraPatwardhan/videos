@@ -196,7 +196,7 @@ class IntroduceFunction(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("What is the Slope at a Point?", font_size=48)
+        title = OldTexText("What is the Slope at a Point?", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -241,7 +241,7 @@ class IntroduceFunction(InteractiveScene):
         # ========================================
         # QUESTION: What is the slope here?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "What is the slope of the curve at this point?",
             font_size=36,
             color=YELLOW
@@ -254,7 +254,7 @@ class IntroduceFunction(InteractiveScene):
         # ========================================
         # HINT: Need a tangent line
         # ========================================
-        hint = Text(
+        hint = OldTexText(
             "We need the tangent line...",
             font_size=32,
             color=GREY_A
@@ -285,7 +285,7 @@ class SecantLines(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Secant Lines: Average Rate of Change", font_size=48)
+        title = OldTexText("Secant Lines: Average Rate of Change", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -381,7 +381,7 @@ class SecantLines(InteractiveScene):
         # ========================================
         # INSIGHT: As h gets smaller...
         # ========================================
-        insight = Text(
+        insight = OldTexText(
             "As h → 0, we approach the true slope!",
             font_size=36,
             color=GREEN
@@ -412,7 +412,7 @@ class LimitToTangent(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Limit: Tangent Line", font_size=48)
+        title = OldTexText("The Limit: Tangent Line", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -468,7 +468,7 @@ class LimitToTangent(InteractiveScene):
         # ========================================
         # ANIMATE: h → 0
         # ========================================
-        instruction = Text("Watch as h → 0...", font_size=36, color=GREY_A)
+        instruction = OldTexText("Watch as h → 0...", font_size=36, color=GREY_A)
         instruction.next_to(slope_text, UP, buff=0.5)
 
         self.play(FadeIn(instruction, shift=UP))
@@ -517,7 +517,7 @@ class LimitToTangent(InteractiveScene):
         # ========================================
         # LABEL: Tangent line
         # ========================================
-        tangent_label = Text("Tangent Line", font_size=32, color=GREEN)
+        tangent_label = OldTexText("Tangent Line", font_size=32, color=GREEN)
         tangent_label.next_to(tangent.get_end(), UR, buff=0.2)
 
         self.play(FadeIn(tangent_label, shift=DL))
@@ -544,7 +544,7 @@ class DerivativeDefinition(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Derivative: Formal Definition", font_size=48)
+        title = OldTexText("The Derivative: Formal Definition", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -568,7 +568,7 @@ class DerivativeDefinition(InteractiveScene):
         # EXPLANATION: Break down the formula
         # ========================================
         # Highlight numerator
-        numerator_explain = Text(
+        numerator_explain = OldTexText(
             "Change in f(x)",
             font_size=32,
             color=BLUE
@@ -579,7 +579,7 @@ class DerivativeDefinition(InteractiveScene):
         self.wait()
 
         # Highlight denominator
-        denominator_explain = Text(
+        denominator_explain = OldTexText(
             "Change in x",
             font_size=32,
             color=TEAL
@@ -590,7 +590,7 @@ class DerivativeDefinition(InteractiveScene):
         self.wait()
 
         # Ratio meaning
-        ratio_explain = Text(
+        ratio_explain = OldTexText(
             "Ratio = Average rate of change",
             font_size=32,
             color=YELLOW
@@ -601,7 +601,7 @@ class DerivativeDefinition(InteractiveScene):
         self.wait()
 
         # Limit meaning
-        limit_explain = Text(
+        limit_explain = OldTexText(
             "Limit as h → 0 = Instantaneous rate",
             font_size=32,
             color=GREEN
@@ -643,7 +643,7 @@ class DerivativeDefinition(InteractiveScene):
         # ========================================
         # MEANING: Slope of tangent
         # ========================================
-        meaning = Text(
+        meaning = OldTexText(
             "This is the slope of the tangent line at any point x",
             font_size=32,
             color=GREY_A

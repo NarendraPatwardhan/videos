@@ -158,7 +158,7 @@ class IntroducePendulum(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Simple Harmonic Motion", font_size=48)
+        title = OldTexText("Simple Harmonic Motion", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -191,7 +191,7 @@ class IntroducePendulum(InteractiveScene):
         # ========================================
         # ANIMATE: Swinging
         # ========================================
-        instruction = Text(
+        instruction = OldTexText(
             "The pendulum swings back and forth periodically",
             font_size=32,
             color=GREY_A
@@ -214,7 +214,7 @@ class IntroducePendulum(InteractiveScene):
         # ========================================
         self.play(FadeOut(instruction))
 
-        observation = Text(
+        observation = OldTexText(
             "This is called Simple Harmonic Motion (SHM)",
             font_size=36,
             color=YELLOW
@@ -252,7 +252,7 @@ class CircularMotion(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Uniform Circular Motion", font_size=48)
+        title = OldTexText("Uniform Circular Motion", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -295,7 +295,7 @@ class CircularMotion(InteractiveScene):
         # ========================================
         # ANIMATE: Rotation
         # ========================================
-        instruction = Text(
+        instruction = OldTexText(
             "The point moves at constant angular velocity",
             font_size=32,
             color=GREY_A
@@ -356,7 +356,7 @@ class ProjectionToSHM(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Connection", font_size=48)
+        title = OldTexText("The Connection", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -421,7 +421,7 @@ class ProjectionToSHM(InteractiveScene):
         # ========================================
         # LABEL: The projection
         # ========================================
-        label = Text(
+        label = OldTexText(
             "The horizontal projection matches SHM!",
             font_size=32,
             color=GREEN
@@ -447,7 +447,7 @@ class ProjectionToSHM(InteractiveScene):
         # ========================================
         self.play(FadeOut(label))
 
-        highlight = Text(
+        highlight = OldTexText(
             "They move in perfect synchronization!",
             font_size=36,
             color=YELLOW
@@ -478,7 +478,7 @@ class Equation(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Equation of SHM", font_size=48)
+        title = OldTexText("The Equation of SHM", font_size=48)
         title.to_edge(UP)
 
         self.add(title)

@@ -23,13 +23,13 @@ class DifferentBases(Scene):
 
     def construct(self):
         # Title
-        title = Text("Change of Basis", font_size=52)
+        title = OldTexText("Change of Basis", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Key idea
-        key_idea = Text(
+        key_idea = OldTexText(
             "Same vector, different coordinate systems",
             font_size=36,
             color=YELLOW
@@ -71,14 +71,14 @@ class DifferentBases(Scene):
         e1_label = Tex(R"\vec{e}_1", font_size=32, color=GREEN).next_to(e1, DOWN, buff=0.1)
         e2_label = Tex(R"\vec{e}_2", font_size=32, color=RED).next_to(e2, LEFT, buff=0.1)
 
-        standard_label = Text("Standard Basis", font_size=32, color=BLUE)
+        standard_label = OldTexText("Standard Basis", font_size=32, color=BLUE)
         standard_label.next_to(plane1, DOWN, buff=0.4)
 
-        self.play(Create(plane1))
+        self.play(ShowCreation(plane1))
         self.wait(0.5)
         self.play(
-            Create(e1),
-            Create(e2),
+            ShowCreation(e1),
+            ShowCreation(e2),
             Write(e1_label),
             Write(e2_label)
         )
@@ -103,7 +103,7 @@ class DifferentBases(Scene):
         )
         v_coords1.move_to(plane1.get_bottom() + DOWN * 1.2)
 
-        self.play(Create(v_standard), Write(v_label1))
+        self.play(ShowCreation(v_standard), Write(v_label1))
         self.wait(0.5)
         self.play(Write(v_coords1))
         self.wait(2)
@@ -140,14 +140,14 @@ class DifferentBases(Scene):
         b1_label = Tex(R"\vec{b}_1", font_size=32, color=GREEN).next_to(b1, RIGHT, buff=0.1)
         b2_label = Tex(R"\vec{b}_2", font_size=32, color=RED).next_to(b2, UP, buff=0.1)
 
-        alt_label = Text("Alternative Basis", font_size=32, color=PURPLE)
+        alt_label = OldTexText("Alternative Basis", font_size=32, color=PURPLE)
         alt_label.next_to(plane2, DOWN, buff=0.4)
 
-        self.play(Create(plane2))
+        self.play(ShowCreation(plane2))
         self.wait(0.5)
         self.play(
-            Create(b1),
-            Create(b2),
+            ShowCreation(b1),
+            ShowCreation(b2),
             Write(b1_label),
             Write(b2_label)
         )
@@ -181,13 +181,13 @@ class DifferentBases(Scene):
         )
         v_coords2.move_to(plane2.get_bottom() + DOWN * 1.2)
 
-        self.play(Create(v_alt), Write(v_label2))
+        self.play(ShowCreation(v_alt), Write(v_label2))
         self.wait(0.5)
         self.play(Write(v_coords2))
         self.wait(2)
 
         # Emphasize: same vector!
-        same_vec = Text("Same vector!", font_size=40, color=YELLOW)
+        same_vec = OldTexText("Same vector!", font_size=40, color=YELLOW)
         same_vec.move_to(UP * 3.5)
         self.play(Write(same_vec))
         self.wait(2)
@@ -200,13 +200,13 @@ class TransformationMatrix(Scene):
 
     def construct(self):
         # Title
-        title = Text("Change of Basis Matrix", font_size=52)
+        title = OldTexText("Change of Basis Matrix", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Setup: two bases
-        setup_title = Text("Given two bases:", font_size=36, color=YELLOW)
+        setup_title = OldTexText("Given two bases:", font_size=36, color=YELLOW)
         setup_title.move_to(2.3 * UP)
         self.play(Write(setup_title))
         self.wait()
@@ -230,7 +230,7 @@ class TransformationMatrix(Scene):
         self.wait(2)
 
         # Goal
-        goal = Text("Goal: Convert coordinates from basis B to basis E", font_size=32, color=BLUE)
+        goal = OldTexText("Goal: Convert coordinates from basis B to basis E", font_size=32, color=BLUE)
         goal.move_to(DOWN * 0.2)
         self.play(Write(goal))
         self.wait()
@@ -238,12 +238,12 @@ class TransformationMatrix(Scene):
         # The key insight
         self.play(FadeOut(goal))
 
-        insight_title = Text("Key Insight:", font_size=32, color=GREEN)
+        insight_title = OldTexText("Key Insight:", font_size=32, color=GREEN)
         insight_title.move_to(DOWN * 0.1)
         self.play(Write(insight_title))
         self.wait()
 
-        insight = Text(
+        insight = OldTexText(
             "The columns of P are the basis vectors written in standard coordinates",
             font_size=28,
             color=GREY
@@ -281,7 +281,7 @@ class TransformationMatrix(Scene):
             color=YELLOW,
             buff=0.2
         )
-        self.play(Create(matrix_box))
+        self.play(ShowCreation(matrix_box))
         self.wait(2)
 
         # Conversion formula
@@ -291,7 +291,7 @@ class TransformationMatrix(Scene):
             FadeOut(col_labels)
         )
 
-        formula_title = Text("Conversion Formula:", font_size=32, color=BLUE)
+        formula_title = OldTexText("Conversion Formula:", font_size=32, color=BLUE)
         formula_title.move_to(DOWN * 0.3 + LEFT * 3.5)
         self.play(Write(formula_title))
         self.wait()
@@ -321,7 +321,7 @@ class SameVectorDifferentCoords(Scene):
 
     def construct(self):
         # Title
-        title = Text("Same Vector, Different Coordinates", font_size=48)
+        title = OldTexText("Same Vector, Different Coordinates", font_size=48)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
@@ -337,7 +337,7 @@ class SameVectorDifferentCoords(Scene):
         self.wait()
 
         # Vector in B coordinates
-        v_B_label = Text("Vector in basis B:", font_size=32, color=BLUE)
+        v_B_label = OldTexText("Vector in basis B:", font_size=32, color=BLUE)
         v_B_label.move_to(UP * 1.2 + LEFT * 3.5)
 
         v_B = Tex(
@@ -367,7 +367,7 @@ class SameVectorDifferentCoords(Scene):
         self.wait()
 
         # Computation
-        comp_title = Text("Computation:", font_size=32, color=GREEN)
+        comp_title = OldTexText("Computation:", font_size=32, color=GREEN)
         comp_title.move_to(DOWN * 0.5 + LEFT * 3.5)
         self.play(Write(comp_title))
         self.wait()
@@ -401,7 +401,7 @@ class SameVectorDifferentCoords(Scene):
 
         # Result
         result_box = SurroundingRectangle(step2, color=YELLOW, buff=0.15)
-        self.play(Create(result_box))
+        self.play(ShowCreation(result_box))
         self.wait()
 
         # Visual representation
@@ -429,17 +429,17 @@ class SameVectorDifferentCoords(Scene):
         vec_label = Tex(R"\vec{v} = \begin{bmatrix} -1 \\ 8 \end{bmatrix}", font_size=28, color=YELLOW)
         vec_label.next_to(vector, RIGHT, buff=0.2)
 
-        visual_title = Text("Visual:", font_size=28, color=GREY)
+        visual_title = OldTexText("Visual:", font_size=28, color=GREY)
         visual_title.next_to(plane, UP, buff=0.3)
 
         self.play(Write(visual_title))
-        self.play(Create(plane))
+        self.play(ShowCreation(plane))
         self.wait(0.5)
-        self.play(Create(vector), Write(vec_label))
+        self.play(ShowCreation(vector), Write(vec_label))
         self.wait(2)
 
         # Interpretation
-        interpretation = Text(
+        interpretation = OldTexText(
             "v = 2·b₁ + 3·b₂ = -1·e₁ + 8·e₂",
             font_size=28,
             color=GREY
@@ -456,18 +456,18 @@ class Applications(Scene):
 
     def construct(self):
         # Title
-        title = Text("Applications of Change of Basis", font_size=52)
+        title = OldTexText("Applications of Change of Basis", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Application 1: Diagonalization
-        app1_title = Text("1. Diagonalization", font_size=40, color=BLUE)
+        app1_title = OldTexText("1. Diagonalization", font_size=40, color=BLUE)
         app1_title.move_to(UP * 2)
         self.play(Write(app1_title))
         self.wait()
 
-        app1_desc = Text(
+        app1_desc = OldTexText(
             "Transform matrix to diagonal form using eigenvector basis",
             font_size=28,
             color=GREY
@@ -492,7 +492,7 @@ class Applications(Scene):
         )
         explanation1.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
         explanation1.next_to(diag_formula, DOWN, buff=0.5)
-        self.play(LaggedStart(*[Write(ex) for ex in explanation1], lag_ratio=0.3))
+        self.play(LaggedStart([Write(ex) for ex in explanation1], lag_ratio=0.3))
         self.wait(3)
 
         # Application 2: Coordinate transformations
@@ -502,12 +502,12 @@ class Applications(Scene):
             FadeOut(explanation1)
         )
 
-        app2_title = Text("2. Coordinate Transformations", font_size=40, color=GREEN)
+        app2_title = OldTexText("2. Coordinate Transformations", font_size=40, color=GREEN)
         app2_title.move_to(UP * 2)
         self.play(ReplacementTransform(app1_title, app2_title))
         self.wait()
 
-        app2_desc = Text(
+        app2_desc = OldTexText(
             "Simplify problems by choosing convenient coordinate systems",
             font_size=28,
             color=GREY
@@ -517,13 +517,13 @@ class Applications(Scene):
         self.wait()
 
         examples = VGroup(
-            Text("• Rotating to align with principal axes", font_size=26),
-            Text("• Converting between Cartesian and polar", font_size=26),
-            Text("• Simplifying differential equations", font_size=26)
+            OldTexText("• Rotating to align with principal axes", font_size=26),
+            OldTexText("• Converting between Cartesian and polar", font_size=26),
+            OldTexText("• Simplifying differential equations", font_size=26)
         )
         examples.arrange(DOWN, aligned_edge=LEFT, buff=0.4)
         examples.next_to(app2_desc, DOWN, buff=0.6)
-        self.play(LaggedStart(*[Write(ex) for ex in examples], lag_ratio=0.3))
+        self.play(LaggedStart([Write(ex) for ex in examples], lag_ratio=0.3))
         self.wait(3)
 
         # Application 3: Computer graphics
@@ -532,12 +532,12 @@ class Applications(Scene):
             FadeOut(examples)
         )
 
-        app3_title = Text("3. Computer Graphics", font_size=40, color=PURPLE)
+        app3_title = OldTexText("3. Computer Graphics", font_size=40, color=PURPLE)
         app3_title.move_to(UP * 2)
         self.play(ReplacementTransform(app2_title, app3_title))
         self.wait()
 
-        app3_desc = Text(
+        app3_desc = OldTexText(
             "Transforming between world, camera, and screen coordinates",
             font_size=28,
             color=GREY
@@ -547,13 +547,13 @@ class Applications(Scene):
         self.wait()
 
         graphics_ex = VGroup(
-            Text("• World coordinates → Camera coordinates", font_size=26),
-            Text("• Camera coordinates → Screen coordinates", font_size=26),
-            Text("• Each transformation uses change of basis", font_size=26)
+            OldTexText("• World coordinates → Camera coordinates", font_size=26),
+            OldTexText("• Camera coordinates → Screen coordinates", font_size=26),
+            OldTexText("• Each transformation uses change of basis", font_size=26)
         )
         graphics_ex.arrange(DOWN, aligned_edge=LEFT, buff=0.4)
         graphics_ex.next_to(app3_desc, DOWN, buff=0.6)
-        self.play(LaggedStart(*[Write(ex) for ex in graphics_ex], lag_ratio=0.3))
+        self.play(LaggedStart([Write(ex) for ex in graphics_ex], lag_ratio=0.3))
         self.wait(3)
 
         # Key takeaway
@@ -563,7 +563,7 @@ class Applications(Scene):
             FadeOut(graphics_ex)
         )
 
-        takeaway = Text(
+        takeaway = OldTexText(
             "Change of basis is fundamental to linear algebra!",
             font_size=40,
             color=YELLOW
@@ -573,13 +573,13 @@ class Applications(Scene):
         self.wait()
 
         points = VGroup(
-            Text("✓ Same vector, different representations", font_size=32),
-            Text("✓ Choose basis that simplifies the problem", font_size=32),
-            Text("✓ Essential for eigenvalues, graphics, physics", font_size=32)
+            OldTexText("✓ Same vector, different representations", font_size=32),
+            OldTexText("✓ Choose basis that simplifies the problem", font_size=32),
+            OldTexText("✓ Essential for eigenvalues, graphics, physics", font_size=32)
         )
         points.arrange(DOWN, aligned_edge=LEFT, buff=0.5)
         points.next_to(takeaway, DOWN, buff=0.8)
-        self.play(LaggedStart(*[Write(pt) for pt in points], lag_ratio=0.4))
+        self.play(LaggedStart([Write(pt) for pt in points], lag_ratio=0.4))
         self.wait(3)
 
 

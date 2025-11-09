@@ -23,16 +23,16 @@ class IntroduceRandomWalk(Scene):
 
     def construct(self):
         # Title
-        title = Text("Markov Chains and Random Walks", font_size=52)
+        title = OldTexText("Markov Chains and Random Walks", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Markov property
-        property_title = Text("The Markov Property", font_size=40, color=YELLOW)
+        property_title = OldTexText("The Markov Property", font_size=40, color=YELLOW)
         property_title.move_to(2.2 * UP)
 
-        property_text = Text(
+        property_text = OldTexText(
             '"The future depends only on the present, not the past"',
             font_size=32,
             color=GREY,
@@ -62,7 +62,7 @@ class IntroduceRandomWalk(Scene):
         )
 
         # Simple random walk on a number line
-        walk_title = Text("Example: Random Walk on a Line", font_size=40, color=BLUE)
+        walk_title = OldTexText("Example: Random Walk on a Line", font_size=40, color=BLUE)
         walk_title.move_to(2.5 * UP)
         self.play(Write(walk_title))
         self.wait()
@@ -75,7 +75,7 @@ class IntroduceRandomWalk(Scene):
             font_size=24
         )
         number_line.move_to(UP * 0.5)
-        self.play(Create(number_line))
+        self.play(ShowCreation(number_line))
         self.wait()
 
         # Walker
@@ -85,9 +85,9 @@ class IntroduceRandomWalk(Scene):
 
         # Rules
         rules = VGroup(
-            Text("Each step:", font_size=32),
-            Text("• Move left with probability 0.5", font_size=28),
-            Text("• Move right with probability 0.5", font_size=28)
+            OldTexText("Each step:", font_size=32),
+            OldTexText("• Move left with probability 0.5", font_size=28),
+            OldTexText("• Move right with probability 0.5", font_size=28)
         )
         rules.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
         rules.move_to(DOWN * 2)
@@ -119,23 +119,23 @@ class TransitionMatrix(Scene):
 
     def construct(self):
         # Title
-        title = Text("Transition Matrix", font_size=52)
+        title = OldTexText("Transition Matrix", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Simple example: Weather model
-        example_title = Text("Example: Weather Model", font_size=40, color=YELLOW)
+        example_title = OldTexText("Example: Weather Model", font_size=40, color=YELLOW)
         example_title.next_to(title, DOWN, buff=0.5)
         self.play(Write(example_title))
         self.wait()
 
         # States
-        states_label = Text("States:", font_size=32, color=GREY)
+        states_label = OldTexText("States:", font_size=32, color=GREY)
         states_label.move_to(1.5 * UP + 4.5 * LEFT)
 
-        sunny = Text("Sunny", font_size=32, color=YELLOW)
-        rainy = Text("Rainy", font_size=32, color=BLUE)
+        sunny = OldTexText("Sunny", font_size=32, color=YELLOW)
+        rainy = OldTexText("Rainy", font_size=32, color=BLUE)
 
         states = VGroup(sunny, rainy)
         states.arrange(DOWN, buff=0.5, aligned_edge=LEFT)
@@ -152,17 +152,17 @@ class TransitionMatrix(Scene):
         # Nodes
         sunny_node = Circle(radius=0.8, color=YELLOW, fill_opacity=0.2)
         sunny_node.move_to(diagram_center + LEFT * 2)
-        sunny_label = Text("S", font_size=36, color=YELLOW)
+        sunny_label = OldTexText("S", font_size=36, color=YELLOW)
         sunny_label.move_to(sunny_node.get_center())
 
         rainy_node = Circle(radius=0.8, color=BLUE, fill_opacity=0.2)
         rainy_node.move_to(diagram_center + RIGHT * 2)
-        rainy_label = Text("R", font_size=36, color=BLUE)
+        rainy_label = OldTexText("R", font_size=36, color=BLUE)
         rainy_label.move_to(rainy_node.get_center())
 
         self.play(
-            Create(sunny_node),
-            Create(rainy_node),
+            ShowCreation(sunny_node),
+            ShowCreation(rainy_node),
             Write(sunny_label),
             Write(rainy_label)
         )
@@ -212,16 +212,16 @@ class TransitionMatrix(Scene):
         labels = VGroup(s_to_s_label, s_to_r_label, r_to_r_label, r_to_s_label)
 
         self.play(
-            LaggedStart(*[Create(t) for t in transitions], lag_ratio=0.3)
+            LaggedStart([ShowCreation(t) for t in transitions], lag_ratio=0.3)
         )
         self.wait(0.5)
         self.play(
-            LaggedStart(*[Write(l) for l in labels], lag_ratio=0.3)
+            LaggedStart([Write(l) for l in labels], lag_ratio=0.3)
         )
         self.wait(2)
 
         # Transition matrix
-        matrix_label = Text("Transition Matrix P:", font_size=36)
+        matrix_label = OldTexText("Transition Matrix P:", font_size=36)
         matrix_label.move_to(DOWN * 1.5 + LEFT * 3)
 
         # Matrix showing P[i][j] = probability of going from state i to state j
@@ -236,15 +236,15 @@ class TransitionMatrix(Scene):
 
         # Row and column labels
         row_labels = VGroup(
-            Text("S", font_size=24, color=YELLOW),
-            Text("R", font_size=24, color=BLUE)
+            OldTexText("S", font_size=24, color=YELLOW),
+            OldTexText("R", font_size=24, color=BLUE)
         )
         row_labels.arrange(DOWN, buff=0.68)
         row_labels.next_to(transition_matrix, LEFT, buff=0.3)
 
         col_labels = VGroup(
-            Text("S", font_size=24, color=YELLOW),
-            Text("R", font_size=24, color=BLUE)
+            OldTexText("S", font_size=24, color=YELLOW),
+            OldTexText("R", font_size=24, color=BLUE)
         )
         col_labels.arrange(RIGHT, buff=0.9)
         col_labels.next_to(transition_matrix, UP, buff=0.3)
@@ -257,7 +257,7 @@ class TransitionMatrix(Scene):
         self.wait()
 
         # Highlight row sum = 1
-        note = Text("Each row sums to 1", font_size=28, color=GREEN)
+        note = OldTexText("Each row sums to 1", font_size=28, color=GREEN)
         note.next_to(transition_matrix, DOWN, buff=0.5)
         self.play(Write(note))
         self.wait(2)
@@ -270,13 +270,13 @@ class SteadyState(Scene):
 
     def construct(self):
         # Title
-        title = Text("Steady-State Distribution", font_size=52)
+        title = OldTexText("Steady-State Distribution", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Question
-        question = Text(
+        question = OldTexText(
             "What happens after many transitions?",
             font_size=36,
             color=YELLOW
@@ -306,7 +306,7 @@ class SteadyState(Scene):
         pi0 = Matrix([["0.5"], ["0.5"]], h_buff=0.6)
         pi0.next_to(pi0_label, RIGHT, buff=0.3)
 
-        pi0_text = Text("(Start: 50% sunny, 50% rainy)", font_size=24, color=GREY)
+        pi0_text = OldTexText("(Start: 50% sunny, 50% rainy)", font_size=24, color=GREY)
         pi0_text.next_to(pi0, RIGHT, buff=0.5)
 
         self.play(Write(pi0_label), Write(pi0))
@@ -315,7 +315,7 @@ class SteadyState(Scene):
         self.wait()
 
         # Evolution
-        evolution_label = Text("Evolution:", font_size=32, color=BLUE)
+        evolution_label = OldTexText("Evolution:", font_size=32, color=BLUE)
         evolution_label.next_to(pi0_label, DOWN, buff=0.8, aligned_edge=LEFT)
         self.play(Write(evolution_label))
         self.wait()
@@ -329,7 +329,7 @@ class SteadyState(Scene):
         # After many steps
         self.play(FadeOut(question))
 
-        steady_label = Text("Steady State:", font_size=36, color=GREEN)
+        steady_label = OldTexText("Steady State:", font_size=36, color=GREEN)
         steady_label.move_to(2 * UP)
 
         steady_condition = Tex(R"\pi^* = P^T \pi^*", font_size=40)
@@ -351,7 +351,7 @@ class SteadyState(Scene):
             FadeOut(evolution_eq)
         )
 
-        solution_title = Text("Solving for steady state:", font_size=32)
+        solution_title = OldTexText("Solving for steady state:", font_size=32)
         solution_title.move_to(0.5 * UP + LEFT * 3)
 
         # System of equations
@@ -365,7 +365,7 @@ class SteadyState(Scene):
 
         self.play(Write(solution_title))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(eq) for eq in equations], lag_ratio=0.4))
+        self.play(LaggedStart([Write(eq) for eq in equations], lag_ratio=0.4))
         self.wait(2)
 
         # Result
@@ -379,10 +379,10 @@ class SteadyState(Scene):
         )
         result.move_to(result_box.get_center() + LEFT * 1.5)
 
-        interpretation = Text("≈ 57% sunny, 43% rainy", font_size=28)
+        interpretation = OldTexText("≈ 57% sunny, 43% rainy", font_size=28)
         interpretation.next_to(result, RIGHT, buff=0.5)
 
-        self.play(Create(result_box))
+        self.play(ShowCreation(result_box))
         self.play(Write(result))
         self.wait(0.5)
         self.play(Write(interpretation))
@@ -396,13 +396,13 @@ class PageRankExample(Scene):
 
     def construct(self):
         # Title
-        title = Text("Application: Google PageRank", font_size=52)
+        title = OldTexText("Application: Google PageRank", font_size=52)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait()
 
         # Subtitle
-        subtitle = Text(
+        subtitle = OldTexText(
             "Ranking web pages using Markov chains",
             font_size=32,
             color=GREY
@@ -412,7 +412,7 @@ class PageRankExample(Scene):
         self.wait(2)
 
         # Create a simple web graph
-        web_title = Text("Web Graph:", font_size=36, color=YELLOW)
+        web_title = OldTexText("Web Graph:", font_size=36, color=YELLOW)
         web_title.move_to(2.3 * UP + LEFT * 4.5)
         self.play(Write(web_title))
         self.wait()
@@ -431,13 +431,13 @@ class PageRankExample(Scene):
         for name, pos in positions.items():
             circle = Circle(radius=0.5, color=BLUE, fill_opacity=0.2)
             circle.move_to(pos)
-            label = Text(name, font_size=32, color=WHITE)
+            label = OldTexText(name, font_size=32, color=WHITE)
             label.move_to(pos)
 
             nodes[name] = circle
             labels[name] = label
 
-            self.play(Create(circle), Write(label), run_time=0.5)
+            self.play(ShowCreation(circle), Write(label), run_time=0.5)
 
         self.wait()
 
@@ -459,26 +459,26 @@ class PageRankExample(Scene):
                 stroke_width=2
             )
             edges.append(arrow)
-            self.play(Create(arrow), run_time=0.4)
+            self.play(ShowCreation(arrow), run_time=0.4)
 
         self.wait()
 
         # Random surfer model
-        explanation_title = Text("Random Surfer Model:", font_size=32, color=YELLOW)
+        explanation_title = OldTexText("Random Surfer Model:", font_size=32, color=YELLOW)
         explanation_title.move_to(UP * 2.3 + RIGHT * 3.5)
 
         explanation = VGroup(
-            Text("• Start at random page", font_size=24),
-            Text("• Click random outgoing link", font_size=24),
-            Text("• Repeat many times", font_size=24),
-            Text("• Count visits to each page", font_size=24)
+            OldTexText("• Start at random page", font_size=24),
+            OldTexText("• Click random outgoing link", font_size=24),
+            OldTexText("• Repeat many times", font_size=24),
+            OldTexText("• Count visits to each page", font_size=24)
         )
         explanation.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
         explanation.next_to(explanation_title, DOWN, buff=0.4, aligned_edge=LEFT)
 
         self.play(Write(explanation_title))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(item) for item in explanation], lag_ratio=0.3))
+        self.play(LaggedStart([Write(item) for item in explanation], lag_ratio=0.3))
         self.wait(2)
 
         # Show transition probabilities
@@ -487,22 +487,22 @@ class PageRankExample(Scene):
             FadeOut(explanation)
         )
 
-        prob_title = Text("Transition Probabilities:", font_size=32, color=BLUE)
+        prob_title = OldTexText("Transition Probabilities:", font_size=32, color=BLUE)
         prob_title.move_to(UP * 2.3 + RIGHT * 3.5)
         self.play(Write(prob_title))
         self.wait()
 
         # Example: from A, can go to B or C with equal probability
         prob_text = VGroup(
-            Text("From A: → B (1/2), → C (1/2)", font_size=24),
-            Text("From B: → C (1)", font_size=24),
-            Text("From C: → A (1)", font_size=24),
-            Text("From D: → A (1/3), → B (1/3), → C (1/3)", font_size=24)
+            OldTexText("From A: → B (1/2), → C (1/2)", font_size=24),
+            OldTexText("From B: → C (1)", font_size=24),
+            OldTexText("From C: → A (1)", font_size=24),
+            OldTexText("From D: → A (1/3), → B (1/3), → C (1/3)", font_size=24)
         )
         prob_text.arrange(DOWN, aligned_edge=LEFT, buff=0.25)
         prob_text.next_to(prob_title, DOWN, buff=0.4, aligned_edge=LEFT)
 
-        self.play(LaggedStart(*[Write(item) for item in prob_text], lag_ratio=0.3))
+        self.play(LaggedStart([Write(item) for item in prob_text], lag_ratio=0.3))
         self.wait(2)
 
         # PageRank scores
@@ -511,22 +511,22 @@ class PageRankExample(Scene):
             FadeOut(prob_text)
         )
 
-        scores_title = Text("PageRank Scores:", font_size=36, color=GREEN)
+        scores_title = OldTexText("PageRank Scores:", font_size=36, color=GREEN)
         scores_title.move_to(UP * 2.3 + RIGHT * 3.5)
 
         # Hypothetical scores
         scores = VGroup(
-            Text("A: 0.32", font_size=28, color=YELLOW),
-            Text("B: 0.19", font_size=28),
-            Text("C: 0.34", font_size=28, color=YELLOW),
-            Text("D: 0.15", font_size=28)
+            OldTexText("A: 0.32", font_size=28, color=YELLOW),
+            OldTexText("B: 0.19", font_size=28),
+            OldTexText("C: 0.34", font_size=28, color=YELLOW),
+            OldTexText("D: 0.15", font_size=28)
         )
         scores.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
         scores.next_to(scores_title, DOWN, buff=0.4, aligned_edge=LEFT)
 
         self.play(Write(scores_title))
         self.wait(0.5)
-        self.play(LaggedStart(*[Write(score) for score in scores], lag_ratio=0.2))
+        self.play(LaggedStart([Write(score) for score in scores], lag_ratio=0.2))
         self.wait()
 
         # Highlight top pages
@@ -537,7 +537,7 @@ class PageRankExample(Scene):
         self.wait(2)
 
         # Key insight
-        insight = Text(
+        insight = OldTexText(
             "Pages with more incoming links (especially from important pages) rank higher",
             font_size=26,
             color=GREY

@@ -198,7 +198,7 @@ class AreaProblem(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Area Under a Curve", font_size=48)
+        title = OldTexText("Area Under a Curve", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -283,7 +283,7 @@ class AreaProblem(InteractiveScene):
         # ========================================
         # QUESTION: How to calculate?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "How do we calculate this area?",
             font_size=36,
             color=YELLOW
@@ -314,7 +314,7 @@ class RiemannSums(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Approximation with Rectangles", font_size=48)
+        title = OldTexText("Approximation with Rectangles", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -347,7 +347,7 @@ class RiemannSums(InteractiveScene):
             fill_opacity=0.6
         )
 
-        self.play(LaggedStart(*[DrawBorderThenFill(rect) for rect in rectangles], lag_ratio=0.1))
+        self.play(LaggedStart([DrawBorderThenFill(rect) for rect in rectangles], lag_ratio=0.1))
         self.wait()
 
         # ========================================
@@ -416,7 +416,7 @@ class RiemannSums(InteractiveScene):
         # ========================================
         # INSIGHT: Not exact
         # ========================================
-        insight = Text(
+        insight = OldTexText(
             "This is only an approximation...",
             font_size=32,
             color=GREY_A
@@ -447,7 +447,7 @@ class IncreasingRectangles(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("As n → ∞, We Get the Exact Area", font_size=48)
+        title = OldTexText("As n → ∞, We Get the Exact Area", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -497,7 +497,7 @@ class IncreasingRectangles(InteractiveScene):
             # Animate transition
             if rectangles is None:
                 self.play(
-                    LaggedStart(*[DrawBorderThenFill(rect) for rect in new_rectangles], lag_ratio=0.02),
+                    LaggedStart([DrawBorderThenFill(rect) for rect in new_rectangles], lag_ratio=0.02),
                     run_time=1.5
                 )
                 self.play(Write(new_sum_text))
@@ -564,7 +564,7 @@ class FundamentalTheorem(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Fundamental Theorem of Calculus", font_size=48)
+        title = OldTexText("The Fundamental Theorem of Calculus", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -587,7 +587,7 @@ class FundamentalTheorem(InteractiveScene):
         # ========================================
         # EXPLANATION: Connection
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "Integration is the inverse of differentiation!",
             font_size=36,
             color=GREEN

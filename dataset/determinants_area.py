@@ -185,7 +185,7 @@ class UnitSquare(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Determinants Measure Area Scaling", font_size=44)
+        title = OldTexText("Determinants Measure Area Scaling", font_size=44)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -240,7 +240,7 @@ class UnitSquare(InteractiveScene):
         # ========================================
         # MESSAGE: What happens when we transform?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "What happens to the area under a linear transformation?",
             font_size=32
         )
@@ -276,7 +276,7 @@ class LinearTransform(InteractiveScene):
         # ========================================
         # SETUP: Title and plane
         # ========================================
-        title = Text("Applying a Linear Transformation", font_size=44)
+        title = OldTexText("Applying a Linear Transformation", font_size=44)
         title.to_edge(UP)
 
         plane = NumberPlane(**GRID_CONFIG)
@@ -310,7 +310,7 @@ class LinearTransform(InteractiveScene):
         matrix_tex.to_corner(UL, buff=0.8)
         matrix_tex.shift(0.8 * DOWN)
 
-        matrix_label = Text("Matrix M:", font_size=32)
+        matrix_label = OldTexText("Matrix M:", font_size=32)
         matrix_label.next_to(matrix_tex, UP, buff=0.3, aligned_edge=LEFT)
 
         self.play(
@@ -365,7 +365,7 @@ class LinearTransform(InteractiveScene):
         # ========================================
         # OBSERVE: They match!
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "The determinant equals the area scaling factor!",
             font_size=32,
             color=GREEN
@@ -402,7 +402,7 @@ class MeasureArea(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Testing Multiple Transformations", font_size=44)
+        title = OldTexText("Testing Multiple Transformations", font_size=44)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -444,7 +444,7 @@ class MeasureArea(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects))
 
-        conclusion = Text(
+        conclusion = OldTexText(
             "In every case:\ndet(M) = Area Scaling Factor",
             font_size=40,
             color=YELLOW,
@@ -467,7 +467,7 @@ class MeasureArea(InteractiveScene):
         square = create_unit_square()
 
         # Labels
-        test_label = Text(f"Test: {name}", font_size=32)
+        test_label = OldTexText(f"Test: {name}", font_size=32)
         test_label.to_corner(UL, buff=0.5)
 
         matrix_tex = create_matrix_tex(matrix, font_size=32)
@@ -550,7 +550,7 @@ class GeneralPrinciple(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The General Principle", font_size=48)
+        title = OldTexText("The General Principle", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -579,8 +579,8 @@ class GeneralPrinciple(InteractiveScene):
         # ========================================
         case1 = VGroup(
             Tex(R"\det(M) > 0", font_size=36, color=GREEN),
-            Text("→ Preserves orientation", font_size=28),
-            Text("Area scaled by |det(M)|", font_size=28)
+            OldTexText("→ Preserves orientation", font_size=28),
+            OldTexText("Area scaled by |det(M)|", font_size=28)
         )
         case1.arrange(DOWN, buff=0.2, aligned_edge=LEFT)
         case1.shift(0.3 * UP + 3 * LEFT)
@@ -593,8 +593,8 @@ class GeneralPrinciple(InteractiveScene):
         # ========================================
         case2 = VGroup(
             Tex(R"\det(M) < 0", font_size=36, color=RED),
-            Text("→ Reverses orientation", font_size=28),
-            Text("Area scaled by |det(M)|", font_size=28)
+            OldTexText("→ Reverses orientation", font_size=28),
+            OldTexText("Area scaled by |det(M)|", font_size=28)
         )
         case2.arrange(DOWN, buff=0.2, aligned_edge=LEFT)
         case2.shift(0.3 * UP + 3 * RIGHT)
@@ -607,8 +607,8 @@ class GeneralPrinciple(InteractiveScene):
         # ========================================
         case3 = VGroup(
             Tex(R"\det(M) = 0", font_size=36, color=GREY_A),
-            Text("→ Collapses to lower dimension", font_size=28),
-            Text("Area becomes zero (singular)", font_size=28)
+            OldTexText("→ Collapses to lower dimension", font_size=28),
+            OldTexText("Area becomes zero (singular)", font_size=28)
         )
         case3.arrange(DOWN, buff=0.2, aligned_edge=LEFT)
         case3.shift(1.5 * DOWN)
@@ -626,7 +626,7 @@ class GeneralPrinciple(InteractiveScene):
             VGroup(principle, box).animate.scale(0.6).to_corner(UL, buff=0.5)
         )
 
-        example_title = Text("Example: Negative Determinant", font_size=36)
+        example_title = OldTexText("Example: Negative Determinant", font_size=36)
         example_title.shift(1.5 * UP)
 
         self.play(Write(example_title))
@@ -643,7 +643,7 @@ class GeneralPrinciple(InteractiveScene):
         square.scale(0.4).shift(2 * DOWN)
 
         # Label original orientation
-        orientation_before = Text("Before: ↺", font_size=28, color=BLUE)
+        orientation_before = OldTexText("Before: ↺", font_size=28, color=BLUE)
         orientation_before.next_to(square, UP, buff=0.3)
 
         self.play(
@@ -661,7 +661,7 @@ class GeneralPrinciple(InteractiveScene):
         )
 
         # Label new orientation
-        orientation_after = Text("After: ↻ (reversed!)", font_size=28, color=RED)
+        orientation_after = OldTexText("After: ↻ (reversed!)", font_size=28, color=RED)
         orientation_after.move_to(orientation_before)
 
         self.play(
@@ -681,7 +681,7 @@ class GeneralPrinciple(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects))
 
-        final = Text(
+        final = OldTexText(
             "Determinants give us geometric insight\ninto linear transformations!",
             font_size=40,
             color=YELLOW,

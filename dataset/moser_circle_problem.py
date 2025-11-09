@@ -159,7 +159,7 @@ class IntroduceCircle(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Moser's Circle Problem", font_size=48)
+        title = OldTexText("Moser's Circle Problem", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -172,7 +172,7 @@ class IntroduceCircle(InteractiveScene):
         circle.set_stroke(CIRCLE_COLOR, 3)
         circle.move_to(CIRCLE_CENTER)
 
-        question = Text(
+        question = OldTexText(
             "How many regions are created by connecting\nn points on a circle?",
             font_size=32
         )
@@ -241,7 +241,7 @@ class IntroduceCircle(InteractiveScene):
         # ========================================
         # TRANSITION
         # ========================================
-        transition_text = Text(
+        transition_text = OldTexText(
             "Let's see what happens as we add more points...",
             font_size=32,
             color=YELLOW
@@ -285,7 +285,7 @@ class DrawChords(InteractiveScene):
         # ========================================
         # SETUP: Title and table
         # ========================================
-        title = Text("Drawing All Chords", font_size=48)
+        title = OldTexText("Drawing All Chords", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -314,7 +314,7 @@ class DrawChords(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects))
 
-        title2 = Text("The Pattern So Far", font_size=48)
+        title2 = OldTexText("The Pattern So Far", font_size=48)
         title2.to_edge(UP)
         self.play(FadeIn(title2, shift=DOWN))
 
@@ -333,7 +333,7 @@ class DrawChords(InteractiveScene):
             row_mob = VGroup()
             for j, entry in enumerate(row):
                 if i == 0:
-                    cell = Text(entry, font_size=32, weight=BOLD)
+                    cell = OldTexText(entry, font_size=32, weight=BOLD)
                 else:
                     cell = Tex(entry, font_size=32)
 
@@ -456,7 +456,7 @@ class CountRegions(InteractiveScene):
         # ========================================
         # SETUP: Build suspense
         # ========================================
-        title = Text("Testing the Pattern: n = 6", font_size=48)
+        title = OldTexText("Testing the Pattern: n = 6", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -512,7 +512,7 @@ class CountRegions(InteractiveScene):
         # ========================================
         # COUNT: The actual number of regions
         # ========================================
-        counting_text = Text("Counting regions...", font_size=32, color=YELLOW)
+        counting_text = OldTexText("Counting regions...", font_size=32, color=YELLOW)
         counting_text.next_to(prediction, UP, buff=0.5)
 
         self.play(FadeIn(counting_text))
@@ -548,7 +548,7 @@ class CountRegions(InteractiveScene):
         # ========================================
         # LESSON
         # ========================================
-        lesson = Text(
+        lesson = OldTexText(
             "Patterns can be misleading!\nWe need proof, not just observation.",
             font_size=32,
             color=YELLOW
@@ -589,7 +589,7 @@ class SurprisingPattern(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The True Formula", font_size=48)
+        title = OldTexText("The True Formula", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -660,7 +660,7 @@ class SurprisingPattern(InteractiveScene):
         # ========================================
         self.play(FadeOut(verification))
 
-        comparison_title = Text("Complete Comparison", font_size=36)
+        comparison_title = OldTexText("Complete Comparison", font_size=36)
         comparison_title.next_to(correct_formula, DOWN, buff=0.8)
 
         table_data = [
@@ -702,7 +702,7 @@ class SurprisingPattern(InteractiveScene):
         # ========================================
         # MORAL
         # ========================================
-        moral = Text(
+        moral = OldTexText(
             "Mathematical truth requires proof,\nnot just pattern observation!",
             font_size=36,
             color=YELLOW,

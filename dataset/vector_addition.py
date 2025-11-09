@@ -163,7 +163,7 @@ class IntroduceVectors(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Vectors: Magnitude and Direction", font_size=48)
+        title = OldTexText("Vectors: Magnitude and Direction", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -213,7 +213,7 @@ class IntroduceVectors(InteractiveScene):
             stroke_width=3
         )
 
-        direction_label = Text("Direction", font_size=28, color=YELLOW)
+        direction_label = OldTexText("Direction", font_size=28, color=YELLOW)
         direction_label.next_to(angle_arc, RIGHT, buff=0.3)
 
         self.play(
@@ -245,7 +245,7 @@ class IntroduceVectors(InteractiveScene):
         # ========================================
         # QUESTION: How do we add these?
         # ========================================
-        question = Text("How do we add vectors?", font_size=36, color=GREY_A)
+        question = OldTexText("How do we add vectors?", font_size=36, color=GREY_A)
         question.to_edge(DOWN, buff=0.5)
 
         self.play(FadeIn(question, shift=UP))
@@ -272,7 +272,7 @@ class VectorAddition(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Vector Addition: Tip-to-Tail Method", font_size=48)
+        title = OldTexText("Vector Addition: Tip-to-Tail Method", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -314,7 +314,7 @@ class VectorAddition(InteractiveScene):
         # ========================================
         # TRANSLATE: Move b to the tip of a
         # ========================================
-        instruction = Text("Place tail of b at tip of a", font_size=32, color=GREY_A)
+        instruction = OldTexText("Place tail of b at tip of a", font_size=32, color=GREY_A)
         instruction.to_edge(DOWN, buff=0.8)
 
         self.play(FadeIn(instruction, shift=UP))
@@ -385,7 +385,7 @@ class ParallelogramLaw(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Parallelogram Law", font_size=48)
+        title = OldTexText("Parallelogram Law", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -426,7 +426,7 @@ class ParallelogramLaw(InteractiveScene):
         # ========================================
         # CONSTRUCT: Parallelogram
         # ========================================
-        instruction = Text("Complete the parallelogram", font_size=32, color=GREY_A)
+        instruction = OldTexText("Complete the parallelogram", font_size=32, color=GREY_A)
         instruction.to_edge(DOWN, buff=0.8)
 
         self.play(FadeIn(instruction, shift=UP))
@@ -465,7 +465,7 @@ class ParallelogramLaw(InteractiveScene):
         label_result = Tex("\\vec{a} + \\vec{b}", font_size=42, color=GREEN)
         label_result.next_to(vec_result.get_center(), UP, buff=0.3)
 
-        diagonal_text = Text("The diagonal is the sum!", font_size=36, color=GREEN)
+        diagonal_text = OldTexText("The diagonal is the sum!", font_size=36, color=GREEN)
         diagonal_text.to_edge(DOWN, buff=0.5)
 
         self.play(GrowArrow(vec_result), run_time=1.5)
@@ -510,7 +510,7 @@ class VectorSubtraction(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Vector Subtraction", font_size=48)
+        title = OldTexText("Vector Subtraction", font_size=48)
         title.to_edge(UP)
 
         self.add(title)

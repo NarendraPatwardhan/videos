@@ -209,7 +209,7 @@ class SpiralConstruction(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Ulam Spiral", font_size=48)
+        title = OldTexText("The Ulam Spiral", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -218,7 +218,7 @@ class SpiralConstruction(InteractiveScene):
         # ========================================
         # EXPLAIN: The construction
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "Arrange integers in a spiral, starting from 1",
             font_size=32,
             color=GREY_A
@@ -239,7 +239,7 @@ class SpiralConstruction(InteractiveScene):
             pos = get_ulam_spiral_position(n, spacing=0.6)
 
             dot = Dot(pos, radius=0.1, color=BLUE)
-            label = Text(str(n), font_size=20)
+            label = OldTexText(str(n), font_size=20)
             label.move_to(pos)
 
             dots_with_labels.add(VGroup(dot, label))
@@ -259,7 +259,7 @@ class SpiralConstruction(InteractiveScene):
         # ========================================
         self.play(FadeOut(explanation))
 
-        more_explanation = Text(
+        more_explanation = OldTexText(
             "Extending to 121 numbers...",
             font_size=32,
             color=GREY_A
@@ -287,7 +287,7 @@ class SpiralConstruction(InteractiveScene):
         # ========================================
         # QUESTION: What about primes?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "What happens if we highlight the prime numbers?",
             font_size=36,
             color=YELLOW
@@ -318,7 +318,7 @@ class HighlightPrimes(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Highlighting Prime Numbers", font_size=48)
+        title = OldTexText("Highlighting Prime Numbers", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -334,7 +334,7 @@ class HighlightPrimes(InteractiveScene):
         # ========================================
         # HIGHLIGHT: Change prime colors
         # ========================================
-        instruction = Text(
+        instruction = OldTexText(
             "Primes will appear in yellow...",
             font_size=32,
             color=GREY_A
@@ -358,7 +358,7 @@ class HighlightPrimes(InteractiveScene):
         # ========================================
         self.play(FadeOut(instruction))
 
-        observation = Text(
+        observation = OldTexText(
             "Notice the diagonal patterns!",
             font_size=36,
             color=GREEN
@@ -389,7 +389,7 @@ class DiagonalPatterns(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Diagonal Patterns", font_size=48)
+        title = OldTexText("Diagonal Patterns", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -404,7 +404,7 @@ class DiagonalPatterns(InteractiveScene):
         # ========================================
         # DRAW: Diagonal lines through primes
         # ========================================
-        explanation = Text(
+        explanation = OldTexText(
             "Drawing lines through prime clusters...",
             font_size=32,
             color=GREY_A
@@ -438,7 +438,7 @@ class DiagonalPatterns(InteractiveScene):
         )
 
         self.play(
-            LaggedStart(*[ShowCreation(line) for line in diagonal_lines], lag_ratio=0.3),
+            LaggedStart([ShowCreation(line) for line in diagonal_lines], lag_ratio=0.3),
             run_time=2
         )
         self.wait()
@@ -449,11 +449,11 @@ class DiagonalPatterns(InteractiveScene):
         self.play(FadeOut(explanation))
 
         polynomial_explanation = VGroup(
-            Text("Each diagonal corresponds to a polynomial:", font_size=28),
+            OldTexText("Each diagonal corresponds to a polynomial:", font_size=28),
             Tex("n^2 + n + 41", font_size=32, color=GREEN),
             Tex("n^2 + n + 17", font_size=32, color=GREEN),
             Tex("n^2 - n + 41", font_size=32, color=GREEN),
-            Text("These produce many primes!", font_size=28, color=YELLOW)
+            OldTexText("These produce many primes!", font_size=28, color=YELLOW)
         )
         polynomial_explanation.arrange(DOWN, buff=0.3)
         polynomial_explanation.to_edge(DOWN, buff=0.3)
@@ -483,7 +483,7 @@ class PrimeDistribution(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Prime Distribution Mystery", font_size=48)
+        title = OldTexText("Prime Distribution Mystery", font_size=48)
         title.to_edge(UP)
 
         self.add(title)
@@ -500,11 +500,11 @@ class PrimeDistribution(InteractiveScene):
         # FACTS: About the pattern
         # ========================================
         facts = VGroup(
-            Text("Ulam's Discovery (1963):", font_size=32, weight=BOLD),
-            Text("• Primes show diagonal structure", font_size=26),
-            Text("• Diagonals = quadratic polynomials", font_size=26),
-            Text("• Some polynomials favor primes", font_size=26),
-            Text("• Not fully understood!", font_size=26, color=YELLOW),
+            OldTexText("Ulam's Discovery (1963):", font_size=32, weight=BOLD),
+            OldTexText("• Primes show diagonal structure", font_size=26),
+            OldTexText("• Diagonals = quadratic polynomials", font_size=26),
+            OldTexText("• Some polynomials favor primes", font_size=26),
+            OldTexText("• Not fully understood!", font_size=26, color=YELLOW),
         )
         facts.arrange(DOWN, aligned_edge=LEFT, buff=0.25)
         facts.to_edge(RIGHT, buff=1)
@@ -517,11 +517,11 @@ class PrimeDistribution(InteractiveScene):
         # EXAMPLE: Famous polynomial
         # ========================================
         example = VGroup(
-            Text("Example:", font_size=28, weight=BOLD),
+            OldTexText("Example:", font_size=28, weight=BOLD),
             Tex("n^2 + n + 41", font_size=36, color=GREEN),
-            Text("produces primes for", font_size=24),
-            Text("n = 0, 1, 2, ..., 39", font_size=24, color=GREEN),
-            Text("(40 consecutive values!)", font_size=24, color=YELLOW)
+            OldTexText("produces primes for", font_size=24),
+            OldTexText("n = 0, 1, 2, ..., 39", font_size=24, color=GREEN),
+            OldTexText("(40 consecutive values!)", font_size=24, color=YELLOW)
         )
         example.arrange(DOWN, buff=0.2)
         example.to_edge(RIGHT, buff=1)
@@ -533,7 +533,7 @@ class PrimeDistribution(InteractiveScene):
         # ========================================
         # MESSAGE: Power of visualization
         # ========================================
-        message = Text(
+        message = OldTexText(
             "Visualization reveals hidden mathematical structure",
             font_size=32,
             color=GREEN

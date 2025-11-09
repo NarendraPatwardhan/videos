@@ -160,7 +160,7 @@ class IntroduceTransform(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Eigenvectors: Special Directions", font_size=48)
+        title = OldTexText("Eigenvectors: Special Directions", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -206,7 +206,7 @@ class IntroduceTransform(InteractiveScene):
         matrix = np.array([[3, 1], [0, 2]], dtype=float)
 
         matrix_tex = create_matrix_tex(matrix)
-        matrix_label = Text("Matrix A:", font_size=32)
+        matrix_label = OldTexText("Matrix A:", font_size=32)
 
         matrix_group = VGroup(matrix_label, matrix_tex)
         matrix_group.arrange(RIGHT, buff=0.3)
@@ -240,7 +240,7 @@ class IntroduceTransform(InteractiveScene):
         # ========================================
         # OBSERVE: Most vectors rotate
         # ========================================
-        observation = Text(
+        observation = OldTexText(
             "Most vectors change direction!",
             font_size=32,
             color=YELLOW
@@ -253,7 +253,7 @@ class IntroduceTransform(InteractiveScene):
         # ========================================
         # QUESTION: Special vectors?
         # ========================================
-        question = Text(
+        question = OldTexText(
             "But are there special vectors that only get scaled?",
             font_size=32,
             color=GREEN
@@ -290,7 +290,7 @@ class FindSpecialVectors(InteractiveScene):
         # ========================================
         # SETUP: Title and plane
         # ========================================
-        title = Text("Finding Eigenvectors", font_size=48)
+        title = OldTexText("Finding Eigenvectors", font_size=48)
         title.to_edge(UP)
 
         plane = NumberPlane(**GRID_CONFIG)
@@ -306,7 +306,7 @@ class FindSpecialVectors(InteractiveScene):
         matrix = np.array([[3, 1], [0, 2]], dtype=float)
 
         matrix_tex = create_matrix_tex(matrix)
-        matrix_label = Text("A =", font_size=32)
+        matrix_label = OldTexText("A =", font_size=32)
 
         matrix_group = VGroup(matrix_label, matrix_tex)
         matrix_group.arrange(RIGHT, buff=0.2)
@@ -351,7 +351,7 @@ class FindSpecialVectors(InteractiveScene):
         self.wait(2)
 
         # Emphasize: Same direction!
-        emphasis1 = Text("Same direction, scaled by 3!", font_size=28, color=GREEN)
+        emphasis1 = OldTexText("Same direction, scaled by 3!", font_size=28, color=GREEN)
         emphasis1.next_to(lambda1_label, DOWN, buff=0.2)
 
         self.play(FadeIn(emphasis1, shift=UP))
@@ -414,7 +414,7 @@ class FindSpecialVectors(InteractiveScene):
         )
         self.wait(2)
 
-        emphasis2 = Text("Same direction, scaled by 2!", font_size=28, color=GREEN)
+        emphasis2 = OldTexText("Same direction, scaled by 2!", font_size=28, color=GREEN)
         emphasis2.next_to(lambda2_label, DOWN, buff=0.2)
 
         self.play(FadeIn(emphasis2, shift=UP))
@@ -426,11 +426,11 @@ class FindSpecialVectors(InteractiveScene):
         self.play(FadeOut(*self.mobjects[4:]))  # Keep plane and title
 
         definition = VGroup(
-            Text("Eigenvector:", font_size=36, weight=BOLD),
-            Text("A vector that only gets scaled (not rotated)", font_size=28),
-            Text("", font_size=20),
-            Text("Eigenvalue:", font_size=36, weight=BOLD),
-            Text("The scaling factor for that eigenvector", font_size=28),
+            OldTexText("Eigenvector:", font_size=36, weight=BOLD),
+            OldTexText("A vector that only gets scaled (not rotated)", font_size=28),
+            OldTexText("", font_size=20),
+            OldTexText("Eigenvalue:", font_size=36, weight=BOLD),
+            OldTexText("The scaling factor for that eigenvector", font_size=28),
         )
         definition.arrange(DOWN, buff=0.3, aligned_edge=LEFT)
         definition.move_to(ORIGIN)
@@ -471,7 +471,7 @@ class EigenvalueScaling(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("The Eigenvalue Equation", font_size=48)
+        title = OldTexText("The Eigenvalue Equation", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -522,7 +522,7 @@ class EigenvalueScaling(InteractiveScene):
             VGroup(equation, box).animate.scale(0.6).to_corner(UL, buff=0.5)
         )
 
-        example_title = Text("Example Verification", font_size=36)
+        example_title = OldTexText("Example Verification", font_size=36)
         example_title.shift(2 * UP)
 
         self.play(Write(example_title))
@@ -584,7 +584,7 @@ class EigenvalueScaling(InteractiveScene):
         check = Tex(R"\checkmark", font_size=60, color=GREEN)
         check.next_to(right_computation, DOWN, buff=0.5)
 
-        equals_text = Text("They match!", font_size=32, color=GREEN)
+        equals_text = OldTexText("They match!", font_size=32, color=GREEN)
         equals_text.next_to(check, RIGHT, buff=0.5)
 
         self.play(
@@ -621,7 +621,7 @@ class Applications(InteractiveScene):
         # ========================================
         # SETUP: Title
         # ========================================
-        title = Text("Eigenspaces and Applications", font_size=48)
+        title = OldTexText("Eigenspaces and Applications", font_size=48)
         title.to_edge(UP)
 
         self.play(FadeIn(title, shift=DOWN))
@@ -669,7 +669,7 @@ class Applications(InteractiveScene):
         )
         self.wait()
 
-        note1 = Text(
+        note1 = OldTexText(
             "All vectors on this line are eigenvectors!",
             font_size=24,
             color=GREEN
@@ -740,7 +740,7 @@ class Applications(InteractiveScene):
             FadeOut(vectors2)
         )
 
-        apps_title = Text("Why Eigenvectors Matter", font_size=40, weight=BOLD)
+        apps_title = OldTexText("Why Eigenvectors Matter", font_size=40, weight=BOLD)
         apps_title.shift(2 * UP)
 
         self.play(
@@ -750,12 +750,12 @@ class Applications(InteractiveScene):
         self.wait()
 
         applications = VGroup(
-            Text("• Principal Component Analysis (PCA)", font_size=28),
-            Text("• Differential equations & stability analysis", font_size=28),
-            Text("• Matrix diagonalization", font_size=28),
-            Text("• Google PageRank algorithm", font_size=28),
-            Text("• Quantum mechanics (energy eigenstates)", font_size=28),
-            Text("• Vibration modes in engineering", font_size=28),
+            OldTexText("• Principal Component Analysis (PCA)", font_size=28),
+            OldTexText("• Differential equations & stability analysis", font_size=28),
+            OldTexText("• Matrix diagonalization", font_size=28),
+            OldTexText("• Google PageRank algorithm", font_size=28),
+            OldTexText("• Quantum mechanics (energy eigenstates)", font_size=28),
+            OldTexText("• Vibration modes in engineering", font_size=28),
         )
         applications.arrange(DOWN, buff=0.4, aligned_edge=LEFT)
         applications.next_to(apps_title, DOWN, buff=0.8)
@@ -774,7 +774,7 @@ class Applications(InteractiveScene):
         # ========================================
         self.play(FadeOut(*self.mobjects))
 
-        final = Text(
+        final = OldTexText(
             "Eigenvectors reveal the fundamental\nstructure of linear transformations!",
             font_size=40,
             color=YELLOW,
